@@ -1,4 +1,3 @@
-import React from 'react';
 import { Hero } from '../components/Hero';
 import { ProductPreview } from '../components/ProductPreview';
 import { WhyTexas } from '../components/WhyTexas';
@@ -10,21 +9,19 @@ import { FAQ } from '../components/FAQ';
 import { About } from '../components/About';
 import { EarlyAccessForm } from '../components/EarlyAccessForm';
 
-const LandingPage: React.FC = () => {
-  return (
-    <>
-      <Hero />
-      <ProductPreview />
-      <WhyTexas />
-      <Features />
-      <Security />
-      <Integrations />
-      <HowItWorks />
-      <About />
-      <FAQ />
-      <EarlyAccessForm />
-    </>
-  );
-};
-
-export default LandingPage;
+export default function Home() {
+    return (
+        <>
+            <Hero />
+            <ProductPreview />
+            <WhyTexas />
+            <Features />
+            <Security />
+            <Integrations />
+            <HowItWorks />
+            <About />
+            <FAQ />
+            <EarlyAccessForm />
+        </>
+    );
+}

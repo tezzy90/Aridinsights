@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 import { useTheme } from './ThemeContext';
 
@@ -19,29 +21,29 @@ export const WaterBackground: React.FC = () => {
     // Wave configuration
     // Each wave has: vertical offset (y), amplitude (amp), wavelength (len), speed, and color
     const waves = [
-      { 
-        y: 0.55, 
-        amp: 40, 
-        len: 0.003, 
-        speed: 0.002, 
+      {
+        y: 0.55,
+        amp: 40,
+        len: 0.003,
+        speed: 0.002,
         // Light: Cyan-200/40. Dark: Cyan-900/30 (Deep Teal Base)
-        color: theme === 'dark' ? 'rgba(22, 78, 99, 0.3)' : 'rgba(165, 243, 252, 0.4)' 
+        color: theme === 'dark' ? 'rgba(22, 78, 99, 0.3)' : 'rgba(165, 243, 252, 0.4)'
       },
-      { 
-        y: 0.65, 
-        amp: 50, 
-        len: 0.002, 
-        speed: 0.003, 
+      {
+        y: 0.65,
+        amp: 50,
+        len: 0.002,
+        speed: 0.003,
         // Light: Cyan-100/50. Dark: Slate-800/60 (Body of water)
-        color: theme === 'dark' ? 'rgba(30, 41, 59, 0.6)' : 'rgba(207, 250, 254, 0.5)' 
+        color: theme === 'dark' ? 'rgba(30, 41, 59, 0.6)' : 'rgba(207, 250, 254, 0.5)'
       },
-      { 
-        y: 0.6, 
-        amp: 30, 
-        len: 0.004, 
-        speed: 0.001, 
+      {
+        y: 0.6,
+        amp: 30,
+        len: 0.004,
+        speed: 0.001,
         // Light: Cyan-400/20. Dark: Cyan-500/10 (Subtle Highlight)
-        color: theme === 'dark' ? 'rgba(6, 182, 212, 0.1)' : 'rgba(34, 211, 238, 0.2)' 
+        color: theme === 'dark' ? 'rgba(6, 182, 212, 0.1)' : 'rgba(34, 211, 238, 0.2)'
       }
     ];
 
@@ -55,16 +57,16 @@ export const WaterBackground: React.FC = () => {
 
       waves.forEach((wave, index) => {
         ctx.beginPath();
-        
+
         // Start point
         ctx.moveTo(0, height * wave.y);
 
         // Draw sine wave across width
         for (let x = 0; x <= width; x += 10) {
           // Complex sine interaction for "natural" feel
-          const y = height * wave.y + 
-                    Math.sin(x * wave.len + time * wave.speed) * wave.amp +
-                    Math.sin(x * wave.len * 2 + time * wave.speed * 1.5) * (wave.amp / 3);
+          const y = height * wave.y +
+            Math.sin(x * wave.len + time * wave.speed) * wave.amp +
+            Math.sin(x * wave.len * 2 + time * wave.speed * 1.5) * (wave.amp / 3);
           ctx.lineTo(x, y);
         }
 
@@ -94,24 +96,24 @@ export const WaterBackground: React.FC = () => {
     <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
       {/* Base Layer Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-brand-light to-white dark:from-slate-950 dark:to-slate-900 transition-colors duration-500" />
-      
+
       {/* Animated Blobs for Ambient Depth */}
       <div className="absolute inset-0 opacity-40 dark:opacity-30">
         {/* Blob 1: Teal - Top Left */}
-        <div 
+        <div
           className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob bg-teal-200 dark:bg-teal-900/30"
         />
-        
+
         {/* Blob 2: Blue - Bottom Right */}
-        <div 
+        <div
           className="absolute -bottom-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob bg-blue-200 dark:bg-blue-900/30"
           style={{ animationDelay: '4s' }}
         />
       </div>
 
       {/* Canvas Layer for Crisp Water Ripples */}
-      <canvas 
-        ref={canvasRef} 
+      <canvas
+        ref={canvasRef}
         className="absolute inset-0 z-0 opacity-60 dark:opacity-100"
       />
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Container } from './ui/Container';
 import { Button } from './ui/Button';
@@ -11,7 +13,7 @@ export const EarlyAccessForm: React.FC = () => {
     role: '',
     challenge: ''
   });
-  
+
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -22,7 +24,7 @@ export const EarlyAccessForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
-    
+
     // Simulate API call
     setTimeout(() => {
       console.log('Form Submitted:', formData);
@@ -45,12 +47,14 @@ export const EarlyAccessForm: React.FC = () => {
       <Container>
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           <div className="flex-1 lg:sticky lg:top-24">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-heading dark:text-white tracking-tight transition-colors duration-300">Request Early Access</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-heading dark:text-white tracking-tight transition-colors duration-300">Request Early Access to WellFlow</h2>
             <p className="text-lg text-brand-text/80 dark:text-slate-300 leading-relaxed mb-8 transition-colors duration-300">
-              WellFlow is in active development. If you work with Texas GCDs as a consultant, operator,
-              landowner, or public agency, you can join the early access list to streamline your compliance workflows.
+              WellFlow—our first water intelligence product—is in active development. If you work with Texas GCDs as a consultant,
+              operator, landowner, or public agency, you can join the early access list to help shape groundwater compliance automation.
+              <br /><br />
+              Early access partners get locked-in pricing and direct input on our roadmap as we expand water intelligence infrastructure.
             </p>
-            
+
             <div className="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hidden lg:block transition-colors duration-300">
               <h4 className="font-bold text-brand-heading dark:text-white mb-2">What happens next?</h4>
               <ul className="space-y-3 text-sm text-brand-text/80 dark:text-slate-300">
@@ -76,7 +80,7 @@ export const EarlyAccessForm: React.FC = () => {
                   </div>
                   <div className="text-brand-heading dark:text-white font-bold text-2xl mb-2">Request Received</div>
                   <p className="text-brand-text/70 dark:text-slate-400 mb-8">Thank you for your interest. We will be in touch shortly.</p>
-                  <button 
+                  <button
                     onClick={() => setStatus('idle')}
                     className="text-brand-primary dark:text-brand-primary underline font-medium hover:text-brand-dark dark:hover:text-white transition-colors"
                   >
@@ -98,7 +102,7 @@ export const EarlyAccessForm: React.FC = () => {
                       className={inputClasses}
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className={labelClasses}>Work Email</label>
                     <input
@@ -158,9 +162,9 @@ export const EarlyAccessForm: React.FC = () => {
                   </div>
 
                   <div className="pt-4">
-                    <Button 
-                      type="submit" 
-                      variant="primary" 
+                    <Button
+                      type="submit"
+                      variant="primary"
                       className="w-full text-lg py-4 shadow-lg shadow-brand-primary/20 dark:shadow-none"
                       disabled={status === 'submitting'}
                     >

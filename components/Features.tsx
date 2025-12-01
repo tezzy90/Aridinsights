@@ -63,11 +63,11 @@ export const Features: React.FC = () => {
   return (
     <section className="bg-brand-muted dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <Container>
-        <SectionHeading 
-          title="Built for the Regulatory Professional" 
-          subtitle="Stop managing groundwater compliance in spreadsheets. We provide the specialized tools you need to operate at scale."
+        <SectionHeading
+          title="WellFlow: Built for the Regulatory Professional"
+          subtitle="Stop managing groundwater compliance in spreadsheets. Our first product provides specialized tools for consultants, operators, and landowners managing Texas GCD compliance at scale."
         />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, idx) => (
             <div key={idx} className="flex flex-col p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all duration-300">

@@ -19,6 +19,10 @@ const faqs = [
     question: "Do you offer API access?",
     answer: "API access for integration with internal GIS or SCADA systems is on our roadmap for the Enterprise tier. If this is a critical need, please mention it in your access request."
   },
+  {
+    question: "Is AridInsights only building tools for Texas groundwater?",
+    answer: "Texas groundwater compliance is our validation market and current focus. We're testing whether fragmented regulatory landscapes create repeatable business opportunities in water intelligence. If our Texas validation succeeds, we'll expand to corporate water risk reporting (ESG compliance), municipal infrastructure finance, and other fragmented water markets. WellFlow will remain our strongest product."
+  },
 ];
 
 export const FAQ: React.FC = () => {
@@ -26,7 +30,7 @@ export const FAQ: React.FC = () => {
     <section className="bg-white dark:bg-slate-950 transition-colors duration-300 border-t border-slate-200 dark:border-slate-800">
       <Container>
         <SectionHeading title="Common Questions" />
-        
+
         <div className="max-w-3xl mx-auto space-y-6">
           {faqs.map((faq, idx) => (
             <div key={idx} className="border-b border-slate-100 dark:border-slate-800 pb-6 last:border-0">
