@@ -7,7 +7,7 @@ export const ProductPreview: React.FC = () => {
       <Container>
         {/* Main Dashboard Frame */}
         <div className="relative rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xl overflow-hidden transition-colors duration-300 transform perspective-1000">
-          
+
           {/* Browser Top Bar */}
           <div className="h-8 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 flex items-center px-4 space-x-2">
             <div className="w-3 h-3 rounded-full bg-red-400/80"></div>
@@ -31,8 +31,8 @@ export const ProductPreview: React.FC = () => {
             </div>
 
             {/* Main Content Area */}
-            <div className="flex-1 bg-white dark:bg-slate-900 p-6 relative overflow-hidden">
-              
+            <div className="flex-1 bg-white dark:bg-slate-900 p-6 relative overflow-visible">
+
               {/* Header area */}
               <div className="flex justify-between items-center mb-8">
                 <div className="space-y-2 w-1/3">
@@ -47,17 +47,29 @@ export const ProductPreview: React.FC = () => {
 
               {/* Grid Layout */}
               <div className="grid grid-cols-3 gap-6 h-full">
-                
+
                 {/* Left Col: List Items */}
-                <div className="col-span-3 md:col-span-2 space-y-4">
+                <div className="col-span-3 md:col-span-2 space-y-4 relative">
                   {/* Stats Row */}
-                  <div className="grid grid-cols-3 gap-4 mb-6">
+                  <div className="grid grid-cols-3 gap-4 mb-6 relative">
                     {[1, 2, 3].map((i) => (
                       <div key={i} className="h-24 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 space-y-2">
                         <div className="h-8 w-8 rounded-full bg-brand-primary/20"></div>
                         <div className="h-4 w-1/2 bg-slate-200 dark:bg-slate-600 rounded"></div>
                       </div>
                     ))}
+
+                    {/* Floating Widget - Positioned near the third (rightmost) stats box */}
+                    <div className="hidden md:block absolute -right-4 -top-2 z-10 bg-white dark:bg-slate-800 p-4 rounded-lg shadow-xl border border-slate-100 dark:border-slate-700 max-w-xs animate-blob animation-delay-2000">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600">✓</div>
+                        <div>
+                          <div className="text-xs font-bold text-slate-500 uppercase">Status Update</div>
+                          <div className="text-sm font-semibold text-brand-heading dark:text-white">Permit #8821 Approved</div>
+                          <div className="text-xs text-slate-400">Middle Trinity GCD · Just now</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Table/List Skeleton */}
@@ -88,7 +100,7 @@ export const ProductPreview: React.FC = () => {
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-50">
                       <div className="absolute top-10 left-10 w-2 h-2 bg-brand-primary rounded-full animate-ping"></div>
                       <div className="absolute top-10 left-10 w-2 h-2 bg-brand-primary rounded-full"></div>
-                      
+
                       <div className="absolute bottom-12 right-20 w-2 h-2 bg-red-400 rounded-full"></div>
                     </div>
                     {/* Tooltip Overlay */}
@@ -97,14 +109,14 @@ export const ProductPreview: React.FC = () => {
                       <div className="h-2 w-1/2 bg-slate-200 dark:bg-slate-600 rounded"></div>
                     </div>
                   </div>
-                  
+
                   <div className="h-40 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4">
-                     <div className="h-3 w-1/3 bg-slate-200 dark:bg-slate-600 rounded mb-4"></div>
-                     <div className="space-y-2">
-                        <div className="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded"></div>
-                        <div className="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded"></div>
-                        <div className="h-2 w-3/4 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                     </div>
+                    <div className="h-3 w-1/3 bg-slate-200 dark:bg-slate-600 rounded mb-4"></div>
+                    <div className="space-y-2">
+                      <div className="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded"></div>
+                      <div className="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded"></div>
+                      <div className="h-2 w-3/4 bg-slate-200 dark:bg-slate-700 rounded"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -114,19 +126,9 @@ export const ProductPreview: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Floating Captions */}
-        <div className="hidden md:block absolute -right-4 top-1/4 bg-white dark:bg-slate-800 p-4 rounded-lg shadow-xl border border-slate-100 dark:border-slate-700 max-w-xs animate-blob animation-delay-2000">
-          <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600">✓</div>
-            <div>
-              <div className="text-xs font-bold text-slate-500 uppercase">Status Update</div>
-              <div className="text-sm font-semibold text-brand-heading dark:text-white">Permit #8821 Approved</div>
-              <div className="text-xs text-slate-400">Middle Trinity GCD · Just now</div>
-            </div>
-          </div>
-        </div>
       </Container>
+
+
     </section>
   );
 };

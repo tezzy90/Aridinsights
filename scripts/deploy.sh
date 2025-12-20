@@ -31,9 +31,9 @@ gcloud run deploy ${SERVICE_NAME} \
   --set-env-vars "DB_HOST=/cloudsql/${CLOUD_SQL_INSTANCE}" \
   --set-env-vars "GCP_PROJECT_ID=${PROJECT_ID}" \
   --set-env-vars "GCP_REGION=${REGION}" \
-  --set-secrets "DB_USER=db-user:latest" \
-  --set-secrets "DB_PASSWORD=db-password:latest" \
-  --set-secrets "DB_NAME=db-name:latest" \
+  --set-secrets "DB_USER=DB_USER:latest" \
+  --set-secrets "DB_PASSWORD=DB_PASSWORD:latest" \
+  --set-secrets "DB_NAME=DB_NAME:latest" \
   --memory 1Gi \
   --cpu 1 \
   --timeout 300 \
