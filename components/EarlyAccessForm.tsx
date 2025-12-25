@@ -47,12 +47,12 @@ export const EarlyAccessForm: React.FC = () => {
       <Container>
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           <div className="flex-1 lg:sticky lg:top-24">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-heading dark:text-white tracking-tight transition-colors duration-300">Request Early Access to WellFlow</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-heading dark:text-white tracking-tight transition-colors duration-300">Request Early Access</h2>
             <p className="text-lg text-brand-text/80 dark:text-slate-300 leading-relaxed mb-8 transition-colors duration-300">
-              WellFlow—our first water intelligence product—is in active development. If you work with Texas GCDs as a consultant,
-              operator, landowner, or public agency, you can join the early access list to help shape groundwater compliance automation.
+              AridInsights—our Florida water intelligence platform—is in active development. If you work with SFWMD or other Florida districts as a developer,
+              engineer, or agricultural operator, join the early access list to help shape the future of compliance automation.
               <br /><br />
-              Early access partners get locked-in pricing and direct input on our roadmap as we expand water intelligence infrastructure.
+              Early access partners get locked-in pricing and direct input on our roadmap as we expand statewide.
             </p>
 
             <div className="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hidden lg:block transition-colors duration-300">

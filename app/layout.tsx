@@ -8,8 +8,8 @@ import { Footer } from "../components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "AridInsights | Water Intelligence Platform for Compliance-Driven Markets",
-    description: "Water intelligence infrastructure for fragmented regulatory markets. Start with groundwater compliance in Texas. Expand to ESG water risk and municipal finance.",
+    title: "AridInsights | Florida Water Intelligence Platform",
+    description: "Water risk intelligence for Florida real estate and compliance. Instant risk scores, permit tracking, and hydrology data for Developers, Engineers, and Ag.",
 };
 
 export default function RootLayout({

@@ -4,26 +4,8 @@ import { SectionHeading } from './ui/SectionHeading';
 
 const features = [
   {
-    title: 'Unified GIS Mapping',
-    description: 'Visualize well locations against GCD boundaries, management zones, and aquifers in a single interactive map layer.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Smart Deadline Tracking',
-    description: 'Never miss a production report or renewal. The system tracks different rules for 98+ districts and alerts you automatically.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Automated Form Generation',
-    description: 'Stop re-typing data. Generate district-specific PDF applications populated with your stored project data in one click.',
+    title: 'Carfax for Land',
+    description: 'Instant "Water Risk Score" for any Florida parcel. Know the flood zone, aquifer depth, and regulatory restrictions before you buy.',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -31,29 +13,20 @@ const features = [
     ),
   },
   {
-    title: 'Portfolio Management',
-    description: 'Manage unlimited wells and clients. Filter by status, district, or owner to get a high-level view of your compliance risk.',
+    title: 'Compliance Shield',
+    description: 'SaaS protection for active permits. We monitor your Consumptive Use Permit (CUP) 24/7 to prevent "ghost permit" deletions and sunset expirations.',
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Data Firehose',
+    description: 'Unified Enterprise API for DBHydro and E-Permitting. Skip the scrape—get clean, normalized hydrology data for your engineering models.',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Secure Document Vault',
-    description: 'Store permits, logs, and correspondence securely linked to each well. Audit-ready and accessible from anywhere.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Team Collaboration',
-    description: 'Assign tasks to team members. Track who filed what and when, ensuring accountability across your organization.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     ),
   },
@@ -64,8 +37,8 @@ export const Features: React.FC = () => {
     <section className="bg-brand-muted dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <Container>
         <SectionHeading
-          title="WellFlow: Built for the Regulatory Professional"
-          subtitle="Stop managing groundwater compliance in spreadsheets. Our first product provides specialized tools for consultants, operators, and landowners managing Texas GCD compliance at scale."
+          title="The Intelligence Grid"
+          subtitle="Stop managing water risk in spreadsheets. We provide specialized tools for Developers, Agricultural Operators, and Municipalities navigating the 5 Florida Water Management Districts."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

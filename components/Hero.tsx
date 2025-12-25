@@ -21,18 +21,18 @@ export const Hero: React.FC = () => {
 
       <Container className="relative z-10 pt-24 pb-32 md:pt-36 md:pb-48 text-center">
         <div className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-white/50 backdrop-blur-sm text-brand-dark border border-white/60 dark:bg-slate-800/50 dark:text-brand-light dark:border-slate-700 mb-8 shadow-sm transition-colors duration-300">
-          AridInsights · Water Intelligence
+          AridInsights · Florida Water Intelligence
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-brand-heading dark:text-white leading-[1.1] tracking-tight transition-colors duration-300">
-          Water Intelligence <br className="hidden md:block" />
+          Stop Guessing About <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-dark to-brand-primary dark:from-sky-300 dark:to-cyan-200">
-            Infrastructure
+            Water Risk
           </span>
         </h1>
 
         <p className="text-lg md:text-xl text-brand-text/80 dark:text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed transition-colors duration-300">
-          AridInsights builds tools for fragmented water markets. We start with groundwater compliance—automating workflows for consultants, operators, and landowners across Texas's 98 districts. Our platform extends to water risk reporting and municipal infrastructure intelligence.
+          Florida land has a hidden water problem. AridInsights delivers instant risk scores, permit tracking, and normalized hydrology data for Developers, Engineering Firms, and Agriculture.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
