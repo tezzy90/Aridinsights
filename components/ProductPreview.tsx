@@ -3,7 +3,7 @@ import { Container } from './ui/Container';
 
 export const ProductPreview: React.FC = () => {
   return (
-    <section className="relative z-20 -mt-24 md:-mt-32 pb-20">
+    <section id="platform-overview" className="relative z-20 -mt-24 md:-mt-32 pb-20">
       <Container>
         {/* Main Dashboard Frame */}
         <div className="relative rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xl overflow-hidden transition-colors duration-300 transform perspective-1000">

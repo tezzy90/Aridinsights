@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Container } from './ui/Container';
-import { Button } from './ui/Button';
 import { UserRole } from '../types';
+import { Button } from './ui/Button';
+import { Container } from './ui/Container';
 
 export const EarlyAccessForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -49,10 +49,9 @@ export const EarlyAccessForm: React.FC = () => {
           <div className="flex-1 lg:sticky lg:top-24">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-heading dark:text-white tracking-tight transition-colors duration-300">Request Early Access</h2>
             <p className="text-lg text-brand-text/80 dark:text-slate-300 leading-relaxed mb-8 transition-colors duration-300">
-              AridInsights—our Florida water intelligence platform—is in active development. If you work with SFWMD or other Florida districts as a developer,
-              engineer, or agricultural operator, join the early access list to help shape the future of compliance automation.
+              AridInsights—our hydrological regulatory platform—is in active development alongside our FY2026 EPA SBIR cycle. We are seeking early access partners from the Florida development and civil engineering sectors to validate our automated compliance engine.
               <br /><br />
-              Early access partners get locked-in pricing and direct input on our roadmap as we expand statewide.
+              Early access partners receive priority feature requests, locked-in pricing, and direct input on our statewide expansion roadmap.
             </p>
 
             <div className="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hidden lg:block transition-colors duration-300">

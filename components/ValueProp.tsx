@@ -21,7 +21,7 @@ export const ValueProp: React.FC = () => {
             </div>
             <h3 className="text-xl font-bold mb-3 text-brand-heading dark:text-white transition-colors duration-300">Data Fragmentation</h3>
             <p className="text-brand-text dark:text-slate-300 leading-relaxed transition-colors duration-300">
-              Data lives in 5 different silos. We normalize DBHydro (SFWMD) and E-Permitting data into one clean API.
+              Data lives in 5 different silos. We aggregate DBHydro (SFWMD) and E-Permitting data into one unified API format.
             </p>
           </div>
 
@@ -32,7 +32,7 @@ export const ValueProp: React.FC = () => {
             </div>
             <h3 className="text-xl font-bold mb-3 text-brand-heading dark:text-white transition-colors duration-300">Hidden Elevation Risk</h3>
             <p className="text-brand-text dark:text-slate-300 leading-relaxed transition-colors duration-300">
-              Legacy data uses the old NGVD29 datum. We auto-convert to NAVD88 so your flood risk models are actually accurate.
+              Legacy data uses the old NGVD29 datum. We display elevation data converted to NAVD88 datum standard for use by licensed professionals in flood modeling.
             </p>
           </div>
 
@@ -43,7 +43,7 @@ export const ValueProp: React.FC = () => {
             </div>
             <h3 className="text-xl font-bold mb-3 text-brand-heading dark:text-white transition-colors duration-300">Permit Compliance</h3>
             <p className="text-brand-text dark:text-slate-300 leading-relaxed transition-colors duration-300">
-              CUPs/WUPs have strict expiration and reporting deadlines. Our Compliance Shield ensures you never miss a renewal.
+              CUPs/WUPs have strict expiration and reporting deadlines. Our Permit Management Dashboard provides renewal calendar alerts and permit status tracking.
             </p>
           </div>
 

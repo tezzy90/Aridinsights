@@ -1,5 +1,5 @@
-import React from 'react';
 import Link from 'next/link';
+import React from 'react';
 import { Container } from './ui/Container';
 
 export const Footer: React.FC = () => {
@@ -21,7 +21,15 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/10 text-center">
+        <div className="mt-12 pt-8 border-t border-white/10 text-center">
+          <div className="mb-8 p-4 border border-white/20 rounded-lg bg-white/5 inline-block max-w-4xl mx-auto">
+            <h4 className="text-white font-bold tracking-wider text-xs uppercase mb-2">Regulatory Data Platform - Professional Review Required</h4>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              This platform provides aggregated public regulatory data and does not constitute engineering analysis, professional feasibility studies, or compliance certification. All technical determinations must be performed by licensed professionals (P.E., P.G., Environmental Scientists, Legal Counsel).
+            </p>
+          </div>
+
+          <div className="border-t border-white/10 pt-8">
           <p className="text-sm text-slate-400 max-w-3xl mx-auto mb-6 leading-relaxed">
             AridInsights is a division of <strong>321Work Inc.</strong>, a climate intelligence studio focused on software infrastructure for fragmented water markets.
             <a href="https://321work.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-brand-primary transition-colors ml-1 font-medium">

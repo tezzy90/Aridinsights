@@ -18,7 +18,10 @@ export const About: React.FC = () => {
             AridInsights operates as a division of <strong>321Work Inc.</strong> We are building the infrastructure to make this data transparent, consistent, and actionable.
           </p>
           <p>
-            Our mission: Transform raw government data into a "Carfax for Land"—giving every stakeholder instant visibility into flood zones, aquifer capacity, and regulatory constraints.
+            Our mission: Transform raw government data into an accessible regulatory table—giving stakeholders instant access to flood zone maps, aquifer data, and regulatory records to support professional decision-making.
+          </p>
+          <p className="border-l-4 border-yellow-500 pl-4 py-1 mt-6 bg-yellow-50/10 text-sm">
+            <strong>Important Notice:</strong> AridInsights provides regulatory data organization and does not offer engineering services, professional feasibility studies, wetland delineations, or compliance certifications. All technical determinations, site assessments, and regulatory compliance evaluations must be performed by appropriately licensed professionals. Our platform serves as data infrastructure that licensed engineers, environmental consultants, and compliance officers use to serve their clients more efficiently.
           </p>
         </div>
       </Container>

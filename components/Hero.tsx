@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Container } from './ui/Container';
 import { Button } from './ui/Button';
+import { Container } from './ui/Container';
 import { WaterBackground } from './WaterBackground';
 
 export const Hero: React.FC = () => {
@@ -25,14 +25,14 @@ export const Hero: React.FC = () => {
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-brand-heading dark:text-white leading-[1.1] tracking-tight transition-colors duration-300">
-          Stop Guessing About <br className="hidden md:block" />
+          Stop Searching Five Databases <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-dark to-brand-primary dark:from-sky-300 dark:to-cyan-200">
-            Water Risk
+            for Water Data.
           </span>
         </h1>
 
         <p className="text-lg md:text-xl text-brand-text/80 dark:text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed transition-colors duration-300">
-          Florida land has a hidden water problem. AridInsights delivers instant risk scores, permit tracking, and normalized hydrology data for Developers, Engineering Firms, and Agriculture.
+          AridInsights aggregates permit records, jurisdiction boundaries, and regulatory calendars from Florida's 5 Water Management Districts - organized data for licensed professionals and informed stakeholders.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -45,10 +45,10 @@ export const Hero: React.FC = () => {
             Get Early Access
           </Button>
           <Button
-            href="#how-it-works"
+            href="#platform-overview"
             variant="secondary"
             className="w-full sm:w-auto backdrop-blur-sm bg-white/80 dark:bg-slate-800/80"
-            onClick={(e) => scrollToSection(e, 'how-it-works')}
+            onClick={(e) => scrollToSection(e, 'platform-overview')}
           >
             View Platform Overview
           </Button>
