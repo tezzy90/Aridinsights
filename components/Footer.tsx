@@ -40,6 +40,7 @@ export const Footer: React.FC = () => {
             © {currentYear} AridInsights, a division and DBA of 321Work Inc. All rights reserved.
           </p>
         </div>
+        </div>
       </Container>
     </footer>
   );
