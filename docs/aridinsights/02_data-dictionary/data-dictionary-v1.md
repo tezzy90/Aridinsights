@@ -98,71 +98,97 @@ This is the contract for BigQuery and Firestore.
 - confidence (INT64)
 - notes (STRING)
 
-## 3) Firestore Collections (arid_ops)
-### /orders
-- orderId (doc id)
-- productType: SCORECARD | AUDIT | MONITORING
-- customerId
-- lemonSqueezyOrderId
-- status: RECEIVED | IN_PROGRESS | QUARANTINED | DELIVERED | FAILED
+## 3) Firestore Collections v1 (arid_ops)
+
+### /customers/{customerId}
+- email (required)
+- createdAt (required)
+- lastSeenAt (required)
+- company (optional)
+- role (optional) enum: CFO, EHS, OTHER
+
+### /orders/{orderId}
+- productType (required) enum: SCORECARD, AUDIT, MONITORING
+- status (required) enum: RECEIVED, IN_PROGRESS, QUARANTINED, DELIVERED, FAILED
+- customerId (required)
+- lemonSqueezyOrderId (required)
+- idempotencyKey (required)
+- createdAt, updatedAt
+- inputs (map):
+  - metro (required) enum: ORLANDO, TAMPA
+  - address (optional if parcel_polygon_geojson provided)
+  - parcel_polygon_geojson (optional if address provided)
+  - it_load_mw_current (required)
+  - cooling_profile (required)
+  - cooling_profile_source (required)
+  - it_load_mw_planned (optional)
+  - planned_window (optional) enum: 24_MONTHS, 36_MONTHS
+  - reclaimed_interest (optional boolean)
+
+### /jobs/{jobId}
+- orderId (required)
+- jobType (required) enum: CONTEXT_PACK, SCORECARD_GEN, AUDIT_GEN, DELIVERY, MONITOR_ALERT
+- status (required) enum: QUEUED, RUNNING, SUCCEEDED, FAILED, CANCELLED
+- attempts (required)
+- maxAttempts (required)
+- lockedAt (timestamp, nullable)
 - createdAt, updatedAt
 
-### /jobs
-- jobId
-- orderId
-- jobType: CONTEXT_PACK | SCORECARD_GEN | AUDIT_GEN | MONITOR_ALERT
-- status, timestamps
-- retryCount
+### /contextPacks/{contextPackId}
+- orderId (required)
+- inputs_summary (map)
+- authority_resolution (map):
+  - overlayId
+  - county_fips
+  - wmd_authority_id
+  - operator_authority_ids (array)
+  - confidence
+- rates_used (array of strings)
+- assumptions (map):
+  - wue_l_per_kwh (low/base/high)
+  - monthly_kgal_current (low/base/high)
+  - monthly_kgal_planned (low/base/high, optional)
+- generatedAt (timestamp)
 
-### /contextPacks
-- contextPackId
-- orderId
-- inputs_summary (includes current MW, cooling profile, planned MW optional)
-- authority_resolution (overlay results)
-- rates_used (rate_schedule_ids)
-- assumptions
-- generatedAt
+### /evidenceLogs/{evidenceLogId}
+- orderId (required)
+- contextPackId (required)
+- sources (array of maps):
+  - url
+  - retrievedAt
+  - hash (optional)
+  - lastVerified
+  - sourceType enum: OFFICIAL, SECONDARY, OTHER
+- autonomy_scores (map):
+  - completeness
+  - evidence
+  - freshness
+  - consistency
+- thresholdPolicy enum: FREE, SCORECARD, AUDIT
+- result enum: PASS, PARTIAL, QUARANTINED
+- outputRefs (map):
+  - pdfDriveFileId
+  - pdfSignedUrlRef (optional)
+  - emailMessageId
+- createdAt (timestamp)
 
-### /evidenceLogs
-- evidenceLogId
-- orderId
-- contextPackId
-- sources[] (url, retrievedAt, hash, lastVerified)
-- autonomy_scores (completeness/evidence/freshness/consistency)
-- outputRefs (pdfDriveId, pdfUrlSignedRef, emailMessageId)
-- createdAt
+### /quarantine/{quarantineId}
+- orderId (required)
+- reasonCodes (array of strings)
+- failedThresholds (map)
+- manualResolutionStatus enum: PENDING, RESOLVED, CANCELLED
+- createdAt (timestamp)
 
-### /quarantine
-- quarantineId
-- orderId
-- reasonCodes[]
-- failedThresholds
-- manualResolutionStatus
+### /coverageLedger/{coverageId}
+- geoScope enum: FL-ORLANDO, FL-TAMPA
+- operatorAuthorityId (required)
+- artifactRefs (array of strings)
+- lastVerified (timestamp)
+- status enum: GREEN, YELLOW, RED
+- notes (optional)
 
-### /coverageLedger
-- coverageId
-- geoScope (Orlando, Tampa)
-- operator/authority reference
-- artifact refs
-- lastVerified
-- status: GREEN | YELLOW | RED
+### /prompts/{promptId}
+- prompt versioning fields as in Source-of-Truth Pack
 
-### /prompts
-- promptId
-- name
-- version
-- model (Flash/Pro)
-- text
-- inputSchema
-- outputSchema
-- updatedAt
-
-### /promptRuns
-- runId
-- promptId
-- orderId
-- contextPackId
-- modelUsed
-- tokenUsage
-- latencyMs
-- status
+### /promptRuns/{runId}
+- run fields as in Source-of-Truth Pack
