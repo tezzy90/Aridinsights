@@ -94,6 +94,29 @@ export const createOrder = onRequest(async (req, res) => {
             reclaimed_interest: customData.reclaimed_interest === "true" || customData.reclaimed_interest === true,
         };
 
+        // Invariant C: Required fields check
+        const missingFields: string[] = [];
+        if (!inputs.metro) missingFields.push("metro");
+        if (!inputs.it_load_mw_current || inputs.it_load_mw_current <= 0) missingFields.push("it_load_mw_current");
+        // email is already checked via upsertCustomer param (optional in validation here but required for process)
+
+        if (missingFields.length > 0) {
+            logger.warn(`Order rejected: Missing required fields`, { missingFields, lemonSqueezyOrderId });
+            res.status(422).json({ error: "Missing required fields", missingFields });
+            return;
+        }
+
+        // At least one geo input required for overlays
+        if (!inputs.address && !inputs.parcel_polygon_geojson) {
+            logger.warn(`Order rejected: No geo input provided (address or polygon required)`, { lemonSqueezyOrderId });
+            res.status(422).json({ error: "Location required (address or polygon)" });
+            return;
+        }
+
+        if (inputs.cooling_profile === "DEFAULT") {
+            logger.info(`Cooling profile defaulted for order ${lemonSqueezyOrderId}`);
+        }
+
         const orderData = {
             orderId,
             customerId,
