@@ -155,3 +155,23 @@ echo -e "\nConcurrency batch done."
 
 echo "---------------------------------------------------"
 echo "E2E Pack Complete."
+
+# Test 8: Quarantine Path (Mock Failure)
+PAYLOAD_Q='{
+  "lemonSqueezyOrderId": "E2E_FAIL_SCORE_'$current_time'",
+  "productType": "SCORECARD",
+  "email": "tezzy@321work.com",
+  "data": { "attributes": {
+        "order_number": "E2E_FAIL_SCORE_'$current_time'",
+        "user_email": "tezzy@321work.com",
+        "custom_data": {
+            "metro": "ORLANDO",
+            "address": "123 Fail Way",
+            "it_load_mw_current": 10
+        }
+  }}
+}'
+send_req "$PAYLOAD_Q" "Quarantine Path (Mock Fail)" "200"
+
+echo "---------------------------------------------------"
+echo "E2E Pack Complete."

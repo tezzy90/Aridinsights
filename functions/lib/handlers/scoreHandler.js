@@ -9,6 +9,15 @@ const thresholds_1 = require("../config/thresholds");
 function calculateAutonomyScores(contextPack) {
     // Mock Scoring Logic
     // In real impl: analyze evidence freshness, source types, etc.
+    // MOCK FAILURE for E2E Testing
+    if (contextPack && contextPack.orderId && contextPack.orderId.includes("FAIL_SCORE")) {
+        return {
+            completeness: 50,
+            evidence: 50,
+            freshness: 50,
+            consistency: 50
+        };
+    }
     return {
         completeness: 85,
         evidence: 80,
@@ -34,7 +43,8 @@ async function runScorer(db, jobId, orderId, policy) {
         throw new Error(`Context Pack ${contextPackId} missing`);
     const contextPack = cpDoc.data();
     // 1. Score
-    const scores = calculateAutonomyScores(contextPack);
+    // Ensure contextPack has orderId attached or passed
+    const scores = calculateAutonomyScores(Object.assign(Object.assign({}, contextPack), { orderId }));
     // 2. Threshold Check
     const thresholds = thresholds_1.THRESHOLDS[policy];
     const failedReasons = [];
@@ -44,6 +54,18 @@ async function runScorer(db, jobId, orderId, policy) {
         failedReasons.push("Evidence Insufficient");
     // ... check others
     if (failedReasons.length > 0) {
+        // INVARIANT D: Evidence Log must be written even if quarantined
+        const evidenceLogId = `ev_${orderId}`;
+        await db.collection("evidenceLogs").doc(evidenceLogId).set({
+            evidenceLogId,
+            orderId,
+            contextPackId,
+            sources: [], // Should populate with actual sources from ContextPack
+            autonomy_scores: scores,
+            result: "QUARANTINE",
+            thresholdPolicy: policy,
+            createdAt: firestore_1.FieldValue.serverTimestamp()
+        });
         // QUARANTINE
         logger.warn(`Order ${orderId} failed thresholds: ${failedReasons.join(", ")}`);
         const quarantineId = `q_${orderId}`;
@@ -53,6 +75,7 @@ async function runScorer(db, jobId, orderId, policy) {
             reasonCodes: failedReasons,
             failedThresholds: scores,
             manualResolutionStatus: "PENDING",
+            evidenceLogId, // Link to evidence
             createdAt: firestore_1.FieldValue.serverTimestamp()
         });
         // Update Order Status
