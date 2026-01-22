@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> This folder defines the operational system of record.
+> It is implementation-authoritative, not investor-narrative.
+
 # Arid Insights Source-of-Truth Pack
 
 ## Business Definition: The Infrastructure Intelligence Layer
