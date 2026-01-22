@@ -1,5 +1,8 @@
 # Arid Insights Source-of-Truth Pack
 
+## Business Definition: The Infrastructure Intelligence Layer
+**Arid Insights is the Infrastructure Intelligence Layer for the Florida economy.** We eliminate the information asymmetry inherent in Florida’s 1,000+ water jurisdictions. We do not just provide "Data"; we provide Regulatory Sovereignty.
+
 This folder mirrors the Google Drive folder: "Arid Insights (Source of Truth)".
 
 ## Operating Rule (Non-negotiable)
@@ -12,7 +15,7 @@ Nothing ships unless:
 - 01 AIG-OS Constitution (Authority + Rates Intelligence Engine)
 - 02 Data Dictionary (BigQuery + Firestore contracts)
 - 03 Prompt Library (versioned prompts and IO contracts)
-- 04 Coverage Ledger (what is covered, last verified, status)
+- 04 Universal Rate Source Index (formerly Coverage Ledger)
 - 05 Change Control Log (why we changed what)
 - 06 Risk & Disclaimers (defensive language and prohibited claims)
 

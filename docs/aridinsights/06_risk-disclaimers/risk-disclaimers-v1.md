@@ -54,3 +54,6 @@ Escalate to manual review when:
 - conflicting effective dates appear
 - inside/outside city applicability unknown but materially impacts cost
 - customer indicates imminent capital decision (higher stakes)
+
+## 9) Automated Discovery Notice
+**Tier 2 data is extracted via autonomous AI systems.** While verified against primary sources, users are advised to trigger a 'High-Fidelity Audit' for transaction-critical decisions. All Tier 2 data is clearly labeled with a Retrieval Timestamp and Confidence Score per AIG-OS Constitution Section 4.

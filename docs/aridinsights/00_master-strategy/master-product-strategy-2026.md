@@ -5,43 +5,25 @@
 - Mission: Provide hydrological resilience and financial certainty for industrial, agricultural, and commercial assets in the US Sun Belt.
 - Visual Language: Executive Intelligence aesthetic (navy, slate, glacial emerald, bento grids, serif typography).
 
-## Primary Beachhead
-Florida first. Metro focus: Orlando + Tampa.
+## Strategic Objective
+Transition from a localized utility tool to the Sovereign System of Record for Florida water.
 
-## Buyer Persona for v1
-Primary: CFO and EHS decision-makers for water-dependent facilities.
-Secondary (later): insurance brokers, lenders, consultants, utilities, water-tech vendors.
+## Product Tiers
 
-## Product Map (v1 to v3)
+### 1) The Universal Map (Free/Tier 2)
+- Automated ingestion of all 1,000+ Florida utilities.
+- Provides "Preliminary" rate and jurisdiction data.
+- **Moat:** We are the only ones with 100% coverage.
 
-### v1 CFO Wedge (Florida, Orlando + Tampa)
-Goal: ship fast, prove willingness to pay, build credibility, and start compounding a data asset.
+### 2) The CFO Scorecard (Paid/Tier 1)
+- Verified, high-precision intelligence for specific high-value parcels in industrial metros.
 
-1) Water Risk Scorecard (paid, low friction)
-- Deliverable: 5-page PDF
-- Outcome: fast financial exposure view and compliance complexity snapshot
-- Inputs: address or parcel polygon, current IT load (MW), cooling profile, optional planned MW (24–36 months)
-
-2) AquaPrime Certified Audit (paid, decision-grade)
-- Deliverable: 20-page PDF
-- Outcome: board-ready strategic memo including authority map and rate exposure
-- Adds: assumptions table, evidence table, regulatory posture summary, action plan
-
-3) WaterWatch Monitoring (recurring, minimal MVP)
-- Deliverable: monthly email digest + alert triggers (rate changes, authority changes, enforcement notices where available)
-- Outcome: switching costs and renewal logic
-
-### v2 Expansion
-- Texas and Arizona added with the same artifacts and controls.
-- Site Selection Compare (multi-site) introduced as a premium one-time product.
-
-### v3 Partner Layer
-- Partner API + licensing.
-- Lead Orchestrator credits for water-tech vendors, insurers, consultants.
+### 3) The Moat
+Aggregation of the 'Long Tail.' By owning the data others ignore, we block all niche competitors and become the indispensable layer for PropTech and Site Selection.
 
 ## Non-negotiable Moat Components
 Arid Insights is not “a PDF generator”.
-The moat is a maintained, versioned intelligence corpus:
+The moat is **Statewide Data Parity**:
 - Authority registry and ontology (Issuer, Enforcer, Allocator, Operator, Adjudicator)
 - Rate schedules as first-class artifacts (versioned, dated, applicability rules)
 - Evidence-first lineage (source URL, retrieval timestamp, hash, last verified)

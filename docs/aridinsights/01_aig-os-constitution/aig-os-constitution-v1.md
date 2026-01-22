@@ -2,7 +2,7 @@
 (AIG-OS = Authority Intelligence Graph Operating System)
 
 ## 1) Purpose
-AIG-OS is the intelligence engine that powers Arid Insights products. It answers:
+AIG-OS is the intelligence engine that powers Arid Insights. It provides Tiered Sovereignty over water data: Universal Discovery for the long-tail and High-Fidelity Intelligence for key industrial hubs. It answers:
 - Who governs this location’s water rules, permits, rates, and enforcement posture?
 - What are the financial and compliance implications now, and under expansion scenarios?
 
@@ -127,6 +127,13 @@ Scheduled jobs detect changes for:
 - enforcement notices (where available)
 - reclaimed program changes
 - key policy pages
+
+### 8.1) Priority-Weighted Polling
+To maintain statewide coverage without manual overhead, the Change Detection Watchlist shall prioritize updates based on:
+
+**Tier 1 (High-Fidelity):** Daily/Weekly checks for major metros (Orlando, Tampa, Miami). Manual audit required for all changes.
+
+**Tier 2 (Universal Discovery):** Monthly/Quarterly automated sweeps for the 'Long-Tail' (1,000+ rural/small operators). AI-verified; subject to Section 4 Quarantine if confidence scores drop below 80%.
 
 Each change event generates:
 - diff summary

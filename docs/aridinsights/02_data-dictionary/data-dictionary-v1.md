@@ -11,6 +11,9 @@ This is the contract for BigQuery and Firestore.
 ### 2.1 authority_nodes
 - authority_id (STRING, PK)
 - name (STRING)
+- tier_rating (INT64) 1 = High-Fidelity/Verified, 2 = Universal/AI-Preliminary
+- resolution_confidence (FLOAT64) Score from the Autonomy Contract
+- geospatial_footprint (STRING) Service area polygon reference
 - role_types (ARRAY<STRING>) enum: ISSUER, ENFORCER, ALLOCATOR, OPERATOR, ADJUDICATOR
 - jurisdiction_level (STRING) enum: FEDERAL, STATE, SUB_STATE
 - state_code (STRING, nullable)
