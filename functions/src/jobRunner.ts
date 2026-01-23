@@ -1,10 +1,15 @@
 import { onDocumentCreated } from "firebase-functions/v2/firestore";
+import { defineSecret } from "firebase-functions/params";
 import * as logger from "firebase-functions/logger";
 import { FieldValue } from "firebase-admin/firestore";
 import { handleContextPack } from "./handlers/contextHandler";
 import { handleScorecardGen, handleAuditGen } from "./handlers/scoreHandler";
 import { handleDelivery } from "./handlers/deliveryHandler";
 import { db } from "./firebase";
+import { handleAtlassianSync } from "./handlers/atlassianHandler";
+import { JobData } from "./types";
+
+const atlassianApiToken = defineSecret("ATLASSIAN_API_TOKEN");
 
 /**
  * Job Runner
@@ -12,7 +17,10 @@ import { db } from "./firebase";
  * Dispatches to the appropriate handler based on jobType.
  * Handles locking ensures serialization if needed (though Firestore trigger is per doc).
  */
-export const onJobCreated = onDocumentCreated("jobs/{jobId}", async (event) => {
+export const onJobCreated = onDocumentCreated({
+    document: "jobs/{jobId}",
+    secrets: [atlassianApiToken]
+}, async (event) => {
     const snapshot = event.data;
     if (!snapshot) {
         return;
@@ -55,6 +63,9 @@ export const onJobCreated = onDocumentCreated("jobs/{jobId}", async (event) => {
                 break;
             case "DELIVERY":
                 result = await handleDelivery(db, jobId, orderId);
+                break;
+            case "ATLASSIAN_SYNC":
+                result = await handleAtlassianSync(db, jobId, jobData as JobData);
                 break;
             default:
                 logger.warn(`Unknown jobType: ${jobType}`);

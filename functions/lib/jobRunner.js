@@ -2,19 +2,25 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.onJobCreated = void 0;
 const firestore_1 = require("firebase-functions/v2/firestore");
+const params_1 = require("firebase-functions/params");
 const logger = require("firebase-functions/logger");
 const firestore_2 = require("firebase-admin/firestore");
 const contextHandler_1 = require("./handlers/contextHandler");
 const scoreHandler_1 = require("./handlers/scoreHandler");
 const deliveryHandler_1 = require("./handlers/deliveryHandler");
 const firebase_1 = require("./firebase");
+const atlassianHandler_1 = require("./handlers/atlassianHandler");
+const atlassianApiToken = (0, params_1.defineSecret)("ATLASSIAN_API_TOKEN");
 /**
  * Job Runner
  * Triggered when a new Job is created in /jobs.
  * Dispatches to the appropriate handler based on jobType.
  * Handles locking ensures serialization if needed (though Firestore trigger is per doc).
  */
-exports.onJobCreated = (0, firestore_1.onDocumentCreated)("jobs/{jobId}", async (event) => {
+exports.onJobCreated = (0, firestore_1.onDocumentCreated)({
+    document: "jobs/{jobId}",
+    secrets: [atlassianApiToken]
+}, async (event) => {
     const snapshot = event.data;
     if (!snapshot) {
         return;
@@ -51,6 +57,9 @@ exports.onJobCreated = (0, firestore_1.onDocumentCreated)("jobs/{jobId}", async 
                 break;
             case "DELIVERY":
                 result = await (0, deliveryHandler_1.handleDelivery)(firebase_1.db, jobId, orderId);
+                break;
+            case "ATLASSIAN_SYNC":
+                result = await (0, atlassianHandler_1.handleAtlassianSync)(firebase_1.db, jobId, jobData);
                 break;
             default:
                 logger.warn(`Unknown jobType: ${jobType}`);

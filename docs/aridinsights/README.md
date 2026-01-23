@@ -22,8 +22,12 @@ Nothing ships unless:
 - 04 Universal Rate Source Index (formerly Coverage Ledger)
 - 05 Change Control Log (why we changed what)
 - 06 Risk & Disclaimers (defensive language and prohibited claims)
+- 07 Business Plans (executive narrative, go to market, market opportunity)
 
 ## Sync Policy
 - Drive is the human-editable canonical format.
 - Git is the versioned mirror.
+- **Atlassian Jira** is the issue tracker of record. (Synced automatically via Secretariat)
+- **Atlassian Confluence** is the Knowledge Base. (Content synced from this repo)
+
 - The text should match (copy/paste).
