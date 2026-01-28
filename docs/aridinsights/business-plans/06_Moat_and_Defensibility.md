@@ -1,1 +1,0 @@
-# Moat and Defensibility

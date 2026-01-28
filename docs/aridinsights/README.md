@@ -27,7 +27,7 @@ Nothing ships unless:
 ## Sync Policy
 - Drive is the human-editable canonical format.
 - Git is the versioned mirror.
-- **Atlassian Jira** is the issue tracker of record. (Synced automatically via Secretariat)
-- **Atlassian Confluence** is the Knowledge Base. (Content synced from this repo)
+- **Atlassian Jira** is the issue tracker of record. 
+- **Atlassian Confluence** is the Knowledge Base. (Content synced from Github MCP)
 
 - The text should match (copy/paste).
