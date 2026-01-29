@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
         </h1>
 
         <p className="text-lg md:text-xl text-brand-text/80 dark:text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed transition-colors duration-300">
-          AridInsights aggregates permit records, jurisdiction boundaries, and regulatory calendars from Florida's 5 Water Management Districts - organized data for licensed professionals and informed stakeholders.
+          AridInsights aggregates permit records, jurisdiction boundaries, and regulatory calendars from Florida&apos;s 5 Water Management Districts - organized data for licensed professionals and informed stakeholders.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

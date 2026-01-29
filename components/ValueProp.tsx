@@ -8,7 +8,7 @@ export const ValueProp: React.FC = () => {
         <div className="max-w-3xl mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-heading dark:text-white tracking-tight transition-colors duration-300">Why Florida Needs This?</h2>
           <p className="text-lg text-brand-text/90 dark:text-slate-300 leading-relaxed transition-colors duration-300">
-            Florida's hydrology is managed by 5 autonomous Water Management Districts. Each uses different databases, legacy formats, and elevation datums.
+            Florida&apos;s hydrology is managed by 5 autonomous Water Management Districts. Each uses different databases, legacy formats, and elevation datums.
             This fragmentation creates blind spots for anyone buying land or managing permits.
           </p>
         </div>
@@ -61,7 +61,7 @@ export const ValueProp: React.FC = () => {
 
         <div className="mt-12 p-6 bg-brand-dark/5 dark:bg-slate-800 rounded-xl border border-brand-dark/10 dark:border-slate-700">
           <p className="text-brand-dark dark:text-brand-light font-medium text-center max-w-4xl mx-auto transition-colors duration-300">
-            "Florida is the ultimate proving ground for water risk intelligence. If we can solve the data mess here, we can solve it anywhere."
+            &quot;Florida is the ultimate proving ground for water risk intelligence. If we can solve the data mess here, we can solve it anywhere.&quot;
           </p>
         </div>
       </Container>

@@ -11,7 +11,7 @@ export const About: React.FC = () => {
             <strong>AridInsights is a water intelligence platform</strong> built for compliance-driven markets where regulation is fragmented and data is difficult to access.
           </p>
           <p>
-            Florida's 5 Water Management Districts (WMDs) manage the most complex hydrological system in the world. Yet, the data remains siloed in legacy databases (DBHydro, E-Permitting),
+            Florida&apos;s 5 Water Management Districts (WMDs) manage the most complex hydrological system in the world. Yet, the data remains siloed in legacy databases (DBHydro, E-Permitting),
             making it nearly impossible for developers and engineers to get a clear picture of water risk.
           </p>
           <p>

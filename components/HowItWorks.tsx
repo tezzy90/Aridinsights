@@ -11,7 +11,7 @@ export const HowItWorks: React.FC = () => {
           <p className="text-lg text-brand-text/80 dark:text-slate-300 leading-relaxed transition-colors duration-300">
             WellFlow is the workflow engine at the center of our groundwater compliance product.
             It reduces manual research, standardizes information across 98+ Texas districts,
-            and makes groundwater compliance more predictable—whether you're a consultant managing multiple clients,
+            and makes groundwater compliance more predictable—whether you&apos;re a consultant managing multiple clients,
             an operator tracking permits, or a public agency overseeing districts.
           </p>
         </div>

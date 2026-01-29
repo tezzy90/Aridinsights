@@ -34,7 +34,7 @@ export const Integrations: React.FC = () => {
                         Works With Your Existing Ecosystem
                     </h2>
                     <p className="text-brand-text/80 dark:text-slate-400">
-                        Don't rip and replace. AridInsights connects with the tools you already use, ensuring a smooth transition and unified data strategy.
+                        Don&apos;t rip and replace. AridInsights connects with the tools you already use, ensuring a smooth transition and unified data strategy.
                     </p>
                 </div>
 

@@ -27,3 +27,11 @@ dist-ssr
 .next
 .env
 .vercel
+
+# Python
+__pycache__/
+*.pyc
+
+# Archives
+*.tgz
+*.tar.gz
