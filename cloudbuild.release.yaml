@@ -1,3 +1,7 @@
+logsBucket: gs://aridinsights-cb-logs-us-central1
+options:
+  logging: GCS_ONLY
+
 substitutions:
   _REGION: us-central1
 
