@@ -1,7 +1,3 @@
-logsBucket: gs://aridinsights-cb-logs-us-central1
-options:
-  logging: GCS_ONLY
-
 steps:
   - name: node:18-alpine
     entrypoint: sh
