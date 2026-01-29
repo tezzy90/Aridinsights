@@ -35,3 +35,6 @@ __pycache__/
 # Archives
 *.tgz
 *.tar.gz
+
+# Recovery artifacts
+recovered/
