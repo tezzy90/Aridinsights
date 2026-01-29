@@ -1,55 +1,55 @@
 steps:
   # Build the container image
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: "gcr.io/cloud-builders/docker"
     args:
-      - 'build'
-      - '-t'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:$COMMIT_SHA'
-      - '-t'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:latest'
-      - '.'
-  
+      - "build"
+      - "-t"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:$TAG_NAME"
+      - "-t"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:latest"
+      - "."
+
   # Push the container image to Artifact Registry
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: "gcr.io/cloud-builders/docker"
     args:
-      - 'push'
-      - '--all-tags'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights'
-  
+      - "push"
+      - "--all-tags"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights"
+
   # Deploy container image to Cloud Run
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
     args:
-      - 'run'
-      - 'deploy'
-      - 'aridinsights'
-      - '--image'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:$COMMIT_SHA'
-      - '--region'
-      - 'us-central1'
-      - '--platform'
-      - 'managed'
-      - '--allow-unauthenticated'
-      - '--set-env-vars'
-      - 'DB_HOST=172.22.0.3,GCP_PROJECT_ID=$PROJECT_ID,GCP_REGION=us-central1'
-      - '--set-secrets'
-      - 'DB_USER=DB_USER:latest,DB_PASSWORD=DB_PASSWORD:latest,DB_NAME=DB_NAME:latest'
-      - '--vpc-connector'
-      - 'aridinsights-connector'
-      - '--add-cloudsql-instances'
-      - '$PROJECT_ID:us-central1:aridinsights-prod'
-      - '--memory'
-      - '1Gi'
-      - '--cpu'
-      - '1'
-      - '--timeout'
-      - '300'
-      - '--max-instances'
-      - '10'
+      - "run"
+      - "deploy"
+      - "aridinsights-web"
+      - "--image"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:$TAG_NAME"
+      - "--region"
+      - "us-central1"
+      - "--platform"
+      - "managed"
+      - "--allow-unauthenticated"
+      - "--set-env-vars"
+      - "DB_HOST=172.22.0.3,GCP_PROJECT_ID=$PROJECT_ID,GCP_REGION=us-central1"
+      - "--set-secrets"
+      - "DB_USER=DB_USER:latest,DB_PASSWORD=DB_PASSWORD:latest,DB_NAME=DB_NAME:latest"
+      - "--vpc-connector"
+      - "aridinsights-connector"
+      - "--add-cloudsql-instances"
+      - "$PROJECT_ID:us-central1:aridinsights-prod"
+      - "--memory"
+      - "1Gi"
+      - "--cpu"
+      - "1"
+      - "--timeout"
+      - "300"
+      - "--max-instances"
+      - "10"
 
 images:
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:$COMMIT_SHA'
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:latest'
+  - "us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:$TAG_NAME"
+  - "us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:latest"
 
 options:
   logging: CLOUD_LOGGING_ONLY
