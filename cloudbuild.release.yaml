@@ -50,7 +50,7 @@ steps:
         "managed",
         "--quiet",
         "--labels",
-        "release_tag=${TAG_NAME},git_sha=${COMMIT_SHA},build_id=${BUILD_ID}",
+        "git_sha=${COMMIT_SHA},build_id=${BUILD_ID}",
       ]
 
   # -------------------------
@@ -92,7 +92,7 @@ steps:
         "managed",
         "--quiet",
         "--labels",
-        "release_tag=${TAG_NAME},git_sha=${COMMIT_SHA},build_id=${BUILD_ID}",
+        "git_sha=${COMMIT_SHA},build_id=${BUILD_ID}",
       ]
 
 images:
