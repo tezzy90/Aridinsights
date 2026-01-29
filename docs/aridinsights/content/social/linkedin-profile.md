@@ -1,14 +1,15 @@
 # Arid Insights: LinkedIn Profile Overhaul
 ## For: Cortez Fields
 
-> **Status:** Personalized Draft (Ready for Copy/Paste)
-> **Source Data:** 321Work Inc. Principal, Ex-Disney Consumer Products Legal (~10 years), Polis Institute Board
+> **Status:** Published
+> **Published Date:** 2026-01-28
+> **Source Data:** 321Work Inc. Principal, Ex-Disney Workfor  evelopmecolis Institute Board
 > **Strategy:** Position "System of Record" authority by bridging corporate compliance rigor (Disney) with infrastructure innovation.
 
 ---
 
-## 1. The Strategy: "From Corporate Compliance to Water Authority"
-**The Narrative Arc:** You aren't just a startup founder. You are a seasoned executive (Disney Legal/Alliances) who understands *institutional risk* at the highest level. You are now applying that Fortune 100 rigor to Florida's water crisis via your management firm, 321Work.
+## 1. The Strategy: "From Corporate Workforce Development to Water Authority"
+**The Narrative Arc:** You aren't just a startup founder. You are a seasoned veteran who understands *institutional risk* at the highest level. You are now applying that Fortune 100 rigor to Florida's water crisis via your management firm, Arid Insights.
 
 **Key Signals to Amplitude:**
 1.  **Institutional Pedigree:** Highlight the 10 years at Disney Legal. It proves you speak "General Counsel" and "Risk Manager"—the exact language of your customers.

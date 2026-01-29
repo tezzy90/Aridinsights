@@ -1,0 +1,14 @@
+.git
+.gitignore
+node_modules
+services
+functions
+agents
+docs
+tools
+scripts
+recovered
+.vercel
+.firebase
+cloud_sql_proxy
+monitoring-dashboard.json

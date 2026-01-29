@@ -7,7 +7,9 @@ steps:
       - "us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:$TAG_NAME"
       - "-t"
       - "us-central1-docker.pkg.dev/$PROJECT_ID/aridinsights-repo/aridinsights:latest"
-      - "."
+      - "-f"
+      - "apps/web-main/Dockerfile"
+      - "apps/web-main"
 
   # Push the container image to Artifact Registry
   - name: "gcr.io/cloud-builders/docker"

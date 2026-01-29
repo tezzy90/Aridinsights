@@ -20,7 +20,9 @@ steps:
         "build",
         "-t",
         "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_WEB_REPO}/${_WEB_IMAGE}:${TAG_NAME}",
-        "."
+        "-f",
+        "apps/web-main/Dockerfile",
+        "apps/web-main",
       ]
 
   - name: gcr.io/cloud-builders/docker
@@ -28,7 +30,7 @@ steps:
     args:
       [
         "push",
-        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_WEB_REPO}/${_WEB_IMAGE}:${TAG_NAME}"
+        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_WEB_REPO}/${_WEB_IMAGE}:${TAG_NAME}",
       ]
 
   # WEB: Deploy
@@ -37,12 +39,18 @@ steps:
     entrypoint: gcloud
     args:
       [
-        "run", "deploy", "${_WEB_SERVICE}",
-        "--image", "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_WEB_REPO}/${_WEB_IMAGE}:${TAG_NAME}",
-        "--region", "${_REGION}",
-        "--platform", "managed",
+        "run",
+        "deploy",
+        "${_WEB_SERVICE}",
+        "--image",
+        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_WEB_REPO}/${_WEB_IMAGE}:${TAG_NAME}",
+        "--region",
+        "${_REGION}",
+        "--platform",
+        "managed",
         "--quiet",
-        "--labels", "release_tag=${TAG_NAME},git_sha=${COMMIT_SHA},build_id=${BUILD_ID}"
+        "--labels",
+        "release_tag=${TAG_NAME},git_sha=${COMMIT_SHA},build_id=${BUILD_ID}",
       ]
 
   # -------------------------
@@ -56,7 +64,7 @@ steps:
         "build",
         "-t",
         "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ENGINE_REPO}/${_ENGINE_IMAGE}:${TAG_NAME}",
-        "."
+        ".",
       ]
 
   - name: gcr.io/cloud-builders/docker
@@ -64,7 +72,7 @@ steps:
     args:
       [
         "push",
-        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ENGINE_REPO}/${_ENGINE_IMAGE}:${TAG_NAME}"
+        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ENGINE_REPO}/${_ENGINE_IMAGE}:${TAG_NAME}",
       ]
 
   # ENGINE: Deploy
@@ -73,12 +81,18 @@ steps:
     entrypoint: gcloud
     args:
       [
-        "run", "deploy", "${_ENGINE_SERVICE}",
-        "--image", "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ENGINE_REPO}/${_ENGINE_IMAGE}:${TAG_NAME}",
-        "--region", "${_REGION}",
-        "--platform", "managed",
+        "run",
+        "deploy",
+        "${_ENGINE_SERVICE}",
+        "--image",
+        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ENGINE_REPO}/${_ENGINE_IMAGE}:${TAG_NAME}",
+        "--region",
+        "${_REGION}",
+        "--platform",
+        "managed",
         "--quiet",
-        "--labels", "release_tag=${TAG_NAME},git_sha=${COMMIT_SHA},build_id=${BUILD_ID}"
+        "--labels",
+        "release_tag=${TAG_NAME},git_sha=${COMMIT_SHA},build_id=${BUILD_ID}",
       ]
 
 images:

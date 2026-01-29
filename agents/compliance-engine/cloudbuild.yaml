@@ -1,0 +1,43 @@
+steps:
+  # Build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:$TAG_NAME"
+      - "-t"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:latest"
+      - "."
+    dir: "agents/compliance-engine"
+
+  # Push the container image to Artifact Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "--all-tags"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine"
+
+  # Deploy container image to Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - "run"
+      - "deploy"
+      - "arid-compliance-engine"
+      - "--image"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:$TAG_NAME"
+      - "--region"
+      - "us-central1"
+      - "--platform"
+      - "managed"
+      - "--allow-unauthenticated"
+      - "--set-env-vars"
+      - "GCP_PROJECT_ID=$PROJECT_ID,GCP_REGION=us-central1"
+      # Add other env vars or secrets here as needed, based on verified service config
+
+images:
+  - "us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:$TAG_NAME"
+  - "us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:latest"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
