@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { loadIndex, filterDocs, DocEntry } from '../../lib/search';
+import { loadIndex, filterDocs, DocEntry } from '@/lib/search';
 
 export default function PromptsPage() {
     const [docs, setDocs] = useState<DocEntry[]>([]);

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { loadIndex, filterDocs, DocEntry } from '../../lib/search';
+import { loadIndex, filterDocs, DocEntry } from '@/lib/search';
 
 export default function DocsBrowser() {
     const searchParams = useSearchParams();

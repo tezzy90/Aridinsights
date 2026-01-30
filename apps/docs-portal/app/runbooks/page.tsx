@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { loadIndex, filterDocs, DocEntry } from '../../lib/search';
+import { loadIndex, filterDocs, DocEntry } from '@/lib/search';
 import Link from 'next/link';
 
 export default function RunbooksPage() {

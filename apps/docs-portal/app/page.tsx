@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { loadIndex, DocEntry } from '../../lib/search';
+import { loadIndex, DocEntry } from '@/lib/search';
 
 export default function Dashboard() {
     const [docs, setDocs] = useState<DocEntry[]>([]);
