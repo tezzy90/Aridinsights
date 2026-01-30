@@ -1,49 +1,86 @@
+import json
 import os
 import re
 
-RAW_DIR = "prompts/discovery/discovered_prompts_raw"
-CURATED_DIR = "prompts/discovery/discovered_prompts_curated"
+# Config
+ROOT_DIR = os.getcwd()
+DISCOVERY_FILE = os.path.join(ROOT_DIR, 'prompts/discovery/discovered_prompts_raw.jsonl')
+LIBRARY_DIR = os.path.join(ROOT_DIR, 'prompts/library')
+REGISTRY_FILE = os.path.join(ROOT_DIR, 'prompts/registry.json')
 
-os.makedirs(CURATED_DIR, exist_ok=True)
+print("extracting prompts...")
 
-def parse_line(line):
-    # Ripgrep parsing: file:line:col:content
-    parts = line.split(':', 3)
-    if len(parts) < 4:
-        return None
-    return {
-        'file': parts[0],
-        'line': parts[1],
-        'content': parts[3].strip()
-    }
+if not os.path.exists(LIBRARY_DIR):
+    os.makedirs(LIBRARY_DIR)
 
-def main():
-    print(f"Reading from {RAW_DIR}...")
-    
-    unique_files = set()
-    
-    for filename in os.listdir(RAW_DIR):
-        if not filename.endswith(".txt") or filename == "index.txt":
-            continue
+registry = []
+processed_signatures = set()
+
+if not os.path.exists(DISCOVERY_FILE):
+    print("No discovery file found. Run 'npm run prompts:discover' first.")
+    exit(0)
+
+with open(DISCOVERY_FILE, 'r') as f:
+    for line_num, line in enumerate(f):
+        try:
+            entry = json.loads(line)
+            file_path = entry['file']
+            snippet = entry['snippet']
+            category = entry['category'] # e.g. "YOU ARE|SYSTEM PROMPT"
             
-        category = filename.replace(".txt", "")
-        filepath = os.path.join(RAW_DIR, filename)
-        
-        with open(filepath, 'r') as f:
-            for line in f:
-                match = parse_line(line)
-                if match:
-                    unique_files.add(match['file'])
-                    
-                    # Create a basic curated entry
-                    safe_filename = match['file'].replace('/', '_')
-                    out_path = os.path.join(CURATED_DIR, f"{safe_filename}.md")
-                    
-                    with open(out_path, 'a') as out:
-                        out.write(f"## Candidate: {match['file']}:{match['line']} ({category})\n")
-                        out.write(f"```text\n{match['content']}\n```\n\n")
+            # Simple Heuristic: Dedupe by file path
+            if file_path in processed_signatures:
+                continue
+            processed_signatures.add(file_path)
 
-    print(f"Curated candidates from {len(unique_files)} files written to {CURATED_DIR}")
+            # Determine a slug
+            filename = os.path.basename(file_path).replace('.', '_')
+            slug = f"{filename}"
+            
+            # Classification mapping
+            reg_category = "uncategorized"
+            if "marketing" in file_path.lower(): reg_category = "marketing"
+            elif "product" in file_path.lower(): reg_category = "product"
+            elif "agent" in file_path.lower(): reg_category = "agents"
+            
+            # Ensure category dir exists
+            cat_dir = os.path.join(LIBRARY_DIR, reg_category)
+            if not os.path.exists(cat_dir):
+                os.makedirs(cat_dir)
+            
+            # Create Markdown Spec
+            md_path = os.path.join(cat_dir, f"{slug}.md")
+            md_content = f"""---
+title: Extracted Prompt from {filename}
+category: {reg_category}
+source: {file_path}
+---
 
-if __name__ == "__main__":
-    main()
+# Context
+Extracted from `{file_path}` at line {entry['line']}.
+
+# Snippet
+```text
+{snippet}
+```
+"""
+            with open(md_path, 'w') as out:
+                out.write(md_content)
+
+            # Add to Registry
+            registry.append({
+                "id": slug,
+                "title": f"Prompt from {filename}",
+                "category": reg_category,
+                "path": os.path.relpath(md_path, ROOT_DIR),
+                "source": file_path
+            })
+
+        except Exception as e:
+            print(f"Skipping line {line_num}: {e}")
+
+# Write Registry
+with open(REGISTRY_FILE, 'w') as reg:
+    json.dump(registry, reg, indent=2)
+
+print(f"✅ Generated Registry with {len(registry)} items.")
