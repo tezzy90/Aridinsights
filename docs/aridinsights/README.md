@@ -31,3 +31,6 @@ Nothing ships unless:
 - **Atlassian Confluence** is the Knowledge Base. (Content synced from Github MCP)
 
 - The text should match (copy/paste).
+
+## Access Control Decisions
+- [ADR-001: Internal Documentation Access Control](../decisions/ADR-001-internal-docs-access.md)

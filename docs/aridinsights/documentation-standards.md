@@ -25,7 +25,16 @@ docs/aridinsights/
 └── feature-cards/               # Agentic Feature Definitions ✅ EXISTS
 ```
 
+```
+
+## 2. Internal Docs Access Control (Non-Negotiable)
+
+Internal documentation services running on Cloud Run MUST be protected behind **GCP IAP**.
+Application-level authentication is not permitted for internal docs.
+Any change requires a new ADR that supersedes **[ADR-001](../decisions/ADR-001-internal-docs-access.md)**.
+
 ---
+
 
 ## 2. Architecture Decision Records (ADRs)
 
