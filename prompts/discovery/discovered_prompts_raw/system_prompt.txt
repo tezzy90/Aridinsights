@@ -1,0 +1,3 @@
+./scripts/prompt_discovery.sh:17:  "system prompt"
+./prompts/discovery/discovered_prompts_raw/prompt:.txt:2:./prompts/discovery/discovered_prompts_raw/index.txt:5:system prompt:        2 matches
+./prompts/README.md:3:This directory contains the central repository of system prompts, agent directives, and operational playbooks used in this project.

@@ -1,0 +1,514 @@
+[
+  {
+    "id": "007_intel_analyst_py_454700c4.md",
+    "category": "agents_python",
+    "source": "./agents/compliance-engine/intel_analyst.py:73",
+    "created": "2026-01-29T19:19:47.948740",
+    "path": "prompts/curated/agents_python/007_intel_analyst_py_454700c4.md",
+    "rel_path": "../curated/agents_python/007_intel_analyst_py_454700c4.md"
+  },
+  {
+    "id": "022_atlassian_knowledge_py_2c52b914.md",
+    "category": "agents_python",
+    "source": "./agents/compliance-engine/atlassian_knowledge.py:1",
+    "created": "2026-01-29T19:19:47.951654",
+    "path": "prompts/curated/agents_python/022_atlassian_knowledge_py_2c52b914.md",
+    "rel_path": "../curated/agents_python/022_atlassian_knowledge_py_2c52b914.md"
+  },
+  {
+    "id": "054_intel_analyst_py_ac6b2c7f.md",
+    "category": "agents_python",
+    "source": "./agents/compliance-engine/intel_analyst.py:26",
+    "created": "2026-01-29T19:19:47.956804",
+    "path": "prompts/curated/agents_python/054_intel_analyst_py_ac6b2c7f.md",
+    "rel_path": "../curated/agents_python/054_intel_analyst_py_ac6b2c7f.md"
+  },
+  {
+    "id": "055_intel_analyst_py_277b8adb.md",
+    "category": "agents_python",
+    "source": "./agents/compliance-engine/intel_analyst.py:71",
+    "created": "2026-01-29T19:19:47.956959",
+    "path": "prompts/curated/agents_python/055_intel_analyst_py_277b8adb.md",
+    "rel_path": "../curated/agents_python/055_intel_analyst_py_277b8adb.md"
+  },
+  {
+    "id": "015_cloudbuild_release_yaml_eaf4554e.md",
+    "category": "cloud_build",
+    "source": "./cloudbuild.release.yaml:1",
+    "created": "2026-01-29T19:19:47.950502",
+    "path": "prompts/curated/cloud_build/015_cloudbuild_release_yaml_eaf4554e.md",
+    "rel_path": "../curated/cloud_build/015_cloudbuild_release_yaml_eaf4554e.md"
+  },
+  {
+    "id": "016_cloudbuild_release_yaml_04f99dd2.md",
+    "category": "cloud_build",
+    "source": "./cloudbuild.release.yaml:14",
+    "created": "2026-01-29T19:19:47.950669",
+    "path": "prompts/curated/cloud_build/016_cloudbuild_release_yaml_04f99dd2.md",
+    "rel_path": "../curated/cloud_build/016_cloudbuild_release_yaml_04f99dd2.md"
+  },
+  {
+    "id": "017_cloudbuild_release_yaml_5747b5ea.md",
+    "category": "cloud_build",
+    "source": "./cloudbuild.release.yaml:16",
+    "created": "2026-01-29T19:19:47.950826",
+    "path": "prompts/curated/cloud_build/017_cloudbuild_release_yaml_5747b5ea.md",
+    "rel_path": "../curated/cloud_build/017_cloudbuild_release_yaml_5747b5ea.md"
+  },
+  {
+    "id": "018_cloudbuild_release_yaml_c4b867ab.md",
+    "category": "cloud_build",
+    "source": "./cloudbuild.release.yaml:49",
+    "created": "2026-01-29T19:19:47.950992",
+    "path": "prompts/curated/cloud_build/018_cloudbuild_release_yaml_c4b867ab.md",
+    "rel_path": "../curated/cloud_build/018_cloudbuild_release_yaml_c4b867ab.md"
+  },
+  {
+    "id": "019_cloudbuild_release_yaml_31c4d253.md",
+    "category": "cloud_build",
+    "source": "./cloudbuild.release.yaml:57",
+    "created": "2026-01-29T19:19:47.951154",
+    "path": "prompts/curated/cloud_build/019_cloudbuild_release_yaml_31c4d253.md",
+    "rel_path": "../curated/cloud_build/019_cloudbuild_release_yaml_31c4d253.md"
+  },
+  {
+    "id": "020_cloudbuild_release_yaml_ffd1434d.md",
+    "category": "cloud_build",
+    "source": "./cloudbuild.release.yaml:59",
+    "created": "2026-01-29T19:19:47.951317",
+    "path": "prompts/curated/cloud_build/020_cloudbuild_release_yaml_ffd1434d.md",
+    "rel_path": "../curated/cloud_build/020_cloudbuild_release_yaml_ffd1434d.md"
+  },
+  {
+    "id": "021_cloudbuild_yaml_07df8647.md",
+    "category": "cloud_build",
+    "source": "./agents/compliance-engine/cloudbuild.yaml:1",
+    "created": "2026-01-29T19:19:47.951481",
+    "path": "prompts/curated/cloud_build/021_cloudbuild_yaml_07df8647.md",
+    "rel_path": "../curated/cloud_build/021_cloudbuild_yaml_07df8647.md"
+  },
+  {
+    "id": "039_package-lock_json_d6ea892e.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:783",
+    "created": "2026-01-29T19:19:47.954212",
+    "path": "prompts/curated/firebase_functions/039_package-lock_json_d6ea892e.md",
+    "rel_path": "../curated/firebase_functions/039_package-lock_json_d6ea892e.md"
+  },
+  {
+    "id": "040_package-lock_json_98060bc5.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:824",
+    "created": "2026-01-29T19:19:47.954399",
+    "path": "prompts/curated/firebase_functions/040_package-lock_json_98060bc5.md",
+    "rel_path": "../curated/firebase_functions/040_package-lock_json_98060bc5.md"
+  },
+  {
+    "id": "041_package-lock_json_1bf2fe73.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:867",
+    "created": "2026-01-29T19:19:47.954562",
+    "path": "prompts/curated/firebase_functions/041_package-lock_json_1bf2fe73.md",
+    "rel_path": "../curated/firebase_functions/041_package-lock_json_1bf2fe73.md"
+  },
+  {
+    "id": "042_package-lock_json_f4b08155.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:896",
+    "created": "2026-01-29T19:19:47.954722",
+    "path": "prompts/curated/firebase_functions/042_package-lock_json_f4b08155.md",
+    "rel_path": "../curated/firebase_functions/042_package-lock_json_f4b08155.md"
+  },
+  {
+    "id": "043_package-lock_json_b167b0bb.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:932",
+    "created": "2026-01-29T19:19:47.954882",
+    "path": "prompts/curated/firebase_functions/043_package-lock_json_b167b0bb.md",
+    "rel_path": "../curated/firebase_functions/043_package-lock_json_b167b0bb.md"
+  },
+  {
+    "id": "044_package-lock_json_67003f12.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:1037",
+    "created": "2026-01-29T19:19:47.955053",
+    "path": "prompts/curated/firebase_functions/044_package-lock_json_67003f12.md",
+    "rel_path": "../curated/firebase_functions/044_package-lock_json_67003f12.md"
+  },
+  {
+    "id": "045_package-lock_json_7d8f2672.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:2459",
+    "created": "2026-01-29T19:19:47.955226",
+    "path": "prompts/curated/firebase_functions/045_package-lock_json_7d8f2672.md",
+    "rel_path": "../curated/firebase_functions/045_package-lock_json_7d8f2672.md"
+  },
+  {
+    "id": "046_package-lock_json_a2046809.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:3915",
+    "created": "2026-01-29T19:19:47.955395",
+    "path": "prompts/curated/firebase_functions/046_package-lock_json_a2046809.md",
+    "rel_path": "../curated/firebase_functions/046_package-lock_json_a2046809.md"
+  },
+  {
+    "id": "047_package-lock_json_54a74dde.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:4154",
+    "created": "2026-01-29T19:19:47.955560",
+    "path": "prompts/curated/firebase_functions/047_package-lock_json_54a74dde.md",
+    "rel_path": "../curated/firebase_functions/047_package-lock_json_54a74dde.md"
+  },
+  {
+    "id": "048_package-lock_json_c641c80d.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:4241",
+    "created": "2026-01-29T19:19:47.955728",
+    "path": "prompts/curated/firebase_functions/048_package-lock_json_c641c80d.md",
+    "rel_path": "../curated/firebase_functions/048_package-lock_json_c641c80d.md"
+  },
+  {
+    "id": "049_package-lock_json_81f21eaa.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:4455",
+    "created": "2026-01-29T19:19:47.955919",
+    "path": "prompts/curated/firebase_functions/049_package-lock_json_81f21eaa.md",
+    "rel_path": "../curated/firebase_functions/049_package-lock_json_81f21eaa.md"
+  },
+  {
+    "id": "050_package-lock_json_105ac5ba.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:7147",
+    "created": "2026-01-29T19:19:47.956105",
+    "path": "prompts/curated/firebase_functions/050_package-lock_json_105ac5ba.md",
+    "rel_path": "../curated/firebase_functions/050_package-lock_json_105ac5ba.md"
+  },
+  {
+    "id": "051_package-lock_json_74884942.md",
+    "category": "firebase_functions",
+    "source": "./services/functions/package-lock.json:7188",
+    "created": "2026-01-29T19:19:47.956265",
+    "path": "prompts/curated/firebase_functions/051_package-lock_json_74884942.md",
+    "rel_path": "../curated/firebase_functions/051_package-lock_json_74884942.md"
+  },
+  {
+    "id": "001_prompt_discovery_sh_451f7983.md",
+    "category": "misc",
+    "source": "./scripts/prompt_discovery.sh:4",
+    "created": "2026-01-29T19:19:47.947460",
+    "path": "prompts/curated/misc/001_prompt_discovery_sh_451f7983.md",
+    "rel_path": "../curated/misc/001_prompt_discovery_sh_451f7983.md"
+  },
+  {
+    "id": "002_prompt_discovery_sh_6d3ec7c3.md",
+    "category": "misc",
+    "source": "./scripts/prompt_discovery.sh:3",
+    "created": "2026-01-29T19:19:47.947735",
+    "path": "prompts/curated/misc/002_prompt_discovery_sh_6d3ec7c3.md",
+    "rel_path": "../curated/misc/002_prompt_discovery_sh_6d3ec7c3.md"
+  },
+  {
+    "id": "003_change-control-log-v1_md_502617d4.md",
+    "category": "misc",
+    "source": "./docs/aridinsights/05_change-control/change-control-log-v1.md:1",
+    "created": "2026-01-29T19:19:47.947925",
+    "path": "prompts/curated/misc/003_change-control-log-v1_md_502617d4.md",
+    "rel_path": "../curated/misc/003_change-control-log-v1_md_502617d4.md"
+  },
+  {
+    "id": "004_prompt_discovery_sh_3f7aeb7d.md",
+    "category": "misc",
+    "source": "./scripts/prompt_discovery.sh:2",
+    "created": "2026-01-29T19:19:47.948143",
+    "path": "prompts/curated/misc/004_prompt_discovery_sh_3f7aeb7d.md",
+    "rel_path": "../curated/misc/004_prompt_discovery_sh_3f7aeb7d.md"
+  },
+  {
+    "id": "005_test_connectivity_py_e6b48678.md",
+    "category": "misc",
+    "source": "./tools/test_connectivity.py:34",
+    "created": "2026-01-29T19:19:47.948347",
+    "path": "prompts/curated/misc/005_test_connectivity_py_e6b48678.md",
+    "rel_path": "../curated/misc/005_test_connectivity_py_e6b48678.md"
+  },
+  {
+    "id": "006_intel_analyst_py_b0d832ed.md",
+    "category": "misc",
+    "source": "./recovered/engine/intel_analyst.py:73",
+    "created": "2026-01-29T19:19:47.948568",
+    "path": "prompts/curated/misc/006_intel_analyst_py_b0d832ed.md",
+    "rel_path": "../curated/misc/006_intel_analyst_py_b0d832ed.md"
+  },
+  {
+    "id": "008_linkedin-profile_md_d6f6431b.md",
+    "category": "misc",
+    "source": "./docs/aridinsights/content/social/linkedin-profile.md:1",
+    "created": "2026-01-29T19:19:47.948873",
+    "path": "prompts/curated/misc/008_linkedin-profile_md_d6f6431b.md",
+    "rel_path": "../curated/misc/008_linkedin-profile_md_d6f6431b.md"
+  },
+  {
+    "id": "009_linkedin-profile_md_7ffb9e82.md",
+    "category": "misc",
+    "source": "./docs/aridinsights/content/social/linkedin-profile.md:10",
+    "created": "2026-01-29T19:19:47.949001",
+    "path": "prompts/curated/misc/009_linkedin-profile_md_7ffb9e82.md",
+    "rel_path": "../curated/misc/009_linkedin-profile_md_7ffb9e82.md"
+  },
+  {
+    "id": "010_linkedin-profile_md_bd1d0230.md",
+    "category": "misc",
+    "source": "./docs/aridinsights/content/social/linkedin-profile.md:20",
+    "created": "2026-01-29T19:19:47.949129",
+    "path": "prompts/curated/misc/010_linkedin-profile_md_bd1d0230.md",
+    "rel_path": "../curated/misc/010_linkedin-profile_md_bd1d0230.md"
+  },
+  {
+    "id": "011_prompt_discovery_sh_cb78592c.md",
+    "category": "misc",
+    "source": "./scripts/prompt_discovery.sh:6",
+    "created": "2026-01-29T19:19:47.949267",
+    "path": "prompts/curated/misc/011_prompt_discovery_sh_cb78592c.md",
+    "rel_path": "../curated/misc/011_prompt_discovery_sh_cb78592c.md"
+  },
+  {
+    "id": "012_prompt_discovery_sh_dce01f1c.md",
+    "category": "misc",
+    "source": "./scripts/prompt_discovery.sh:7",
+    "created": "2026-01-29T19:19:47.949447",
+    "path": "prompts/curated/misc/012_prompt_discovery_sh_dce01f1c.md",
+    "rel_path": "../curated/misc/012_prompt_discovery_sh_dce01f1c.md"
+  },
+  {
+    "id": "013_atlassian_knowledge_py_448a9e5d.md",
+    "category": "misc",
+    "source": "./recovered/engine/atlassian_knowledge.py:1",
+    "created": "2026-01-29T19:19:47.949994",
+    "path": "prompts/curated/misc/013_atlassian_knowledge_py_448a9e5d.md",
+    "rel_path": "../curated/misc/013_atlassian_knowledge_py_448a9e5d.md"
+  },
+  {
+    "id": "014_tsconfig_tsbuildinfo_4ed616ac.md",
+    "category": "misc",
+    "source": "./tsconfig.tsbuildinfo:1",
+    "created": "2026-01-29T19:19:47.950273",
+    "path": "prompts/curated/misc/014_tsconfig_tsbuildinfo_4ed616ac.md",
+    "rel_path": "../curated/misc/014_tsconfig_tsbuildinfo_4ed616ac.md"
+  },
+  {
+    "id": "023__dockerignore_a57e3f7f.md",
+    "category": "misc",
+    "source": "./.dockerignore:1",
+    "created": "2026-01-29T19:19:47.951917",
+    "path": "prompts/curated/misc/023__dockerignore_a57e3f7f.md",
+    "rel_path": "../curated/misc/023__dockerignore_a57e3f7f.md"
+  },
+  {
+    "id": "024_package-lock_json_6de80c0d.md",
+    "category": "misc",
+    "source": "./package-lock.json:853",
+    "created": "2026-01-29T19:19:47.952074",
+    "path": "prompts/curated/misc/024_package-lock_json_6de80c0d.md",
+    "rel_path": "../curated/misc/024_package-lock_json_6de80c0d.md"
+  },
+  {
+    "id": "025_package-lock_json_e8a1bf0f.md",
+    "category": "misc",
+    "source": "./package-lock.json:914",
+    "created": "2026-01-29T19:19:47.952210",
+    "path": "prompts/curated/misc/025_package-lock_json_e8a1bf0f.md",
+    "rel_path": "../curated/misc/025_package-lock_json_e8a1bf0f.md"
+  },
+  {
+    "id": "026_package-lock_json_7ba197ac.md",
+    "category": "misc",
+    "source": "./package-lock.json:943",
+    "created": "2026-01-29T19:19:47.952337",
+    "path": "prompts/curated/misc/026_package-lock_json_7ba197ac.md",
+    "rel_path": "../curated/misc/026_package-lock_json_7ba197ac.md"
+  },
+  {
+    "id": "027_package-lock_json_8c7a7af3.md",
+    "category": "misc",
+    "source": "./package-lock.json:971",
+    "created": "2026-01-29T19:19:47.952467",
+    "path": "prompts/curated/misc/027_package-lock_json_8c7a7af3.md",
+    "rel_path": "../curated/misc/027_package-lock_json_8c7a7af3.md"
+  },
+  {
+    "id": "028_package-lock_json_61ce9745.md",
+    "category": "misc",
+    "source": "./package-lock.json:1135",
+    "created": "2026-01-29T19:19:47.952595",
+    "path": "prompts/curated/misc/028_package-lock_json_61ce9745.md",
+    "rel_path": "../curated/misc/028_package-lock_json_61ce9745.md"
+  },
+  {
+    "id": "029_package-lock_json_77ce2d3d.md",
+    "category": "misc",
+    "source": "./package-lock.json:3167",
+    "created": "2026-01-29T19:19:47.952720",
+    "path": "prompts/curated/misc/029_package-lock_json_77ce2d3d.md",
+    "rel_path": "../curated/misc/029_package-lock_json_77ce2d3d.md"
+  },
+  {
+    "id": "030_package-lock_json_cf65bbe5.md",
+    "category": "misc",
+    "source": "./package-lock.json:5988",
+    "created": "2026-01-29T19:19:47.952850",
+    "path": "prompts/curated/misc/030_package-lock_json_cf65bbe5.md",
+    "rel_path": "../curated/misc/030_package-lock_json_cf65bbe5.md"
+  },
+  {
+    "id": "031_package-lock_json_3c63ab82.md",
+    "category": "misc",
+    "source": "./package-lock.json:6296",
+    "created": "2026-01-29T19:19:47.952980",
+    "path": "prompts/curated/misc/031_package-lock_json_3c63ab82.md",
+    "rel_path": "../curated/misc/031_package-lock_json_3c63ab82.md"
+  },
+  {
+    "id": "032_package-lock_json_cdd37956.md",
+    "category": "misc",
+    "source": "./package-lock.json:6457",
+    "created": "2026-01-29T19:19:47.953126",
+    "path": "prompts/curated/misc/032_package-lock_json_cdd37956.md",
+    "rel_path": "../curated/misc/032_package-lock_json_cdd37956.md"
+  },
+  {
+    "id": "033_package-lock_json_771e97eb.md",
+    "category": "misc",
+    "source": "./package-lock.json:6825",
+    "created": "2026-01-29T19:19:47.953273",
+    "path": "prompts/curated/misc/033_package-lock_json_771e97eb.md",
+    "rel_path": "../curated/misc/033_package-lock_json_771e97eb.md"
+  },
+  {
+    "id": "034_package-lock_json_9b93d0dd.md",
+    "category": "misc",
+    "source": "./package-lock.json:11448",
+    "created": "2026-01-29T19:19:47.953433",
+    "path": "prompts/curated/misc/034_package-lock_json_9b93d0dd.md",
+    "rel_path": "../curated/misc/034_package-lock_json_9b93d0dd.md"
+  },
+  {
+    "id": "035_package-lock_json_32520c48.md",
+    "category": "misc",
+    "source": "./apps/web-main/package-lock.json:1664",
+    "created": "2026-01-29T19:19:47.953580",
+    "path": "prompts/curated/misc/035_package-lock_json_32520c48.md",
+    "rel_path": "../curated/misc/035_package-lock_json_32520c48.md"
+  },
+  {
+    "id": "036_package-lock_json_b04d6566.md",
+    "category": "misc",
+    "source": "./apps/web-main/package-lock.json:3655",
+    "created": "2026-01-29T19:19:47.953728",
+    "path": "prompts/curated/misc/036_package-lock_json_b04d6566.md",
+    "rel_path": "../curated/misc/036_package-lock_json_b04d6566.md"
+  },
+  {
+    "id": "037_package-lock_json_f5e3a7aa.md",
+    "category": "misc",
+    "source": "./apps/web-main/package-lock.json:4034",
+    "created": "2026-01-29T19:19:47.953870",
+    "path": "prompts/curated/misc/037_package-lock_json_f5e3a7aa.md",
+    "rel_path": "../curated/misc/037_package-lock_json_f5e3a7aa.md"
+  },
+  {
+    "id": "038_package-lock_json_9d1cab07.md",
+    "category": "misc",
+    "source": "./apps/web-main/package-lock.json:6899",
+    "created": "2026-01-29T19:19:47.954017",
+    "path": "prompts/curated/misc/038_package-lock_json_9d1cab07.md",
+    "rel_path": "../curated/misc/038_package-lock_json_9d1cab07.md"
+  },
+  {
+    "id": "052_intel_analyst_py_72b8c03a.md",
+    "category": "misc",
+    "source": "./recovered/engine/intel_analyst.py:26",
+    "created": "2026-01-29T19:19:47.956505",
+    "path": "prompts/curated/misc/052_intel_analyst_py_72b8c03a.md",
+    "rel_path": "../curated/misc/052_intel_analyst_py_72b8c03a.md"
+  },
+  {
+    "id": "053_intel_analyst_py_38856522.md",
+    "category": "misc",
+    "source": "./recovered/engine/intel_analyst.py:71",
+    "created": "2026-01-29T19:19:47.956649",
+    "path": "prompts/curated/misc/053_intel_analyst_py_38856522.md",
+    "rel_path": "../curated/misc/053_intel_analyst_py_38856522.md"
+  },
+  {
+    "id": "056_refactoring_summary_md_468c2a04.md",
+    "category": "misc",
+    "source": "./docs/project_history/REFACTORING_SUMMARY.md:137",
+    "created": "2026-01-29T19:19:47.957097",
+    "path": "prompts/curated/misc/056_refactoring_summary_md_468c2a04.md",
+    "rel_path": "../curated/misc/056_refactoring_summary_md_468c2a04.md"
+  },
+  {
+    "id": "057_refactoring_summary_md_c55934c8.md",
+    "category": "misc",
+    "source": "./docs/project_history/REFACTORING_SUMMARY.md:154",
+    "created": "2026-01-29T19:19:47.957231",
+    "path": "prompts/curated/misc/057_refactoring_summary_md_c55934c8.md",
+    "rel_path": "../curated/misc/057_refactoring_summary_md_c55934c8.md"
+  },
+  {
+    "id": "058_migration_md_f66c786e.md",
+    "category": "misc",
+    "source": "./docs/project_history/MIGRATION.md:65",
+    "created": "2026-01-29T19:19:47.957375",
+    "path": "prompts/curated/misc/058_migration_md_f66c786e.md",
+    "rel_path": "../curated/misc/058_migration_md_f66c786e.md"
+  },
+  {
+    "id": "059_04_lsl-field-kit_md-103_1c536d3e.md",
+    "category": "misc",
+    "source": "./docs/aridinsights/products/04_lsl-field-kit.md-103:2",
+    "created": "2026-01-29T19:19:47.957944",
+    "path": "prompts/curated/misc/059_04_lsl-field-kit_md-103_1c536d3e.md",
+    "rel_path": "../curated/misc/059_04_lsl-field-kit_md-103_1c536d3e.md"
+  },
+  {
+    "id": "060_04_lsl-field-kit_md_313c7426.md",
+    "category": "misc",
+    "source": "./docs/aridinsights/products/04_lsl-field-kit.md:111",
+    "created": "2026-01-29T19:19:47.958090",
+    "path": "prompts/curated/misc/060_04_lsl-field-kit_md_313c7426.md",
+    "rel_path": "../curated/misc/060_04_lsl-field-kit_md_313c7426.md"
+  },
+  {
+    "id": "061_termsofservicecontent_tsx_86051a96.md",
+    "category": "misc",
+    "source": "./apps/web-main/components/TermsOfServiceContent.tsx:73",
+    "created": "2026-01-29T19:19:47.958246",
+    "path": "prompts/curated/misc/061_termsofservicecontent_tsx_86051a96.md",
+    "rel_path": "../curated/misc/061_termsofservicecontent_tsx_86051a96.md"
+  },
+  {
+    "id": "062_privacypolicycontent_tsx_420bfafb.md",
+    "category": "misc",
+    "source": "./apps/web-main/components/PrivacyPolicyContent.tsx:38",
+    "created": "2026-01-29T19:19:47.958419",
+    "path": "prompts/curated/misc/062_privacypolicycontent_tsx_420bfafb.md",
+    "rel_path": "../curated/misc/062_privacypolicycontent_tsx_420bfafb.md"
+  },
+  {
+    "id": "063_prompt_discovery_sh_9a468756.md",
+    "category": "misc",
+    "source": "./scripts/prompt_discovery.sh:8",
+    "created": "2026-01-29T19:19:47.958635",
+    "path": "prompts/curated/misc/063_prompt_discovery_sh_9a468756.md",
+    "rel_path": "../curated/misc/063_prompt_discovery_sh_9a468756.md"
+  },
+  {
+    "id": "064_prompt_discovery_sh_2e0e9b5f.md",
+    "category": "misc",
+    "source": "./scripts/prompt_discovery.sh:5",
+    "created": "2026-01-29T19:19:47.958843",
+    "path": "prompts/curated/misc/064_prompt_discovery_sh_2e0e9b5f.md",
+    "rel_path": "../curated/misc/064_prompt_discovery_sh_2e0e9b5f.md"
+  }
+]

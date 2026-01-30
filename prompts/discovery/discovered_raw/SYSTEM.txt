@@ -1,0 +1,3 @@
+./tools/test_connectivity.py
+./docs/.archive/Business Plan Architechture research.md
+./cloud_sql_proxy

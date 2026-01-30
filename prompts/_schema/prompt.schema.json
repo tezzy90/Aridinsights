@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Prompt Catalog Entry",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Unique identifier for the prompt (e.g., cloud_build.verify_status)"
+        },
+        "category": {
+            "type": "string",
+            "enum": [
+                "build_and_ci",
+                "cloud_run",
+                "cloud_build",
+                "firebase_functions",
+                "agents_python",
+                "architecture",
+                "governance",
+                "marketing_content",
+                "recruiting_dei",
+                "misc"
+            ]
+        },
+        "use_cases": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "owner": {
+            "type": "string"
+        },
+        "source_path": {
+            "type": "string"
+        },
+        "source_lines": {
+            "type": "string"
+        },
+        "content": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "id",
+        "category",
+        "content"
+    ]
+}

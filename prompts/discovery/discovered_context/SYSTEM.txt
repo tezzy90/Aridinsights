@@ -1,0 +1,41 @@
+./tools/test_connectivity.py-34-    except Exception as e:
+./tools/test_connectivity.py-35-        print(f"❌ Earth Engine Failed: {e}")
+./tools/test_connectivity.py-36-        print("   (Did you run 'earthengine authenticate'?)")
+./tools/test_connectivity.py-37-        return False
+./tools/test_connectivity.py-38-
+./tools/test_connectivity.py-39-if __name__ == "__main__":
+./tools/test_connectivity.py-40-    print("--- Arid Analysis Connectivity Test ---\n")
+./tools/test_connectivity.py-41-    bq_ok = test_bigquery()
+./tools/test_connectivity.py-42-    log_ok = test_logging()
+./tools/test_connectivity.py-43-    ee_ok = test_ee()
+./tools/test_connectivity.py-44-    
+./tools/test_connectivity.py-45-    if bq_ok and log_ok and ee_ok:
+./tools/test_connectivity.py:46:        print("\n🎉 ALL SYSTEMS GO! The Analysis Server is ready to run.")
+./tools/test_connectivity.py-47-        sys.exit(0)
+./tools/test_connectivity.py-48-    else:
+./tools/test_connectivity.py-49-        print("\n⚠️ Some checks failed. Please authenticate using 'gcloud auth application-default login' and 'earthengine authenticate'.")
+./tools/test_connectivity.py-50-        sys.exit(1)
+--
+./docs/.archive/Business Plan Architechture research.md-1-I need to create a business plan for arid insights. It will be a corp from Delaware in march but I need one that will be so fully done that investors will be impressed. What are all the elements that need to be present 
+./docs/.archive/Business Plan Architechture research.md-2-essentually arid insights would be come a system of records if what i want to do becomes reality/ are there any private companys that have that status?
+./docs/.archive/Business Plan Architechture research.md-3-Lets talk all these Who do you want saying “we don’t make this decision without Arid Insights”?
+./docs/.archive/Business Plan Architechture research.md-4-
+./docs/.archive/Business Plan Architechture research.md-5-Are you optimizing first for private capital, public-sector adoption, or insurers/lenders?
+./docs/.archive/Business Plan Architechture research.md-6-
+./docs/.archive/Business Plan Architechture research.md-7-Do you want Arid Insights cited in investment memos, bond disclosures, or regulatory filings?  i want to understaand where i trully have the opportunity to make an impact and how
+./docs/.archive/Business Plan Architechture research.md-8-would i do additional products as well or focus on thos mentioned
+./docs/.archive/Business Plan Architechture research.md-9-I want research on how to become a system opf record that is apprepo for my startup arid insights. Id like examples. I want detailed descriptions of the products with my mvp suggestion and i want to start wherever you suggest but i am based in florid howevwer i sont think all insurers will be vbased here.  I now that there are sme legal pressures in florida that provide urgency especiually for companues like data centers and the like that you mentioned for option finally i want my bussiness p[lan architexture set up for this new direction. please ask any questins to gfet to 95% clarity
+./docs/.archive/Business Plan Architechture research.md:10:CAN AN AI FIRST COMPANY BECOME A SYSTEM OF RECORD
+./docs/.archive/Business Plan Architechture research.md-11-master-product-strategy-2026.md
+./docs/.archive/Business Plan Architechture research.md-12-File
+./docs/.archive/Business Plan Architechture research.md-13-aig-os-constitution-v1.md
+./docs/.archive/Business Plan Architechture research.md-14-File
+./docs/.archive/Business Plan Architechture research.md-15-data-dictionary-v1.md
+./docs/.archive/Business Plan Architechture research.md-16-File
+./docs/.archive/Business Plan Architechture research.md-17-prompt-library-v1.md
+./docs/.archive/Business Plan Architechture research.md-18-File
+./docs/.archive/Business Plan Architechture research.md-19-universal-rate-source-index-v1.md
+./docs/.archive/Business Plan Architechture research.md-20-File
+./docs/.archive/Business Plan Architechture research.md-21-change-control-log-v1.md
+./docs/.archive/Business Plan Architechture research.md-22-File
+Binary file ./cloud_sql_proxy matches

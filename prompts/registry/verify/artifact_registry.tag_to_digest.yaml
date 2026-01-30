@@ -1,0 +1,28 @@
+id: "verify.artifact_registry.tag_to_digest"
+version: "1.0.0"
+owner: "platform-engineering"
+category: "verify"
+intent: "Resolve a Git tag (e.g., v0.2.2) to a specific Docker image digest"
+inputs:
+  - name: "TAG_NAME"
+    type: "string"
+    required: true
+  - name: "REPO"
+    type: "string"
+    default: "web"
+outputs:
+  - name: "digest"
+    type: "string"
+    description: "The SHA256 digest of the image"
+steps:
+  - 'Run ''gcloud artifacts docker images list ... --filter="tags:$TAG_NAME"'''
+success_criteria:
+  - "Returns exactly one digest"
+failure_modes:
+  - "Tag not found"
+  - "Ambiguous tag (multiple digests)"
+examples:
+  - input: |
+      TAG_NAME="v0.2.2"
+    output: |
+      sha256:66d66fb8667fe5d8f989b14189d76c63cfd93728364109bcb500ebefd7893ff7

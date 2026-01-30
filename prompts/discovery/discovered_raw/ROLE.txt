@@ -1,0 +1,2 @@
+./docs/.archive/Deep Research.md
+./scripts/prompt_discovery.sh

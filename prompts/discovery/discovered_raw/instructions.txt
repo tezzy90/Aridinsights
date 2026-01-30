@@ -1,0 +1,7 @@
+./recovered/engine/intel_analyst.py
+./agents/compliance-engine/intel_analyst.py
+./docs/project_history/REFACTORING_SUMMARY.md
+./docs/project_history/MIGRATION.md
+./docs/.archive/Agentic build Process Research.md
+./docs/.archive/Deep Research.md
+./cloud_sql_proxy

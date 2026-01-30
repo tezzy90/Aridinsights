@@ -1,0 +1,25 @@
+id: "verify.cloud_run.service_revision_image"
+version: "1.0.0"
+owner: "platform-engineering"
+category: "verify"
+intent: "Confirm that a Cloud Run service is serving the expected image digest"
+inputs:
+  - name: "SERVICE_NAME"
+    type: "string"
+    required: true
+  - name: "EXPECTED_DIGEST"
+    type: "string"
+    required: true
+outputs:
+  - name: "match"
+    type: "boolean"
+steps:
+  - "Run 'gcloud run services describe $SERVICE_NAME ...'"
+  - "Extract status.latestReadyRevisionName"
+  - "Describe revision to get image"
+  - "Compare image digest with EXPECTED_DIGEST"
+success_criteria:
+  - "Digests match exactly"
+failure_modes:
+  - "Service not found"
+  - "Latest revision failed"

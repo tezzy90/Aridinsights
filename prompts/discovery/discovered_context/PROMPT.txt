@@ -1,0 +1,24 @@
+./docs/aridinsights/05_change-control/change-control-log-v1.md-1-# Change Control Log v1
+./docs/aridinsights/05_change-control/change-control-log-v1.md-2-
+./docs/aridinsights/05_change-control/change-control-log-v1.md-3-## Purpose
+./docs/aridinsights/05_change-control/change-control-log-v1.md-4-This log explains what changed, why, and what it impacts. It protects you when:
+./docs/aridinsights/05_change-control/change-control-log-v1.md-5-- a customer questions an output
+./docs/aridinsights/05_change-control/change-control-log-v1.md-6-- a partner audits your data lineage
+./docs/aridinsights/05_change-control/change-control-log-v1.md-7-- you debug regressions
+./docs/aridinsights/05_change-control/change-control-log-v1.md-8-
+./docs/aridinsights/05_change-control/change-control-log-v1.md-9-## Change Entry Template
+./docs/aridinsights/05_change-control/change-control-log-v1.md-10-- Change ID:
+./docs/aridinsights/05_change-control/change-control-log-v1.md-11-- Date:
+./docs/aridinsights/05_change-control/change-control-log-v1.md:12:- Change Type: SCHEMA | PROMPT | DATA_SOURCE | THRESHOLD | PRODUCT_COPY | UI
+./docs/aridinsights/05_change-control/change-control-log-v1.md-13-- Summary:
+./docs/aridinsights/05_change-control/change-control-log-v1.md-14-- Rationale:
+./docs/aridinsights/05_change-control/change-control-log-v1.md-15-- Impacted Products: SCORECARD | AUDIT | MONITORING | NAVIGATOR | CONTENT
+./docs/aridinsights/05_change-control/change-control-log-v1.md-16-- Impacted Geos: FL-ORLANDO | FL-TAMPA | OTHER
+./docs/aridinsights/05_change-control/change-control-log-v1.md-17-- Risk Level: LOW | MED | HIGH
+./docs/aridinsights/05_change-control/change-control-log-v1.md-18-- Rollback Plan:
+./docs/aridinsights/05_change-control/change-control-log-v1.md-19-- Validation Steps:
+./docs/aridinsights/05_change-control/change-control-log-v1.md-20-- Evidence Links (internal refs):
+./docs/aridinsights/05_change-control/change-control-log-v1.md-21-- Approved By:
+./docs/aridinsights/05_change-control/change-control-log-v1.md-22-
+./docs/aridinsights/05_change-control/change-control-log-v1.md-23-## Required attachments for HIGH risk changes
+./docs/aridinsights/05_change-control/change-control-log-v1.md-24-- before/after prompt diff

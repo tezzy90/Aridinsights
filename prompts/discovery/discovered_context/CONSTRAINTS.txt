@@ -1,0 +1,25 @@
+./scripts/prompt_discovery.sh-4-# Output directories
+./scripts/prompt_discovery.sh-5-RAW_DIR="prompts/discovery/discovered_prompts_raw"
+./scripts/prompt_discovery.sh-6-INDEX_FILE="$RAW_DIR/index.txt"
+./scripts/prompt_discovery.sh-7-
+./scripts/prompt_discovery.sh-8-mkdir -p "$RAW_DIR"
+./scripts/prompt_discovery.sh-9-
+./scripts/prompt_discovery.sh-10-echo "Starting Prompt Discovery (using grep)..."
+./scripts/prompt_discovery.sh-11-
+./scripts/prompt_discovery.sh-12-# Define patterns to search
+./scripts/prompt_discovery.sh-13-PATTERNS=(
+./scripts/prompt_discovery.sh-14-  "ROLE"
+./scripts/prompt_discovery.sh-15-  "OBJECTIVE"
+./scripts/prompt_discovery.sh:16:  "CONSTRAINTS"
+./scripts/prompt_discovery.sh-17-  "system prompt"
+./scripts/prompt_discovery.sh-18-  "You are a"
+./scripts/prompt_discovery.sh-19-  "You are an"
+./scripts/prompt_discovery.sh-20-  "prompt:"
+./scripts/prompt_discovery.sh-21-)
+./scripts/prompt_discovery.sh-22-
+./scripts/prompt_discovery.sh-23-# Clear previous index
+./scripts/prompt_discovery.sh-24-echo "Discovery Run: $(date)" > "$INDEX_FILE"
+./scripts/prompt_discovery.sh-25-
+./scripts/prompt_discovery.sh-26-# Run grep for each pattern
+./scripts/prompt_discovery.sh-27-for PATTERN in "${PATTERNS[@]}"; do
+./scripts/prompt_discovery.sh-28-  SAFE_NAME=$(echo "$PATTERN" | tr ' ' '_')

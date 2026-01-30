@@ -1,0 +1,3 @@
+./docs/.archive/Deep Research.md:490:**ROLE & PERSONA**
+./docs/aridinsights/prompts/florida-water-systems-architect.md:8:## ROLE & PERSONA
+./scripts/prompt_discovery.sh:14:  "ROLE"

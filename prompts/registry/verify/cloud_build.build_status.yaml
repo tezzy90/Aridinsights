@@ -1,0 +1,34 @@
+id: "verify.cloud_build.build_status"
+version: "1.0.0"
+owner: "platform-engineering"
+category: "verify"
+intent: "Verify that a specific Cloud Build run finished successfully"
+inputs:
+  - name: "BUILD_ID"
+    type: "string"
+    description: "The unique ID of the Cloud Build run"
+    required: true
+  - name: "REGION"
+    type: "string"
+    default: "us-central1"
+outputs:
+  - name: "status"
+    type: "string"
+    options: ["SUCCESS", "FAILURE", "WORKING", "QUEUED"]
+preconditions:
+  - "Authenticated with gcloud"
+steps:
+  - 'Run ''gcloud builds describe $BUILD_ID --region=$REGION --format="value(status)"'''
+success_criteria:
+  - "Status is SUCCESS"
+failure_modes:
+  - "Build ID invalid"
+  - "Region mismatch"
+safety_notes:
+  - "Read-only operation"
+examples:
+  - input: |
+      BUILD_ID="ae5cabdb-..."
+      REGION="us-central1"
+    output: |
+      SUCCESS
