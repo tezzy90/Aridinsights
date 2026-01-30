@@ -10,12 +10,24 @@ It is designed to be deployed behind IAP (see [ADR-001](../decisions/ADR-001-int
 
 ## How to Run Locally
 
+### Prerequisites
+- Node.js 20+ (Team: use `.nvmrc`)
+
+### Commands
 ```bash
-cd apps/docs-portal
+# 1. Setup Node
+nvm use || nvm install 20
+
+# 2. Install dependencies (from Repo Root)
 npm install
-npm run dev
+
+# 3. Run Portal
+npm run dev:docs
 ```
+
 Access at: http://localhost:3000
+
+> **Note:** If you see `ENOWORKSPACES`, ensure you are using `npm run dev:docs` from the repo root, or `npm -w apps/docs-portal run dev`. Do NOT use `npx next dev` directly.
 
 ## Search Index
 The search index is generated at build time. To refresh the index manually (e.g., after adding a file):
