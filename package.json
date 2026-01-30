@@ -7,7 +7,7 @@
     ],
     "scripts": {
         "lint": "npm run lint -w apps/web-main",
-        "prepare": "husky install"
+        "prepare": "command -v husky >/dev/null 2>&1 && husky install || echo \"husky not installed, skipping\""
     },
     "devDependencies": {
         "husky": "^8.0.0"
