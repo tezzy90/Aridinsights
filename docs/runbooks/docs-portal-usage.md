@@ -1,59 +1,32 @@
-# Internal Docs Portal Usage
+# Docs Portal Runbook
 
-## Overview
-The **Docs Portal** (`apps/docs-portal`) is a local web application that provides full-text search across all repository documentation:
-- `docs/` (Architecture, Standards, Plans)
-- `prompts/` (Curated Prompts, Library)
-- `features/` (Feature definitions, if present)
+**Control Center url:** `http://localhost:3000` (Local)
+**Source:** `apps/docs-portal`
 
-It is designed to be deployed behind IAP (see [ADR-001](../decisions/ADR-001-internal-docs-access.md)).
+## v2 Upgrade (Control Center)
+The portal now acts as a central hub for Docs, Prompts, and Feature Registry. It uses a **client-side search index** generated at build time.
 
-## How to Run Locally
-
-### Prerequisites
-- Node.js 20+ (Team: use `.nvmrc`)
-
-### Commands
+## Quick Start
 ```bash
-# 1. Setup Node
-nvm use || nvm install 20
-
-# 2. Install dependencies (from Repo Root)
-npm install
-
-# 3. Run Portal
-npm run dev:docs
+# From repo root
+num run dev:docs
 ```
 
-Access at: http://localhost:3000
-
-> **Note:** If you see `ENOWORKSPACES`, ensure you are using `npm run dev:docs` from the repo root, or `npm -w apps/docs-portal run dev`. Do NOT use `npx next dev` directly.
-
-## Search Index
-The search index is generated at build time. To refresh the index manually (e.g., after adding a file):
+## Rebuilding the Index
+If you add new files, you must rebuild the index for them to appear in Search, Recent, or Lists.
 ```bash
-npm run index
+npm run index:docs
 ```
+*Note: The indexer uses `git log` to determine `updatedAt`. If a file is not committed, it falls back to filesystem creation time.*
 
-## Adding Content
+## Directory Structure
+*   `docs/` -> General documentation, ADRs (`docs/decisions`), Runbooks (`docs/runbooks`)
+*   `prompts/` -> Prompt Library (auto-discovered)
+*   `features/` -> Feature Registry (`FC-####`)
 
-### Markdown Docs
-Simply add `.md` files to `docs/` or `prompts/`. They are auto-discovered.
+## Troubleshooting
+**"Search Index Missing"**
+Run `npm run index:docs`. If permissions fail (EPERM), ensure you are running from the repo root and using **Volta (Node 20)**.
 
-### Frontmatter (Recommended)
-Add YAML frontmatter to improve searchability:
-
-```markdown
----
-title: "My New Feature Spec"
-tags: ["feature", "payment", "q1"]
-status: draft
-owner: team-billing
-excerpt: "A short summary shown in search results."
----
-
-# Content starts here...
-```
-
-### Feature Cards
-If you maintain feature definitions in `feature-cards/` or `jira-export/`, they will also be indexed dynamically.
+**"Access Denied"**
+The reader view only serves files from allowed roots: `docs`, `prompts`, `features`, `product`. Do not try to access `secrets` or `.env`.

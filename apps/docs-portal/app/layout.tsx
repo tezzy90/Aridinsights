@@ -1,9 +1,14 @@
-import React from 'react';
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { Sidebar } from '../components/sidebar';
+import { Topbar } from '../components/topbar';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'AridInsights Internal Docs',
-    description: 'Internal documentation and prompt library.',
+    title: 'AridDocs Portal',
+    description: 'Internal Control Center for Arid Insights.',
 };
 
 export default function RootLayout({
@@ -13,17 +18,21 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body style={{ margin: 0, fontFamily: 'system-ui, sans-serif', background: '#f9fafb', color: '#111827' }}>
-                <header style={{ borderBottom: '1px solid #e5e7eb', background: '#fff', padding: '1rem 2rem', display: 'flex', alignItems: 'center', gap: '2rem' }}>
-                    <a href="/" style={{ textDecoration: 'none', fontWeight: 'bold', fontSize: '1.25rem', color: '#000' }}>AridInsights Docs</a>
-                    <nav style={{ display: 'flex', gap: '1rem' }}>
-                        <a href="/search" style={{ color: '#4b5563', textDecoration: 'none' }}>Search</a>
-                        <a href="/browse" style={{ color: '#4b5563', textDecoration: 'none' }}>Browse</a>
-                    </nav>
-                </header>
-                <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem' }}>
-                    {children}
-                </main>
+            <body className={`${inter.className} bg-gray-50 flex min-h-screen text-slate-900`}>
+                <Sidebar />
+                <div className="flex-1 ml-64 flex flex-col min-h-screen">
+                    <Topbar />
+                    <main className="flex-1 p-8 overflow-y-auto">
+                        {/* Security Banner */}
+                        <div className="mb-8 bg-amber-50 border-l-4 border-amber-400 p-4 text-sm text-amber-800 rounded-r shadow-sm flex items-start justify-between">
+                            <div>
+                                <p className="font-bold mb-1">🔒 Internal – Protected by IAP</p>
+                                <p>Access governed by <a href="/doc/docs/decisions/ADR-001-internal-docs-access.md" className="underline hover:text-amber-900">ADR-001</a>. Do not share credentials or screenshots externally.</p>
+                            </div>
+                        </div>
+                        {children}
+                    </main>
+                </div>
             </body>
         </html>
     );
