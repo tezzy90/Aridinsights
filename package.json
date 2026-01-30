@@ -17,6 +17,7 @@
         "lint": "npm run lint -w apps/web-main",
         "prepare": "command -v husky >/dev/null 2>&1 && husky install || echo \"husky not installed, skipping\"",
         "doctor": "node scripts/doctor.mjs",
+        "features": "node scripts/list_features.mjs",
         "preflight": "bash scripts/preflight.sh",
         "prompts:discover": "node scripts/prompt_discovery.mjs",
         "prompts:sync": "python3 scripts/prompt_extract.py",
