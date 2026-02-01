@@ -53,30 +53,30 @@ export default function Dashboard() {
                     {loading ? (
                         <div className="p-8 text-center text-gray-400">Loading index...</div>
                     ) : (
-                        <table className="min-w-full divide-y divide-gray-200">
-                            <thead className="bg-gray-50">
+                        <table className="w-full text-sm">
+                            <thead className="bg-gray-50 border-b border-gray-100">
                                 <tr>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Updated</th>
+                                    <th className="py-2 pr-4 pl-6 text-left font-semibold opacity-80 text-gray-500">Title</th>
+                                    <th className="py-2 pr-4 text-left font-semibold opacity-80 text-gray-500">Type</th>
+                                    <th className="py-2 pr-6 text-right font-semibold opacity-80 text-gray-500">Updated</th>
                                 </tr>
                             </thead>
-                            <tbody className="bg-white divide-y divide-gray-200">
+                            <tbody className="bg-white">
                                 {recents.map(doc => (
-                                    <tr key={doc.id} className="hover:bg-gray-50 transition">
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <Link href={doc.url} className="text-sm font-medium text-blue-600 hover:underline block truncate max-w-lg">
+                                    <tr key={doc.id} className="hover:bg-gray-50 transition border-b border-gray-100 last:border-0">
+                                        <td className="py-2 pr-4 pl-6 align-top">
+                                            <Link href={doc.url} className="font-medium text-blue-600 hover:underline block truncate max-w-lg">
                                                 {doc.title}
                                             </Link>
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                                        <td className="py-2 pr-4 align-top">
+                                            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200">
                                                 {doc.category === 'features' ? 'Feature' :
                                                     doc.category === 'prompts' ? 'Prompt' :
                                                         doc.subtype || 'Doc'}
                                             </span>
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm text-gray-500">
+                                        <td className="py-2 pr-6 text-right align-top text-gray-500 font-mono text-xs">
                                             {formatDate(doc.updatedAt)}
                                         </td>
                                     </tr>

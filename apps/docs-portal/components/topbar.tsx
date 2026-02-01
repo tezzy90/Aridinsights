@@ -16,11 +16,11 @@ export function Topbar() {
 
     return (
         <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8 sticky top-0 z-10 w-full">
-            <div className="flex items-center flex-1">
-                <form onSubmit={handleSearch} className="w-full max-w-lg relative">
+            <div className="flex items-center flex-1 gap-8">
+                <form onSubmit={handleSearch} className="w-full max-w-sm relative">
                     <input
                         type="text"
-                        placeholder="Search docs, prompts, features..."
+                        placeholder="Search docs..."
                         className="w-full pl-4 pr-10 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
@@ -29,6 +29,16 @@ export function Topbar() {
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </button>
                 </form>
+
+                <nav className="flex flex-wrap items-center gap-4 text-sm hidden md:flex">
+                    <a className="opacity-90 hover:opacity-100 hover:underline hover:text-blue-600" href="/">Dashboard</a>
+                    <a className="opacity-90 hover:opacity-100 hover:underline hover:text-blue-600" href="/search">Search</a>
+                    <a className="opacity-90 hover:opacity-100 hover:underline hover:text-blue-600" href="/docs">Docs</a>
+                    <a className="opacity-90 hover:opacity-100 hover:underline hover:text-blue-600" href="/adrs">ADRs</a>
+                    <a className="opacity-90 hover:opacity-100 hover:underline hover:text-blue-600" href="/runbooks">Runs</a>
+                    <a className="opacity-90 hover:opacity-100 hover:underline hover:text-blue-600" href="/features">Features</a>
+                    <a className="opacity-90 hover:opacity-100 hover:underline hover:text-blue-600" href="/prompts">Prompts</a>
+                </nav>
             </div>
 
             <div className="flex items-center gap-4">
