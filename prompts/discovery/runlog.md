@@ -13,3 +13,18 @@
 - **persona**:        5 files matched
 - **BEGIN PROMPT**:        0 files matched
 - **END PROMPT**:        0 files matched
+### Discovery Run: Fri Jan 30 16:02:48 EST 2026
+- **ROLE**:        3 files matched
+- **OBJECTIVE**:        2 files matched
+- **CONSTRAINTS**:        2 files matched
+- **SYSTEM**:        6 files matched
+- **system prompt**:        2 files matched
+- **You are a**:        5 files matched
+- **You are an**:        2 files matched
+- **prompt:**:        2 files matched
+- **PROMPT**:        4 files matched
+- **instructions**:        9 files matched
+- **agent**:       14 files matched
+- **persona**:        7 files matched
+- **BEGIN PROMPT**:        2 files matched
+- **END PROMPT**:        2 files matched

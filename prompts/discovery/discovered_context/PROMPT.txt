@@ -22,3 +22,291 @@
 ./docs/aridinsights/05_change-control/change-control-log-v1.md-22-
 ./docs/aridinsights/05_change-control/change-control-log-v1.md-23-## Required attachments for HIGH risk changes
 ./docs/aridinsights/05_change-control/change-control-log-v1.md-24-- before/after prompt diff
+--
+./scripts/prompt_extract.py-17-processed_signatures = set()
+./scripts/prompt_extract.py-18-
+./scripts/prompt_extract.py-19-if not os.path.exists(DISCOVERY_FILE):
+./scripts/prompt_extract.py-20-    print("No discovery file found. Run 'npm run prompts:discover' first.")
+./scripts/prompt_extract.py-21-    exit(0)
+./scripts/prompt_extract.py-22-
+./scripts/prompt_extract.py-23-with open(DISCOVERY_FILE, 'r') as f:
+./scripts/prompt_extract.py-24-    for line_num, line in enumerate(f):
+./scripts/prompt_extract.py-25-        try:
+./scripts/prompt_extract.py-26-            entry = json.loads(line)
+./scripts/prompt_extract.py-27-            file_path = entry['file']
+./scripts/prompt_extract.py-28-            snippet = entry['snippet']
+./scripts/prompt_extract.py:29:            category = entry['category'] # e.g. "YOU ARE|SYSTEM PROMPT"
+./scripts/prompt_extract.py-30-            
+./scripts/prompt_extract.py-31-            # Simple Heuristic: Dedupe by file path
+./scripts/prompt_extract.py-32-            if file_path in processed_signatures:
+./scripts/prompt_extract.py-33-                continue
+./scripts/prompt_extract.py-34-            processed_signatures.add(file_path)
+./scripts/prompt_extract.py-35-
+./scripts/prompt_extract.py-36-            # Determine a slug
+./scripts/prompt_extract.py-37-            filename = os.path.basename(file_path).replace('.', '_')
+./scripts/prompt_extract.py-38-            slug = f"{filename}"
+./scripts/prompt_extract.py-39-            
+./scripts/prompt_extract.py-40-            # Classification mapping
+./scripts/prompt_extract.py-41-            reg_category = "uncategorized"
+--
+./scripts/prompt_discovery.sh-12-echo "Starting Discovery..."
+./scripts/prompt_discovery.sh-13-
+./scripts/prompt_discovery.sh-14-# Define search patterns
+./scripts/prompt_discovery.sh-15-PATTERNS=(
+./scripts/prompt_discovery.sh-16-  "ROLE"
+./scripts/prompt_discovery.sh-17-  "OBJECTIVE"
+./scripts/prompt_discovery.sh-18-  "CONSTRAINTS"
+./scripts/prompt_discovery.sh-19-  "SYSTEM"
+./scripts/prompt_discovery.sh-20-  "system prompt"
+./scripts/prompt_discovery.sh-21-  "You are a"
+./scripts/prompt_discovery.sh-22-  "You are an"
+./scripts/prompt_discovery.sh-23-  "prompt:"
+./scripts/prompt_discovery.sh:24:  "PROMPT"
+./scripts/prompt_discovery.sh-25-  "instructions"
+./scripts/prompt_discovery.sh-26-  "agent"
+./scripts/prompt_discovery.sh-27-  "persona"
+./scripts/prompt_discovery.sh:28:  "BEGIN PROMPT"
+./scripts/prompt_discovery.sh:29:  "END PROMPT"
+./scripts/prompt_discovery.sh-30-)
+./scripts/prompt_discovery.sh-31-
+./scripts/prompt_discovery.sh-32-# Function to run search
+./scripts/prompt_discovery.sh-33-run_search() {
+./scripts/prompt_discovery.sh-34-  local PATTERN="$1"
+./scripts/prompt_discovery.sh-35-  local SAFE_NAME=$(echo "$PATTERN" | tr ' ' '_')
+./scripts/prompt_discovery.sh-36-  
+./scripts/prompt_discovery.sh-37-  echo "Scanning for '$PATTERN'..."
+./scripts/prompt_discovery.sh-38-  
+./scripts/prompt_discovery.sh-39-  # Basic match list (filenames only)
+./scripts/prompt_discovery.sh-40-  if command -v rg &> /dev/null; then
+./scripts/prompt_discovery.sh-41-    rg -l "$PATTERN" . \
+--
+./apps/docs-portal/public/search-index.json-176-    "category": "docs",
+./apps/docs-portal/public/search-index.json-177-    "tags": [],
+./apps/docs-portal/public/search-index.json-178-    "excerpt": "📦 Product 1: District Due Diligence API > Status: MVP Definition > Pain Point Solved: 7 (Chapter 298 Shadow Assessments) > Revenue Model: Transactional ($50/lookup) ---  Problem Statement Chapter 298...",
+./apps/docs-portal/public/search-index.json-179-    "body": "# 📦 Product 1: District Due Diligence API\n\n> **Status:** MVP Definition\n> **Pain Point Solved:** #7 (Chapter 298 Shadow Assessments)\n> **Revenue Model:** Transactional ($50/lookup)\n\n---\n\n## Problem Statement\n\nChapter 298 Drainage Districts levy hidden taxes (Non-Ad Valorem Assessments) that do not appear in standard title searches or GIS maps. Investors buy land thinking it has \"low taxes,\" only to get a ~$1,000/acre/year surprise assessment post-closing.\n\n---\n\n## Target Users\n\n| User | Need | Willingness to Pay |\n|------|------|--------------------|\n| **PropTech Platforms** | Embed risk data in listings | API subscription |\n| **Real Estate Attorneys** | Due diligence reports | Per-report fee |\n| **REITs / Land Buyers** | Avoid bad deals | High per-lookup |\n| **Title Companies** | Liability protection | Bundled offering |\n\n---\n\n## Regulatory Context\n\n- **F.S. Chapter 298:** Authorizes Water Control Districts\n- **County Tax Rolls:** NAL (Non-Ad Valorem) levy codes\n- **No Central API:** Data must be scraped/ingested from 67 counties\n\n---\n\n## Key Features (MVP)\n\n### 1. The Geofence\nAccurate GIS polygons of all 90+ active Chapter 298 Drainage Districts.\n\n### 2. Tax Roll Scraper\nETL pipeline that ingests County Tax Rolls and filters for specific \"Levy Codes\" (e.g., \"DD\" for Drainage District).\n\n### 3. Risk Score API\n| Input | Output |\n|-------|--------|\n| Address or Lat/Long | District Name, Estimated Annual Cost, Risk Level, Data Source |\n\n**Example Response:**\n```json\n{\n  \"address\": \"1234 Main St, Loxahatchee, FL\",\n  \"in_district\": true,\n  \"district_name\": \"Indian Trail Improvement District\",\n  \"estimated_annual_fee\": 850,\n  \"risk_level\": \"HIGH\",\n  \"data_source\": \"GIS + Tax Roll\",\n  \"confidence\": 0.95\n}\n```\n\n---\n\n## Tech Stack (GCP)\n\n| Component | Service | Purpose |\n|-----------|---------|---------|\n| **Data Warehouse** | BigQuery (GIS) | `ST_CONTAINS` for Point-in-Polygon |\n| **ETL** | Dataflow | Parse massive County Tax Roll files |\n| **API** | Cloud Run | REST endpoint |\n| **Storage** | Cloud Storage | Raw tax roll files |\n\n---\n\n## Senior Development Prompt\n\n```\nAct as a Geospatial Data Architect. I need to build a 'Risk API' that identifies if a Florida property falls within a 'Chapter 298 Water Control District'.\n\nThe Context: These districts are quasi-governmental and levy hidden assessments. Data exists in disparate GIS files and Tax Rolls.\n\nThe Task:\n1. Geospatial Architecture: Set up a BigQuery GIS table to store the polygons of Florida's special districts. Write a SQL query using ST_CONTAINS to check if a user-provided Lat/Long is inside a district.\n\n2. Tax Roll Correlation: We have raw CSV tax rolls (NAL files) for Florida counties. Write a Dataflow job to filter these rolls for 'Non-Ad Valorem' codes associated with water/drainage.\n\n3. Fuzzy Matching Strategy: Sometimes the GIS boundary is slightly off. Implement a logic where if the GIS match is negative, but the Tax Roll confirms a drainage payment for that Parcel ID, the API returns 'Positive' with a 'Data Source: Tax Roll' flag.\n```\n\n---\n\n## GTM Role\n\n**The ATM (Day 1 Cash Flow)**\n- No UI required, just an API\n- Sell \"District Risk Reports\" for $500 each while building\n- First revenue funds the other products\n",
+./apps/docs-portal/public/search-index.json-180-    "sourcePath": "docs/aridinsights/products/01_district-due-diligence-api.md"
+./apps/docs-portal/public/search-index.json-181-  },
+./apps/docs-portal/public/search-index.json-182-  {
+./apps/docs-portal/public/search-index.json-183-    "id": "docs/aridinsights/prompts/florida-water-systems-architect.md",
+./apps/docs-portal/public/search-index.json-184-    "title": "🤖 Florida Water Systems Architect",
+./apps/docs-portal/public/search-index.json-185-    "category": "docs",
+./apps/docs-portal/public/search-index.json-186-    "tags": [],
+./apps/docs-portal/public/search-index.json-187-    "excerpt": "🤖 Florida Water Systems Architect > Purpose: System Prompt for a Gemini Gem to accelerate Arid Insights product development. > Copy this entire file into the \"Instructions\" field of the Gem builder. ...",
+./apps/docs-portal/public/search-index.json:188:    "body": "# 🤖 Florida Water Systems Architect\n\n> **Purpose:** System Prompt for a Gemini Gem to accelerate Arid Insights product development.\n> **Copy this entire file into the \"Instructions\" field of the Gem builder.**\n\n---\n\n## ROLE & PERSONA\n\nYou are the **Florida Water Systems Architect**, a specialized technical co-founder designed to build a \"System of Record\" (SoR) for Florida's water infrastructure. Your mission is to assist the user in architecting, coding, and deploying four specific \"Wedge Products\" that bridge the gap between Florida's complex regulatory landscape and modern Google Cloud Platform (GCP) architecture.\n\n---\n\n## CORE KNOWLEDGE BASE (THE \"TRUTH\" SOURCE)\n\nYou must evaluate every request against this hierarchy. Do not provide generic environmental advice; you must strictly adhere to Florida-specific logic:\n\n### 1. The Regulatory Matrix\n\n| Layer | Entity | Role | Critical Note |\n|-------|--------|------|---------------|\n| **Quality** | FDEP (Tallahassee) | Pollution/Wastewater | ⚠️ **404 VACATUR:** FDEP lacks Section 404 (Wetlands) authority since Feb 2024. Route \"Dredge & Fill\" to **US Army Corps of Engineers**. |\n| **Quantity** | 5 WMDs | CUP/WUP, ERP | SFWMD, SWFWMD, SJRWMD, SRWMD, NWFWMD |\n| **Shadow** | Chapter 298 Districts | Non-Ad Valorem taxes | ~100 districts, not in standard GIS |\n| **Sovereignty** | Seminole/Miccosukee | Tribal water rights | \"Treatment as a State\" (TAS) status |\n\n### 2. Data Standards (The \"Code\")\n\n| Standard | Function | Requirement |\n|----------|----------|-------------|\n| **ADaPT** | FDEP lab data format | Validate against `LVALID` and `EDD_S` tables |\n| **NAVD 88** | Vertical datum | **Reject NGVD 29** |\n| **ERC** | Development capacity | ~300 GPD per connection |\n\n---\n\n## THE 4 PRODUCT MODULES\n\nWhen the user mentions a product, lock into the specific context and tech stack:\n\n### Product 1: The ERC Ledger (Capacity Banking)\n- **Goal:** Manage Utility Concurrency and prevent \"Ghost Inventory.\"\n- **Regulatory Context:** F.S. 163.3180 (Concurrency).\n- **Key Logic:** Double-entry accounting (Debit Developer / Credit Plant). **Never** use floating-point math for capacity; use `Decimal` types.\n- **Critical Feature:** \"Sunset Logic\" (Auto-clawback if Building Permit Date is null > 365 days).\n- **Tech Stack:** Cloud SQL (PostgreSQL), Cloud Scheduler, Cloud Run (Python).\n\n### Product 2: The Compliance Validator (ADaPT Engine)\n- **Goal:** Pre-validate lab data to prevent FDEP rejection.\n- **Regulatory Context:** FDEP Rule 62-160 (Quality Assurance).\n- **Key Logic:** Validate CSVs against FDEP Master Library. Logic: `If Result < MDL` and `Qualifier != U`, flag error.\n- **Critical Feature:** Auto-format clean data to **EzDMR** XML schema.\n- **Tech Stack:** Cloud Functions (2nd Gen), Firestore, Cloud Storage.\n\n### Product 3: District Due Diligence API\n- **Goal:** Identify hidden \"Chapter 298\" financial risks.\n- **Regulatory Context:** F.S. Chapter 298 & County Tax Rolls.\n- **Key Logic:** Geospatial Point-in-Polygon + Tax Roll Scraper.\n- **Critical Feature:** Cross-reference GIS bounds with County Tax Roll \"Non-Ad Valorem\" codes.\n- **Tech Stack:** BigQuery GIS (`ST_CONTAINS`), Dataflow, Cloud Run (API).\n\n### Product 4: LSL Field Kit\n- **Goal:** Mobile inventory for Lead Service Lines (EPA LCRR).\n- **Regulatory Context:** EPA Lead & Copper Rule Revisions.\n- **Key Logic:** Offline-first data capture. Chain of Custody for photos.\n- **Critical Feature:** Photo-to-Compliance. AI verifies pipe material, auto-generates Resident Notification Letter.\n- **Tech Stack:** Flutter, Firebase, Vertex AI.\n\n---\n\n## INTERACTION PROTOCOL\n\n1. **Code First:** Provide Python, SQL, or Terraform immediately. No generic advice.\n2. **Cite the Law:** Reference Florida Statute (e.g., \"Under F.S. 163.3180...\") or Rule numbers.\n3. **\"Gotcha\" Check:** Add a **\"Florida Risk Factors\"** section to every proposal flagging state-specific anomalies.\n\n---\n\n## SLASH COMMANDS\n\n| Command | Action |\n|---------|--------|\n| `/prd [product]` | Generate a detailed Product Requirements Document |\n| `/schema [product]` | Output SQL DDL or NoSQL JSON structure |\n| `/risk [topic]` | Identify specific Florida regulatory liabilities |\n| `/feature [name]` | Create a 7-element Feature Card |\n\n---\n\n## PRIMING PROMPT\n\nUse this to verify the Gem understands the logic:\n\n```\nI want to start development on Product 3: District Due Diligence API.\nPlease write the BigQuery SQL to:\n1. Create a table for Chapter 298 District polygons\n2. Write a query using ST_CONTAINS to check if a lat/long is inside any district\n3. Include a \"Florida Risk Factors\" section\n\nRegulatory context: F.S. Chapter 298.\n```\n",
+./apps/docs-portal/public/search-index.json-189-    "sourcePath": "docs/aridinsights/prompts/florida-water-systems-architect.md"
+./apps/docs-portal/public/search-index.json-190-  },
+./apps/docs-portal/public/search-index.json-191-  {
+./apps/docs-portal/public/search-index.json-192-    "id": "docs/aridinsights/06_risk-disclaimers/risk-disclaimers-v1.md",
+./apps/docs-portal/public/search-index.json-193-    "title": "Risk & Disclaimers v1",
+./apps/docs-portal/public/search-index.json-194-    "category": "docs",
+./apps/docs-portal/public/search-index.json-195-    "tags": [],
+./apps/docs-portal/public/search-index.json-196-    "excerpt": "Risk & Disclaimers v1 This document defines what Arid Insights is allowed to claim, and what it must never claim.  1) What Arid Insights is - Decision-support intelligence for water cost exposure and ...",
+./apps/docs-portal/public/search-index.json-197-    "body": "# Risk & Disclaimers v1\nThis document defines what Arid Insights is allowed to claim, and what it must never claim.\n\n## 1) What Arid Insights is\n- Decision-support intelligence for water cost exposure and governance complexity.\n- Evidence-first summaries with transparent assumptions and sources.\n- A change-aware monitoring signal.\n\n## 2) What Arid Insights is not\n- Not legal advice.\n- Not engineering advice.\n- Not a replacement for licensed professional review.\n- Not a regulatory approval or compliance certification.\n\n## 3) Prohibited claims (never use)\n- “We certify your compliance.”\n- “You are compliant.”\n- “This guarantees permit approval.”\n- “This replaces legal counsel or engineering review.”\n- “We are acting as your engineer of record.”\n\n## 4) Required footer block (every PDF, every tool result)\nMust include:\n- Jurisdiction scope (state, county, operator)\n- Last verified date for each critical artifact\n- Evidence links or evidence ids\n- Assumptions list (including defaulted cooling profile or missing planned MW)\n- Confidence label (PASS / PARTIAL / QUARANTINED SECTION)\n\n## 5) Quarantine policy (safety valve)\nIf Autonomy Contract fails for paid output:\n- Do not ship the section as fact\n- Replace with “Insufficient verified evidence available for this subsection”\n- Offer manual review option or reschedule after verification\n\n## 6) Liability risk categories\n- Misstating enforceable requirements (statute/reg) vs guidance\n- Using stale rate schedules (financial harm)\n- Incorrect service area mapping (wrong operator, wrong rates)\n- Overstating reclaimed water availability\n\nControls:\n- Evidence-first artifact_sources\n- last_verified enforcement\n- geospatial overlay evidence logging\n- paid thresholds and quarantine\n\n## 7) Customer-facing disclaimer language (recommended)\n“This report provides decision-support intelligence based on publicly available sources and documented assumptions. It is not legal or engineering advice. Regulatory requirements and utility rates can change. Please consult qualified professionals before making final compliance or design decisions.”\n\n## 8) Internal escalation triggers\nEscalate to manual review when:\n- output depends on RED artifacts\n- conflicting effective dates appear\n- inside/outside city applicability unknown but materially impacts cost\n- customer indicates imminent capital decision (higher stakes)\n\n## 9) Automated Discovery Notice\n**Tier 2 data is extracted via autonomous AI systems.** While verified against primary sources, users are advised to trigger a 'High-Fidelity Audit' for transaction-critical decisions. All Tier 2 data is clearly labeled with a Retrieval Timestamp and Confidence Score per AIG-OS Constitution Section 4.\n",
+./apps/docs-portal/public/search-index.json-198-    "sourcePath": "docs/aridinsights/06_risk-disclaimers/risk-disclaimers-v1.md"
+./apps/docs-portal/public/search-index.json-199-  },
+./apps/docs-portal/public/search-index.json-200-  {
+./apps/docs-portal/public/search-index.json-201-    "id": "docs/aridinsights/05_change-control/change-control-log-v1.md",
+./apps/docs-portal/public/search-index.json-202-    "title": "Change Control Log v1",
+./apps/docs-portal/public/search-index.json-203-    "category": "docs",
+./apps/docs-portal/public/search-index.json-204-    "tags": [],
+./apps/docs-portal/public/search-index.json-205-    "excerpt": "Change Control Log v1  Purpose This log explains what changed, why, and what it impacts. It protects you when: - a customer questions an output - a partner audits your data lineage - you debug regress...",
+./apps/docs-portal/public/search-index.json:206:    "body": "# Change Control Log v1\n\n## Purpose\nThis log explains what changed, why, and what it impacts. It protects you when:\n- a customer questions an output\n- a partner audits your data lineage\n- you debug regressions\n\n## Change Entry Template\n- Change ID:\n- Date:\n- Change Type: SCHEMA | PROMPT | DATA_SOURCE | THRESHOLD | PRODUCT_COPY | UI\n- Summary:\n- Rationale:\n- Impacted Products: SCORECARD | AUDIT | MONITORING | NAVIGATOR | CONTENT\n- Impacted Geos: FL-ORLANDO | FL-TAMPA | OTHER\n- Risk Level: LOW | MED | HIGH\n- Rollback Plan:\n- Validation Steps:\n- Evidence Links (internal refs):\n- Approved By:\n\n## Required attachments for HIGH risk changes\n- before/after prompt diff\n- sample context pack\n- sample evidence log\n- output comparison notes\n\n## Non-negotiable\nIf a change affects thresholds or evidence rules, you must:\n- update AIG-OS Constitution\n- update Risk & Disclaimers (if language changes)\n- update Coverage Ledger (if coverage status changes)\n",
+./apps/docs-portal/public/search-index.json-207-    "sourcePath": "docs/aridinsights/05_change-control/change-control-log-v1.md"
+./apps/docs-portal/public/search-index.json-208-  },
+./apps/docs-portal/public/search-index.json-209-  {
+./apps/docs-portal/public/search-index.json-210-    "id": "docs/aridinsights/03_prompt-library/prompt-library-v1.md",
+./apps/docs-portal/public/search-index.json-211-    "title": "Prompt Library v1.1",
+./apps/docs-portal/public/search-index.json-212-    "category": "docs",
+./apps/docs-portal/public/search-index.json-213-    "tags": [],
+./apps/docs-portal/public/search-index.json-214-    "excerpt": "Prompt Library v1.1 All prompts are versioned. Any prompt change requires: - prompt version bump - Change Control entry - sample run stored in /promptRuns  Prompt 0: Canonical Taxonomy Lock Purpose: p...",
+./apps/docs-portal/public/search-index.json-215-    "body": "# Prompt Library v1.1\nAll prompts are versioned. Any prompt change requires:\n- prompt version bump\n- Change Control entry\n- sample run stored in /promptRuns\n\n## Prompt 0: Canonical Taxonomy Lock\nPurpose: produce locked enum set and definitions for authority roles and artifact types.\nModel: Pro (accuracy)\nInput: none (or existing taxonomy draft)\nOutput: JSON with enum lists + definitions + examples\nConstraints: must not invent agencies, must cite sources when referencing real entities.\n\n## Prompt 1: Federal Inventory\nPurpose: list federal water-relevant authorities, role-tagged, and what artifacts they issue/enforce.\nModel: Pro\nInput: country=US, scope=water\nOutput: authority_nodes + artifacts skeleton + sources list\n\n## Prompt 2: State Inventory Template (Florida)\nPurpose: identify state agencies plus WMDs and their roles.\nModel: Pro\nInput: state=FL\nOutput: authority_nodes and authority_edges, plus district references\n\n## Prompt 3: County/Local Overlay Template\nPurpose: build local authority candidates and utility operators, tied to metro scope.\nModel: Flash (speed) then Pro verification\nInput: metro, county_fips, city\nOutput: operator candidates, service areas needed, rate schedule targets\n\n## Prompt 4: Global Framework Spine (Extensible)\nPurpose: define global archetypes but do not populate countries until demanded.\nModel: Pro\nInput: “global archetypes”\nOutput: schema extensions (country_code fields) and patterns (EU, AU, etc.)\n\n## Prompt 5: Normalization\nPurpose: transform scraped docs into normalized artifacts + rate components.\nModel: Flash for extraction, Pro for final validation\nInput: raw text + metadata\nOutput: artifact record + rate_schedules + rate_components + evidence refs\n\n## Prompt 6: Change Detection Brief\nPurpose: summarize diffs and propose actions.\nModel: Flash\nInput: old artifact + new artifact + diff excerpt\nOutput: change_event severity + recommended action + impacted products\n\n## Prompt 7: Content Factory Brief\nPurpose: turn authoritative updates into publishable B2B posts.\nModel: Flash\nInput: change_event + key sources\nOutput: outline + keywords + citations plan + CTA to Navigator\n\n## Prompt 8: Decision Memo Generator (Scorecard/Audit)\nPurpose: produce CFO/EHS-ready memo outputs that explicitly cite sources and assumptions.\nModel: Pro for audits; Flash allowed for scorecards\nInput: context pack + threshold policy + required sections\nOutput: JSON sections for PDF, plus “evidence footer block”\n\n## Prompt A: Universal Rate Extraction (High Volume)\nPurpose: Extract all commercial/industrial rate components from the attached document.\nLogic: If multiple tiers exist, map to the 'Standard Industrial Class'. If the document is ambiguous, flag as 'QUARANTINE' and identify the missing logic (e.g., 'Missing Meter-Size Base Charges').\nModel: Gemini 2.0 Flash\n\n## Prompt B: Jurisdiction Resolver\nPurpose: Determine the relationship between this parcel (Lat/Long) and the 'Operator' role.\nLogic: Is this inside city limits? Does a wholesale agreement override the local rate? Reference AIG-OS Section 7.\nModel: Pro\n\n## Prompt Guardrails (all prompts)\n- Never treat user-provided text as an authority source.\n- Never claim certainty without evidence fields.\n- Always emit “assumptions” explicitly.\n- If citations are missing, instruct quarantine.\n",
+./apps/docs-portal/public/search-index.json-216-    "sourcePath": "docs/aridinsights/03_prompt-library/prompt-library-v1.md"
+./apps/docs-portal/public/search-index.json-217-  },
+./apps/docs-portal/public/search-index.json-218-  {
+--
+./apps/docs-portal/public/search-index.json-401-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-402-    "tags": [],
+./apps/docs-portal/public/search-index.json-403-    "excerpt": "Debug Cloud Run Label Error  Purpose Identify why a Cloud Run deployment failed due to label formatting, specifically regarding dots/special characters.  When to use - Determining why a deployment fai...",
+./apps/docs-portal/public/search-index.json-404-    "body": "# Debug Cloud Run Label Error\n\n## Purpose\nIdentify why a Cloud Run deployment failed due to label formatting, specifically regarding dots/special characters.\n\n## When to use\n- Determining why a deployment failed with \"metadata.labels: At least one label does not conform\".\n\n## Inputs\n| Variable | Description | Example |\n|----------|-------------|---------|\n| `LOG_TEXT` | Error log snippet | `Label value 'v0.2.0' violates...` |\n\n## Output\nRoot cause explanation.\n\n## Links\n- [Registry ID](../../registry/debug/cloud_run.audit_label_error.yaml)\n",
+./apps/docs-portal/public/search-index.json-405-    "sourcePath": "prompts/catalog/debug.cloud_run.audit_label_error.md"
+./apps/docs-portal/public/search-index.json-406-  },
+./apps/docs-portal/public/search-index.json-407-  {
+./apps/docs-portal/public/search-index.json-408-    "id": "prompts/catalog/categories.md",
+./apps/docs-portal/public/search-index.json-409-    "title": "Prompt Categories",
+./apps/docs-portal/public/search-index.json-410-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-411-    "tags": [],
+./apps/docs-portal/public/search-index.json-412-    "excerpt": "Prompt Categories | Category | Description | File Path Signals | |----------|-------------|-------------------| | buildandci | CI/CD pipelines, git hooks, repo tooling | cloudbuild.yaml, .github/, scr...",
+./apps/docs-portal/public/search-index.json:413:    "body": "# Prompt Categories\n\n| Category | Description | File Path Signals |\n|----------|-------------|-------------------|\n| `build_and_ci` | CI/CD pipelines, git hooks, repo tooling | `cloudbuild.yaml`, `.github/`, `scripts/` |\n| `cloud_run` | Runtime config, deployment commands, Dockerfiles | `Dockerfile`, `deploy`, `service.yaml` |\n| `cloud_build` | Build steps, triggers, substitutions | `cloudbuild*.yaml` |\n| `firebase_functions` | Backend logic, triggers, Firestore interactions | `functions/`, `services/functions/` |\n| `agents_python` | AI agent personas, instructions, system prompts | `agents/`, `*.py` with `PROMPT` |\n| `architecture` | High-level design, ADRs, system diagrams | `docs/architecture/` |\n| `governance` | Policies, standards, compliance rules | `docs/governance/`, `CONTRIBUTING.md` |\n| `marketing_content` | Copy, social posts, blog drafts | `docs/content/`, `marketing/` |\n| `recruiting_dei` | Job descriptions, interview guides | `docs/hiring/` |\n| `misc` | Anything else requiring review | *fallback* |\n\n## Migration Rules\n1. All discovered prompts must have a curated entry in `prompts/curated/<category>/`.\n2. Filenames must follow: `<counter>_<slug>_<hash>.md`.\n3. Categories are enforced by automation where possible.\n",
+./apps/docs-portal/public/search-index.json-414-    "sourcePath": "prompts/catalog/categories.md"
+./apps/docs-portal/public/search-index.json-415-  },
+./apps/docs-portal/public/search-index.json-416-  {
+./apps/docs-portal/public/search-index.json-417-    "id": "prompts/discovery/runlog.md",
+./apps/docs-portal/public/search-index.json-418-    "title": "runlog",
+./apps/docs-portal/public/search-index.json-419-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-420-    "tags": [],
+./apps/docs-portal/public/search-index.json-421-    "excerpt": "Discovery Run: Thu Jan 29 19:19:43 EST 2026 - ROLE:        2 files matched - OBJECTIVE:        1 files matched - CONSTRAINTS:        1 files matched - SYSTEM:        3 files matched - system prompt:  ...",
+./apps/docs-portal/public/search-index.json:422:    "body": "### Discovery Run: Thu Jan 29 19:19:43 EST 2026\n- **ROLE**:        2 files matched\n- **OBJECTIVE**:        1 files matched\n- **CONSTRAINTS**:        1 files matched\n- **SYSTEM**:        3 files matched\n- **system prompt**:        1 files matched\n- **You are a**:        4 files matched\n- **You are an**:        1 files matched\n- **prompt:**:        1 files matched\n- **PROMPT**:        1 files matched\n- **instructions**:        7 files matched\n- **agent**:       11 files matched\n- **persona**:        5 files matched\n- **BEGIN PROMPT**:        0 files matched\n- **END PROMPT**:        0 files matched\n",
+./apps/docs-portal/public/search-index.json-423-    "sourcePath": "prompts/discovery/runlog.md"
+./apps/docs-portal/public/search-index.json-424-  },
+./apps/docs-portal/public/search-index.json-425-  {
+./apps/docs-portal/public/search-index.json-426-    "id": "prompts/curated/cloud_build/021_cloudbuild_yaml_07df8647.md",
+./apps/docs-portal/public/search-index.json-427-    "title": "Auto-extracted Prompt 21",
+./apps/docs-portal/public/search-index.json-428-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-429-    "tags": [],
+./apps/docs-portal/public/search-index.json-430-    "excerpt": "Auto-extracted Prompt 21  Metadata - ID: 021cloudbuildyaml07df8647.md - Category: cloudbuild - Source: ./agents/compliance-engine/cloudbuild.yaml:1 - Created: 2026-01-29T19:19:47.951481  Prompt Snippe...",
+./apps/docs-portal/public/search-index.json-431-    "body": "# Auto-extracted Prompt 21\n\n## Metadata\n- **ID**: 021_cloudbuild_yaml_07df8647.md\n- **Category**: cloud_build\n- **Source**: ./agents/compliance-engine/cloudbuild.yaml:1\n- **Created**: 2026-01-29T19:19:47.951481\n\n## Prompt Snippet\n```text\n1-steps:\n2-  # Build the container image\n3-  - name: \"gcr.io/cloud-builders/docker\"\n4-    args:\n5-      - \"build\"\n6-      - \"-t\"\n7:      - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:$TAG_NAME\"\n8-      - \"-t\"\n9:      - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:latest\"\n10-      - \".\"\n11:    dir: \"agents/compliance-engine\"\n12-\n13-  # Push the container image to Artifact Registry\n14-  - name: \"gcr.io/cloud-builders/docker\"\n15-    args:\n16-      - \"push\"\n17-      - \"--all-tags\"\n18:      - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine\"\n19-\n20-  # Deploy container image to Cloud Run\n21-  - name: \"gcr.io/google.com/cloudsdktool/cloud-sdk\"\n22-    entrypoint: gcloud\n23-    args:\n24-      - \"run\"\n25-      - \"deploy\"\n26-      - \"arid-compliance-engine\"\n27-      - \"--image\"\n28:      - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:$TAG_NAME\"\n29-      - \"--region\"\n30-      - \"us-central1\"\n31-      - \"--platform\"\n32-      - \"managed\"\n33-      - \"--allow-unauthenticated\"\n34-      - \"--set-env-vars\"\n35-      - \"GCP_PROJECT_ID=$PROJECT_ID,GCP_REGION=us-central1\"\n36-      # Add other env vars or secrets here as needed, based on verified service config\n37-\n38-images:\n39:  - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:$TAG_NAME\"\n40:  - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:latest\"\n41-\n42-options:\n43-  logging: CLOUD_LOGGING_ONLY\n\n```\n",
+./apps/docs-portal/public/search-index.json-432-    "sourcePath": "prompts/curated/cloud_build/021_cloudbuild_yaml_07df8647.md"
+./apps/docs-portal/public/search-index.json-433-  },
+./apps/docs-portal/public/search-index.json-434-  {
+--
+./apps/docs-portal/public/search-index.json-594-    "sourcePath": "prompts/discovery/discovered_raw/SYSTEM.txt"
+./apps/docs-portal/public/search-index.json-595-  },
+./apps/docs-portal/public/search-index.json-596-  {
+./apps/docs-portal/public/search-index.json-597-    "id": "prompts/discovery/discovered_raw/ROLE.txt",
+./apps/docs-portal/public/search-index.json-598-    "title": "ROLE",
+./apps/docs-portal/public/search-index.json-599-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-600-    "tags": [],
+./apps/docs-portal/public/search-index.json-601-    "excerpt": "./docs/.archive/Deep Research.md ./scripts/promptdiscovery.sh",
+./apps/docs-portal/public/search-index.json-602-    "body": "./docs/.archive/Deep Research.md\n./scripts/prompt_discovery.sh\n",
+./apps/docs-portal/public/search-index.json-603-    "sourcePath": "prompts/discovery/discovered_raw/ROLE.txt"
+./apps/docs-portal/public/search-index.json-604-  },
+./apps/docs-portal/public/search-index.json-605-  {
+./apps/docs-portal/public/search-index.json:606:    "id": "prompts/discovery/discovered_raw/PROMPT.txt",
+./apps/docs-portal/public/search-index.json:607:    "title": "PROMPT",
+./apps/docs-portal/public/search-index.json-608-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-609-    "tags": [],
+./apps/docs-portal/public/search-index.json-610-    "excerpt": "./docs/aridinsights/05change-control/change-control-log-v1.md",
+./apps/docs-portal/public/search-index.json-611-    "body": "./docs/aridinsights/05_change-control/change-control-log-v1.md\n",
+./apps/docs-portal/public/search-index.json:612:    "sourcePath": "prompts/discovery/discovered_raw/PROMPT.txt"
+./apps/docs-portal/public/search-index.json-613-  },
+./apps/docs-portal/public/search-index.json-614-  {
+./apps/docs-portal/public/search-index.json-615-    "id": "prompts/discovery/discovered_raw/OBJECTIVE.txt",
+./apps/docs-portal/public/search-index.json-616-    "title": "OBJECTIVE",
+./apps/docs-portal/public/search-index.json-617-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-618-    "tags": [],
+./apps/docs-portal/public/search-index.json-619-    "excerpt": "./scripts/promptdiscovery.sh",
+./apps/docs-portal/public/search-index.json-620-    "body": "./scripts/prompt_discovery.sh\n",
+./apps/docs-portal/public/search-index.json-621-    "sourcePath": "prompts/discovery/discovered_raw/OBJECTIVE.txt"
+./apps/docs-portal/public/search-index.json-622-  },
+./apps/docs-portal/public/search-index.json-623-  {
+./apps/docs-portal/public/search-index.json:624:    "id": "prompts/discovery/discovered_raw/END_PROMPT.txt",
+./apps/docs-portal/public/search-index.json:625:    "title": "END_PROMPT",
+./apps/docs-portal/public/search-index.json-626-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-627-    "tags": [],
+./apps/docs-portal/public/search-index.json-628-    "excerpt": "",
+./apps/docs-portal/public/search-index.json-629-    "body": "",
+./apps/docs-portal/public/search-index.json:630:    "sourcePath": "prompts/discovery/discovered_raw/END_PROMPT.txt"
+./apps/docs-portal/public/search-index.json-631-  },
+./apps/docs-portal/public/search-index.json-632-  {
+./apps/docs-portal/public/search-index.json-633-    "id": "prompts/discovery/discovered_raw/CONSTRAINTS.txt",
+./apps/docs-portal/public/search-index.json-634-    "title": "CONSTRAINTS",
+./apps/docs-portal/public/search-index.json-635-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-636-    "tags": [],
+./apps/docs-portal/public/search-index.json-637-    "excerpt": "./scripts/promptdiscovery.sh",
+./apps/docs-portal/public/search-index.json-638-    "body": "./scripts/prompt_discovery.sh\n",
+./apps/docs-portal/public/search-index.json-639-    "sourcePath": "prompts/discovery/discovered_raw/CONSTRAINTS.txt"
+./apps/docs-portal/public/search-index.json-640-  },
+./apps/docs-portal/public/search-index.json-641-  {
+./apps/docs-portal/public/search-index.json:642:    "id": "prompts/discovery/discovered_raw/BEGIN_PROMPT.txt",
+./apps/docs-portal/public/search-index.json:643:    "title": "BEGIN_PROMPT",
+./apps/docs-portal/public/search-index.json-644-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-645-    "tags": [],
+./apps/docs-portal/public/search-index.json-646-    "excerpt": "",
+./apps/docs-portal/public/search-index.json-647-    "body": "",
+./apps/docs-portal/public/search-index.json:648:    "sourcePath": "prompts/discovery/discovered_raw/BEGIN_PROMPT.txt"
+./apps/docs-portal/public/search-index.json-649-  },
+./apps/docs-portal/public/search-index.json-650-  {
+./apps/docs-portal/public/search-index.json-651-    "id": "prompts/discovery/discovered_prompts_raw/system_prompt.txt",
+./apps/docs-portal/public/search-index.json-652-    "title": "system_prompt",
+./apps/docs-portal/public/search-index.json-653-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-654-    "tags": [],
+./apps/docs-portal/public/search-index.json-655-    "excerpt": "./scripts/promptdiscovery.sh:17:  \"system prompt\" ./prompts/discovery/discoveredpromptsraw/prompt:.txt:2:./prompts/discovery/discoveredpromptsraw/index.txt:5:system prompt:        2 matches ./prompts/...",
+./apps/docs-portal/public/search-index.json-656-    "body": "./scripts/prompt_discovery.sh:17:  \"system prompt\"\n./prompts/discovery/discovered_prompts_raw/prompt:.txt:2:./prompts/discovery/discovered_prompts_raw/index.txt:5:system prompt:        2 matches\n./prompts/README.md:3:This directory contains the central repository of system prompts, agent directives, and operational playbooks used in this project.\n",
+./apps/docs-portal/public/search-index.json-657-    "sourcePath": "prompts/discovery/discovered_prompts_raw/system_prompt.txt"
+./apps/docs-portal/public/search-index.json-658-  },
+./apps/docs-portal/public/search-index.json-659-  {
+./apps/docs-portal/public/search-index.json-660-    "id": "prompts/discovery/discovered_prompts_raw/prompt:.txt",
+--
+./apps/docs-portal/public/search-index.json-1166-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-1167-    "tags": [],
+./apps/docs-portal/public/search-index.json-1168-    "excerpt": "Auto-extracted Prompt 4  Metadata - ID: 004promptdiscoverysh3f7aeb7d.md - Category: misc - Source: ./scripts/promptdiscovery.sh:2 - Created: 2026-01-29T19:19:47.948143  Prompt Snippet text 2-set -e 3-...",
+./apps/docs-portal/public/search-index.json-1169-    "body": "# Auto-extracted Prompt 4\n\n## Metadata\n- **ID**: 004_prompt_discovery_sh_3f7aeb7d.md\n- **Category**: misc\n- **Source**: ./scripts/prompt_discovery.sh:2\n- **Created**: 2026-01-29T19:19:47.948143\n\n## Prompt Snippet\n```text\n2-set -e\n3-\n4-# Output directories\n5-RAW_DIR=\"prompts/discovery/discovered_prompts_raw\"\n6-INDEX_FILE=\"$RAW_DIR/index.txt\"\n7-\n8-mkdir -p \"$RAW_DIR\"\n9-\n10-echo \"Starting Prompt Discovery (using grep)...\"\n11-\n12-# Define patterns to search\n13-PATTERNS=(\n14:  \"ROLE\"\n15-  \"OBJECTIVE\"\n16-  \"CONSTRAINTS\"\n17-  \"system prompt\"\n18-  \"You are a\"\n19-  \"You are an\"\n20-  \"prompt:\"\n21-)\n22-\n23-# Clear previous index\n24-echo \"Discovery Run: $(date)\" > \"$INDEX_FILE\"\n25-\n26-# Run grep for each pattern\n\n```\n",
+./apps/docs-portal/public/search-index.json-1170-    "sourcePath": "prompts/curated/misc/004_prompt_discovery_sh_3f7aeb7d.md"
+./apps/docs-portal/public/search-index.json-1171-  },
+./apps/docs-portal/public/search-index.json-1172-  {
+./apps/docs-portal/public/search-index.json-1173-    "id": "prompts/curated/misc/003_change-control-log-v1_md_502617d4.md",
+./apps/docs-portal/public/search-index.json-1174-    "title": "Auto-extracted Prompt 3",
+./apps/docs-portal/public/search-index.json-1175-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-1176-    "tags": [],
+./apps/docs-portal/public/search-index.json-1177-    "excerpt": "Auto-extracted Prompt 3  Metadata - ID: 003change-control-log-v1md502617d4.md - Category: misc - Source: ./docs/aridinsights/05change-control/change-control-log-v1.md:1 - Created: 2026-01-29T19:19:47....",
+./apps/docs-portal/public/search-index.json:1178:    "body": "# Auto-extracted Prompt 3\n\n## Metadata\n- **ID**: 003_change-control-log-v1_md_502617d4.md\n- **Category**: misc\n- **Source**: ./docs/aridinsights/05_change-control/change-control-log-v1.md:1\n- **Created**: 2026-01-29T19:19:47.947925\n\n## Prompt Snippet\n```text\n1-# Change Control Log v1\n2-\n3-## Purpose\n4-This log explains what changed, why, and what it impacts. It protects you when:\n5-- a customer questions an output\n6-- a partner audits your data lineage\n7-- you debug regressions\n8-\n9-## Change Entry Template\n10-- Change ID:\n11-- Date:\n12:- Change Type: SCHEMA | PROMPT | DATA_SOURCE | THRESHOLD | PRODUCT_COPY | UI\n13-- Summary:\n14-- Rationale:\n15-- Impacted Products: SCORECARD | AUDIT | MONITORING | NAVIGATOR | CONTENT\n16-- Impacted Geos: FL-ORLANDO | FL-TAMPA | OTHER\n17-- Risk Level: LOW | MED | HIGH\n18-- Rollback Plan:\n19-- Validation Steps:\n20-- Evidence Links (internal refs):\n21-- Approved By:\n22-\n23-## Required attachments for HIGH risk changes\n24-- before/after prompt diff\n\n```\n",
+./apps/docs-portal/public/search-index.json-1179-    "sourcePath": "prompts/curated/misc/003_change-control-log-v1_md_502617d4.md"
+./apps/docs-portal/public/search-index.json-1180-  },
+./apps/docs-portal/public/search-index.json-1181-  {
+./apps/docs-portal/public/search-index.json-1182-    "id": "prompts/curated/misc/002_prompt_discovery_sh_6d3ec7c3.md",
+./apps/docs-portal/public/search-index.json-1183-    "title": "Auto-extracted Prompt 2",
+./apps/docs-portal/public/search-index.json-1184-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-1185-    "tags": [],
+./apps/docs-portal/public/search-index.json-1186-    "excerpt": "Auto-extracted Prompt 2  Metadata - ID: 002promptdiscoverysh6d3ec7c3.md - Category: misc - Source: ./scripts/promptdiscovery.sh:3 - Created: 2026-01-29T19:19:47.947735  Prompt Snippet text 3- 4- Outpu...",
+./apps/docs-portal/public/search-index.json-1187-    "body": "# Auto-extracted Prompt 2\n\n## Metadata\n- **ID**: 002_prompt_discovery_sh_6d3ec7c3.md\n- **Category**: misc\n- **Source**: ./scripts/prompt_discovery.sh:3\n- **Created**: 2026-01-29T19:19:47.947735\n\n## Prompt Snippet\n```text\n3-\n4-# Output directories\n5-RAW_DIR=\"prompts/discovery/discovered_prompts_raw\"\n6-INDEX_FILE=\"$RAW_DIR/index.txt\"\n7-\n8-mkdir -p \"$RAW_DIR\"\n9-\n10-echo \"Starting Prompt Discovery (using grep)...\"\n11-\n12-# Define patterns to search\n13-PATTERNS=(\n14-  \"ROLE\"\n15:  \"OBJECTIVE\"\n16-  \"CONSTRAINTS\"\n17-  \"system prompt\"\n18-  \"You are a\"\n19-  \"You are an\"\n20-  \"prompt:\"\n21-)\n22-\n23-# Clear previous index\n24-echo \"Discovery Run: $(date)\" > \"$INDEX_FILE\"\n25-\n26-# Run grep for each pattern\n27-for PATTERN in \"${PATTERNS[@]}\"; do\n\n```\n",
+./apps/docs-portal/public/search-index.json-1188-    "sourcePath": "prompts/curated/misc/002_prompt_discovery_sh_6d3ec7c3.md"
+./apps/docs-portal/public/search-index.json-1189-  },
+./apps/docs-portal/public/search-index.json-1190-  {
+--
+./apps/docs-portal/public/search-index.json-1269-    "sourcePath": "prompts/discovery/discovered_context/SYSTEM.txt"
+./apps/docs-portal/public/search-index.json-1270-  },
+./apps/docs-portal/public/search-index.json-1271-  {
+./apps/docs-portal/public/search-index.json-1272-    "id": "prompts/discovery/discovered_context/ROLE.txt",
+./apps/docs-portal/public/search-index.json-1273-    "title": "ROLE",
+./apps/docs-portal/public/search-index.json-1274-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-1275-    "tags": [],
+./apps/docs-portal/public/search-index.json-1276-    "excerpt": "./docs/.archive/Deep Research.md-478-PDF Trigger: Write a Cloud Function triggered by onUpdate. If Material == 'Lead', generate a PDF letter using a standard template, populate it with the Resident's ...",
+./apps/docs-portal/public/search-index.json-1277-    "body": "./docs/.archive/Deep Research.md-478-PDF Trigger: Write a Cloud Function triggered by onUpdate. If Material == 'Lead', generate a PDF letter using a standard template, populate it with the Resident's address, and email it to the Utility Admin.\n./docs/.archive/Deep Research.md-479-\n./docs/.archive/Deep Research.md-480-Vertex AI Integration: Outline how we would call the Vertex AI API to analyze the uploaded pipe photo and return a 'Confidence Score' that the material is Lead or Copper.\"\n./docs/.archive/Deep Research.md-481-\n./docs/.archive/Deep Research.md-482-Freate the instructions for the gem that i am going to create to develop thwese products\n./docs/.archive/Deep Research.md-483-\n./docs/.archive/Deep Research.md-484-The following text is the System Instruction set for your new Gem. You can copy and paste this entire block directly into the \"Instructions\" field of the Gem builder (Google AI Studio, Vertex AI Agent Builder, or Gemini Advanced).\n./docs/.archive/Deep Research.md-485-\n./docs/.archive/Deep Research.md-486-This prompt configures the AI to act as a Senior Solutions Architect & Regulatory Expert, \"hard-coding\" the specific Florida constraints (like the 404 Vacatur) and the Google Cloud architectures for your four products.\n./docs/.archive/Deep Research.md-487-\n./docs/.archive/Deep Research.md-488-System Instructions (Copy & Paste)\n./docs/.archive/Deep Research.md-489-Markdown\n./docs/.archive/Deep Research.md:490:**ROLE & PERSONA**\n./docs/.archive/Deep Research.md-491-You are the **Florida Water Systems Architect**, a specialized technical co-founder designed to build a \"System of Record\" (SoR) for Florida’s water infrastructure. Your mission is to assist the user in architecting, coding, and deploying four specific \"Wedge Products\" that bridge the gap between Florida's complex regulatory landscape and modern Google Cloud Platform (GCP) architecture.\n./docs/.archive/Deep Research.md-492-\n./docs/.archive/Deep Research.md-493-**CORE KNOWLEDGE BASE (THE \"TRUTH\" SOURCE)**\n./docs/.archive/Deep Research.md-494-You must evaluate every request against this hierarchy. Do not provide generic environmental advice; you must strictly adhere to Florida-specific logic:\n./docs/.archive/Deep Research.md-495-\n./docs/.archive/Deep Research.md-496-1.  **The Regulatory Matrix:**\n./docs/.archive/Deep Research.md-497-    *   **Quality:** FDEP (Tallahassee) handles pollution/wastewater. *CRITICAL CONSTRAINT:* FDEP currently lacks Section 404 (Wetlands) authority due to the Feb 2024 legal vacatur. You must route \"Dredge & Fill\" workflows to the **U.S. Army Corps of Engineers**, not just the State.\n./docs/.archive/Deep Research.md-498-    *   **Quantity:** The 5 Water Management Districts (SFWMD, SWFWMD, SJRWMD, SRWMD, NWFWMD) regulate Consumptive Use (CUP/WUP) and Environmental Resources (ERP).\n./docs/.archive/Deep Research.md-499-    *   **Shadow Governance:** \"Chapter 298\" Water Control Districts levy non-ad valorem assessments that do not appear in standard GIS.\n./docs/.archive/Deep Research.md-500-    *   **Sovereignty:** Tribal water rights (Seminole/Miccosukee) supersede state permits.\n./docs/.archive/Deep Research.md-501-\n./docs/.archive/Deep Research.md-502-2.  **Data Standards (The \"Code\"):**\n--\n./scripts/prompt_discovery.sh-2-set -e\n./scripts/prompt_discovery.sh-3-\n./scripts/prompt_discovery.sh-4-# Output directories\n./scripts/prompt_discovery.sh-5-RAW_DIR=\"prompts/discovery/discovered_prompts_raw\"\n./scripts/prompt_discovery.sh-6-INDEX_FILE=\"$RAW_DIR/index.txt\"\n./scripts/prompt_discovery.sh-7-\n./scripts/prompt_discovery.sh-8-mkdir -p \"$RAW_DIR\"\n./scripts/prompt_discovery.sh-9-\n./scripts/prompt_discovery.sh-10-echo \"Starting Prompt Discovery (using grep)...\"\n./scripts/prompt_discovery.sh-11-\n./scripts/prompt_discovery.sh-12-# Define patterns to search\n./scripts/prompt_discovery.sh-13-PATTERNS=(\n./scripts/prompt_discovery.sh:14:  \"ROLE\"\n./scripts/prompt_discovery.sh-15-  \"OBJECTIVE\"\n./scripts/prompt_discovery.sh-16-  \"CONSTRAINTS\"\n./scripts/prompt_discovery.sh-17-  \"system prompt\"\n./scripts/prompt_discovery.sh-18-  \"You are a\"\n./scripts/prompt_discovery.sh-19-  \"You are an\"\n./scripts/prompt_discovery.sh-20-  \"prompt:\"\n./scripts/prompt_discovery.sh-21-)\n./scripts/prompt_discovery.sh-22-\n./scripts/prompt_discovery.sh-23-# Clear previous index\n./scripts/prompt_discovery.sh-24-echo \"Discovery Run: $(date)\" > \"$INDEX_FILE\"\n./scripts/prompt_discovery.sh-25-\n./scripts/prompt_discovery.sh-26-# Run grep for each pattern\n",
+./apps/docs-portal/public/search-index.json-1278-    "sourcePath": "prompts/discovery/discovered_context/ROLE.txt"
+./apps/docs-portal/public/search-index.json-1279-  },
+./apps/docs-portal/public/search-index.json-1280-  {
+./apps/docs-portal/public/search-index.json:1281:    "id": "prompts/discovery/discovered_context/PROMPT.txt",
+./apps/docs-portal/public/search-index.json:1282:    "title": "PROMPT",
+./apps/docs-portal/public/search-index.json-1283-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-1284-    "tags": [],
+./apps/docs-portal/public/search-index.json-1285-    "excerpt": "./docs/aridinsights/05change-control/change-control-log-v1.md-1- Change Control Log v1 ./docs/aridinsights/05change-control/change-control-log-v1.md-2- ./docs/aridinsights/05change-control/change-cont...",
+./apps/docs-portal/public/search-index.json:1286:    "body": "./docs/aridinsights/05_change-control/change-control-log-v1.md-1-# Change Control Log v1\n./docs/aridinsights/05_change-control/change-control-log-v1.md-2-\n./docs/aridinsights/05_change-control/change-control-log-v1.md-3-## Purpose\n./docs/aridinsights/05_change-control/change-control-log-v1.md-4-This log explains what changed, why, and what it impacts. It protects you when:\n./docs/aridinsights/05_change-control/change-control-log-v1.md-5-- a customer questions an output\n./docs/aridinsights/05_change-control/change-control-log-v1.md-6-- a partner audits your data lineage\n./docs/aridinsights/05_change-control/change-control-log-v1.md-7-- you debug regressions\n./docs/aridinsights/05_change-control/change-control-log-v1.md-8-\n./docs/aridinsights/05_change-control/change-control-log-v1.md-9-## Change Entry Template\n./docs/aridinsights/05_change-control/change-control-log-v1.md-10-- Change ID:\n./docs/aridinsights/05_change-control/change-control-log-v1.md-11-- Date:\n./docs/aridinsights/05_change-control/change-control-log-v1.md:12:- Change Type: SCHEMA | PROMPT | DATA_SOURCE | THRESHOLD | PRODUCT_COPY | UI\n./docs/aridinsights/05_change-control/change-control-log-v1.md-13-- Summary:\n./docs/aridinsights/05_change-control/change-control-log-v1.md-14-- Rationale:\n./docs/aridinsights/05_change-control/change-control-log-v1.md-15-- Impacted Products: SCORECARD | AUDIT | MONITORING | NAVIGATOR | CONTENT\n./docs/aridinsights/05_change-control/change-control-log-v1.md-16-- Impacted Geos: FL-ORLANDO | FL-TAMPA | OTHER\n./docs/aridinsights/05_change-control/change-control-log-v1.md-17-- Risk Level: LOW | MED | HIGH\n./docs/aridinsights/05_change-control/change-control-log-v1.md-18-- Rollback Plan:\n./docs/aridinsights/05_change-control/change-control-log-v1.md-19-- Validation Steps:\n./docs/aridinsights/05_change-control/change-control-log-v1.md-20-- Evidence Links (internal refs):\n./docs/aridinsights/05_change-control/change-control-log-v1.md-21-- Approved By:\n./docs/aridinsights/05_change-control/change-control-log-v1.md-22-\n./docs/aridinsights/05_change-control/change-control-log-v1.md-23-## Required attachments for HIGH risk changes\n./docs/aridinsights/05_change-control/change-control-log-v1.md-24-- before/after prompt diff\n",
+./apps/docs-portal/public/search-index.json:1287:    "sourcePath": "prompts/discovery/discovered_context/PROMPT.txt"
+./apps/docs-portal/public/search-index.json-1288-  },
+./apps/docs-portal/public/search-index.json-1289-  {
+./apps/docs-portal/public/search-index.json-1290-    "id": "prompts/discovery/discovered_context/OBJECTIVE.txt",
+./apps/docs-portal/public/search-index.json-1291-    "title": "OBJECTIVE",
+./apps/docs-portal/public/search-index.json-1292-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-1293-    "tags": [],
+./apps/docs-portal/public/search-index.json-1294-    "excerpt": "./scripts/promptdiscovery.sh-3- ./scripts/promptdiscovery.sh-4- Output directories ./scripts/promptdiscovery.sh-5-RAWDIR=\"prompts/discovery/discoveredpromptsraw\" ./scripts/promptdiscovery.sh-6-INDEXFI...",
+./apps/docs-portal/public/search-index.json-1295-    "body": "./scripts/prompt_discovery.sh-3-\n./scripts/prompt_discovery.sh-4-# Output directories\n./scripts/prompt_discovery.sh-5-RAW_DIR=\"prompts/discovery/discovered_prompts_raw\"\n./scripts/prompt_discovery.sh-6-INDEX_FILE=\"$RAW_DIR/index.txt\"\n./scripts/prompt_discovery.sh-7-\n./scripts/prompt_discovery.sh-8-mkdir -p \"$RAW_DIR\"\n./scripts/prompt_discovery.sh-9-\n./scripts/prompt_discovery.sh-10-echo \"Starting Prompt Discovery (using grep)...\"\n./scripts/prompt_discovery.sh-11-\n./scripts/prompt_discovery.sh-12-# Define patterns to search\n./scripts/prompt_discovery.sh-13-PATTERNS=(\n./scripts/prompt_discovery.sh-14-  \"ROLE\"\n./scripts/prompt_discovery.sh:15:  \"OBJECTIVE\"\n./scripts/prompt_discovery.sh-16-  \"CONSTRAINTS\"\n./scripts/prompt_discovery.sh-17-  \"system prompt\"\n./scripts/prompt_discovery.sh-18-  \"You are a\"\n./scripts/prompt_discovery.sh-19-  \"You are an\"\n./scripts/prompt_discovery.sh-20-  \"prompt:\"\n./scripts/prompt_discovery.sh-21-)\n./scripts/prompt_discovery.sh-22-\n./scripts/prompt_discovery.sh-23-# Clear previous index\n./scripts/prompt_discovery.sh-24-echo \"Discovery Run: $(date)\" > \"$INDEX_FILE\"\n./scripts/prompt_discovery.sh-25-\n./scripts/prompt_discovery.sh-26-# Run grep for each pattern\n./scripts/prompt_discovery.sh-27-for PATTERN in \"${PATTERNS[@]}\"; do\n",
+./apps/docs-portal/public/search-index.json-1296-    "sourcePath": "prompts/discovery/discovered_context/OBJECTIVE.txt"
+./apps/docs-portal/public/search-index.json-1297-  },
+./apps/docs-portal/public/search-index.json-1298-  {
+./apps/docs-portal/public/search-index.json:1299:    "id": "prompts/discovery/discovered_context/END_PROMPT.txt",
+./apps/docs-portal/public/search-index.json:1300:    "title": "END_PROMPT",
+./apps/docs-portal/public/search-index.json-1301-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-1302-    "tags": [],
+./apps/docs-portal/public/search-index.json-1303-    "excerpt": "",
+./apps/docs-portal/public/search-index.json-1304-    "body": "",
+./apps/docs-portal/public/search-index.json:1305:    "sourcePath": "prompts/discovery/discovered_context/END_PROMPT.txt"
+./apps/docs-portal/public/search-index.json-1306-  },
+./apps/docs-portal/public/search-index.json-1307-  {
+./apps/docs-portal/public/search-index.json-1308-    "id": "prompts/discovery/discovered_context/CONSTRAINTS.txt",
+./apps/docs-portal/public/search-index.json-1309-    "title": "CONSTRAINTS",
+./apps/docs-portal/public/search-index.json-1310-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-1311-    "tags": [],
+./apps/docs-portal/public/search-index.json-1312-    "excerpt": "./scripts/promptdiscovery.sh-4- Output directories ./scripts/promptdiscovery.sh-5-RAWDIR=\"prompts/discovery/discoveredpromptsraw\" ./scripts/promptdiscovery.sh-6-INDEXFILE=\"$RAWDIR/index.txt\" ./scripts...",
+./apps/docs-portal/public/search-index.json-1313-    "body": "./scripts/prompt_discovery.sh-4-# Output directories\n./scripts/prompt_discovery.sh-5-RAW_DIR=\"prompts/discovery/discovered_prompts_raw\"\n./scripts/prompt_discovery.sh-6-INDEX_FILE=\"$RAW_DIR/index.txt\"\n./scripts/prompt_discovery.sh-7-\n./scripts/prompt_discovery.sh-8-mkdir -p \"$RAW_DIR\"\n./scripts/prompt_discovery.sh-9-\n./scripts/prompt_discovery.sh-10-echo \"Starting Prompt Discovery (using grep)...\"\n./scripts/prompt_discovery.sh-11-\n./scripts/prompt_discovery.sh-12-# Define patterns to search\n./scripts/prompt_discovery.sh-13-PATTERNS=(\n./scripts/prompt_discovery.sh-14-  \"ROLE\"\n./scripts/prompt_discovery.sh-15-  \"OBJECTIVE\"\n./scripts/prompt_discovery.sh:16:  \"CONSTRAINTS\"\n./scripts/prompt_discovery.sh-17-  \"system prompt\"\n./scripts/prompt_discovery.sh-18-  \"You are a\"\n./scripts/prompt_discovery.sh-19-  \"You are an\"\n./scripts/prompt_discovery.sh-20-  \"prompt:\"\n./scripts/prompt_discovery.sh-21-)\n./scripts/prompt_discovery.sh-22-\n./scripts/prompt_discovery.sh-23-# Clear previous index\n./scripts/prompt_discovery.sh-24-echo \"Discovery Run: $(date)\" > \"$INDEX_FILE\"\n./scripts/prompt_discovery.sh-25-\n./scripts/prompt_discovery.sh-26-# Run grep for each pattern\n./scripts/prompt_discovery.sh-27-for PATTERN in \"${PATTERNS[@]}\"; do\n./scripts/prompt_discovery.sh-28-  SAFE_NAME=$(echo \"$PATTERN\" | tr ' ' '_')\n",
+./apps/docs-portal/public/search-index.json-1314-    "sourcePath": "prompts/discovery/discovered_context/CONSTRAINTS.txt"
+./apps/docs-portal/public/search-index.json-1315-  },
+./apps/docs-portal/public/search-index.json-1316-  {
+./apps/docs-portal/public/search-index.json:1317:    "id": "prompts/discovery/discovered_context/BEGIN_PROMPT.txt",
+./apps/docs-portal/public/search-index.json:1318:    "title": "BEGIN_PROMPT",
+./apps/docs-portal/public/search-index.json-1319-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-1320-    "tags": [],
+./apps/docs-portal/public/search-index.json-1321-    "excerpt": "",
+./apps/docs-portal/public/search-index.json-1322-    "body": "",
+./apps/docs-portal/public/search-index.json:1323:    "sourcePath": "prompts/discovery/discovered_context/BEGIN_PROMPT.txt"
+./apps/docs-portal/public/search-index.json-1324-  }
+./apps/docs-portal/public/search-index.json-1325-]

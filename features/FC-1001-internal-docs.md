@@ -2,7 +2,7 @@
 id: FC-1001
 title: Internal Documentation Portal
 status: shipped
-owner: @devex
+owner: '@devex'
 components: [apps/docs-portal]
 created: 2026-01-29
 ---

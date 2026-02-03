@@ -1,1 +1,2 @@
 ./scripts/prompt_discovery.sh
+./apps/docs-portal/public/search-index.json

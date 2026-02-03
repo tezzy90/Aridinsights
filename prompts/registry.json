@@ -1,0 +1,765 @@
+[
+  {
+    "id": "atlassian_knowledge_py",
+    "title": "Prompt from atlassian_knowledge_py",
+    "category": "agents",
+    "path": "prompts/library/agents/atlassian_knowledge_py.md",
+    "source": "agents/compliance-engine/atlassian_knowledge.py"
+  },
+  {
+    "id": "intel_analyst_py",
+    "title": "Prompt from intel_analyst_py",
+    "category": "agents",
+    "path": "prompts/library/agents/intel_analyst_py.md",
+    "source": "agents/compliance-engine/intel_analyst.py"
+  },
+  {
+    "id": "PrivacyPolicyContent_tsx",
+    "title": "Prompt from PrivacyPolicyContent_tsx",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/PrivacyPolicyContent_tsx.md",
+    "source": "apps/web-main/components/PrivacyPolicyContent.tsx"
+  },
+  {
+    "id": "TermsOfServiceContent_tsx",
+    "title": "Prompt from TermsOfServiceContent_tsx",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/TermsOfServiceContent_tsx.md",
+    "source": "apps/web-main/components/TermsOfServiceContent.tsx"
+  },
+  {
+    "id": "package-lock_json",
+    "title": "Prompt from package-lock_json",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/package-lock_json.md",
+    "source": "apps/web-main/package-lock.json"
+  },
+  {
+    "id": "Agentic build Process Research_md",
+    "title": "Prompt from Agentic build Process Research_md",
+    "category": "agents",
+    "path": "prompts/library/agents/Agentic build Process Research_md.md",
+    "source": "docs/.archive/Agentic build Process Research.md"
+  },
+  {
+    "id": "Business Plan Architechture research_md",
+    "title": "Prompt from Business Plan Architechture research_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/Business Plan Architechture research_md.md",
+    "source": "docs/.archive/Business Plan Architechture research.md"
+  },
+  {
+    "id": "Deep Research_md",
+    "title": "Prompt from Deep Research_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/Deep Research_md.md",
+    "source": "docs/.archive/Deep Research.md"
+  },
+  {
+    "id": "change-control-log-v1_md",
+    "title": "Prompt from change-control-log-v1_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/change-control-log-v1_md.md",
+    "source": "docs/aridinsights/05_change-control/change-control-log-v1.md"
+  },
+  {
+    "id": "linkedin-profile_md",
+    "title": "Prompt from linkedin-profile_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/linkedin-profile_md.md",
+    "source": "docs/aridinsights/content/social/linkedin-profile.md"
+  },
+  {
+    "id": "04_lsl-field-kit_md",
+    "title": "Prompt from 04_lsl-field-kit_md",
+    "category": "product",
+    "path": "prompts/library/product/04_lsl-field-kit_md.md",
+    "source": "docs/aridinsights/products/04_lsl-field-kit.md"
+  },
+  {
+    "id": "florida-water-systems-architect_md",
+    "title": "Prompt from florida-water-systems-architect_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/florida-water-systems-architect_md.md",
+    "source": "docs/aridinsights/prompts/florida-water-systems-architect.md"
+  },
+  {
+    "id": "MIGRATION_md",
+    "title": "Prompt from MIGRATION_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/MIGRATION_md.md",
+    "source": "docs/project_history/MIGRATION.md"
+  },
+  {
+    "id": "REFACTORING_SUMMARY_md",
+    "title": "Prompt from REFACTORING_SUMMARY_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/REFACTORING_SUMMARY_md.md",
+    "source": "docs/project_history/REFACTORING_SUMMARY.md"
+  },
+  {
+    "id": "package-lock_json",
+    "title": "Prompt from package-lock_json",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/package-lock_json.md",
+    "source": "package-lock.json"
+  },
+  {
+    "id": "README_md",
+    "title": "Prompt from README_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/README_md.md",
+    "source": "prompts/README.md"
+  },
+  {
+    "id": "prompt_schema_json",
+    "title": "Prompt from prompt_schema_json",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/prompt_schema_json.md",
+    "source": "prompts/_schema/prompt.schema.json"
+  },
+  {
+    "id": "categories_md",
+    "title": "Prompt from categories_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/categories_md.md",
+    "source": "prompts/catalog/categories.md"
+  },
+  {
+    "id": "prompts_json",
+    "title": "Prompt from prompts_json",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/prompts_json.md",
+    "source": "prompts/catalog/prompts.json"
+  },
+  {
+    "id": "prompts_md",
+    "title": "Prompt from prompts_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/prompts_md.md",
+    "source": "prompts/catalog/prompts.md"
+  },
+  {
+    "id": "007_intel_analyst_py_454700c4_md",
+    "title": "Prompt from 007_intel_analyst_py_454700c4_md",
+    "category": "agents",
+    "path": "prompts/library/agents/007_intel_analyst_py_454700c4_md.md",
+    "source": "prompts/curated/agents_python/007_intel_analyst_py_454700c4.md"
+  },
+  {
+    "id": "022_atlassian_knowledge_py_2c52b914_md",
+    "title": "Prompt from 022_atlassian_knowledge_py_2c52b914_md",
+    "category": "agents",
+    "path": "prompts/library/agents/022_atlassian_knowledge_py_2c52b914_md.md",
+    "source": "prompts/curated/agents_python/022_atlassian_knowledge_py_2c52b914.md"
+  },
+  {
+    "id": "054_intel_analyst_py_ac6b2c7f_md",
+    "title": "Prompt from 054_intel_analyst_py_ac6b2c7f_md",
+    "category": "agents",
+    "path": "prompts/library/agents/054_intel_analyst_py_ac6b2c7f_md.md",
+    "source": "prompts/curated/agents_python/054_intel_analyst_py_ac6b2c7f.md"
+  },
+  {
+    "id": "055_intel_analyst_py_277b8adb_md",
+    "title": "Prompt from 055_intel_analyst_py_277b8adb_md",
+    "category": "agents",
+    "path": "prompts/library/agents/055_intel_analyst_py_277b8adb_md.md",
+    "source": "prompts/curated/agents_python/055_intel_analyst_py_277b8adb.md"
+  },
+  {
+    "id": "015_cloudbuild_release_yaml_eaf4554e_md",
+    "title": "Prompt from 015_cloudbuild_release_yaml_eaf4554e_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/015_cloudbuild_release_yaml_eaf4554e_md.md",
+    "source": "prompts/curated/cloud_build/015_cloudbuild_release_yaml_eaf4554e.md"
+  },
+  {
+    "id": "020_cloudbuild_release_yaml_ffd1434d_md",
+    "title": "Prompt from 020_cloudbuild_release_yaml_ffd1434d_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/020_cloudbuild_release_yaml_ffd1434d_md.md",
+    "source": "prompts/curated/cloud_build/020_cloudbuild_release_yaml_ffd1434d.md"
+  },
+  {
+    "id": "021_cloudbuild_yaml_07df8647_md",
+    "title": "Prompt from 021_cloudbuild_yaml_07df8647_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/021_cloudbuild_yaml_07df8647_md.md",
+    "source": "prompts/curated/cloud_build/021_cloudbuild_yaml_07df8647.md"
+  },
+  {
+    "id": "039_package-lock_json_d6ea892e_md",
+    "title": "Prompt from 039_package-lock_json_d6ea892e_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/039_package-lock_json_d6ea892e_md.md",
+    "source": "prompts/curated/firebase_functions/039_package-lock_json_d6ea892e.md"
+  },
+  {
+    "id": "040_package-lock_json_98060bc5_md",
+    "title": "Prompt from 040_package-lock_json_98060bc5_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/040_package-lock_json_98060bc5_md.md",
+    "source": "prompts/curated/firebase_functions/040_package-lock_json_98060bc5.md"
+  },
+  {
+    "id": "041_package-lock_json_1bf2fe73_md",
+    "title": "Prompt from 041_package-lock_json_1bf2fe73_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/041_package-lock_json_1bf2fe73_md.md",
+    "source": "prompts/curated/firebase_functions/041_package-lock_json_1bf2fe73.md"
+  },
+  {
+    "id": "042_package-lock_json_f4b08155_md",
+    "title": "Prompt from 042_package-lock_json_f4b08155_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/042_package-lock_json_f4b08155_md.md",
+    "source": "prompts/curated/firebase_functions/042_package-lock_json_f4b08155.md"
+  },
+  {
+    "id": "043_package-lock_json_b167b0bb_md",
+    "title": "Prompt from 043_package-lock_json_b167b0bb_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/043_package-lock_json_b167b0bb_md.md",
+    "source": "prompts/curated/firebase_functions/043_package-lock_json_b167b0bb.md"
+  },
+  {
+    "id": "044_package-lock_json_67003f12_md",
+    "title": "Prompt from 044_package-lock_json_67003f12_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/044_package-lock_json_67003f12_md.md",
+    "source": "prompts/curated/firebase_functions/044_package-lock_json_67003f12.md"
+  },
+  {
+    "id": "045_package-lock_json_7d8f2672_md",
+    "title": "Prompt from 045_package-lock_json_7d8f2672_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/045_package-lock_json_7d8f2672_md.md",
+    "source": "prompts/curated/firebase_functions/045_package-lock_json_7d8f2672.md"
+  },
+  {
+    "id": "046_package-lock_json_a2046809_md",
+    "title": "Prompt from 046_package-lock_json_a2046809_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/046_package-lock_json_a2046809_md.md",
+    "source": "prompts/curated/firebase_functions/046_package-lock_json_a2046809.md"
+  },
+  {
+    "id": "047_package-lock_json_54a74dde_md",
+    "title": "Prompt from 047_package-lock_json_54a74dde_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/047_package-lock_json_54a74dde_md.md",
+    "source": "prompts/curated/firebase_functions/047_package-lock_json_54a74dde.md"
+  },
+  {
+    "id": "048_package-lock_json_c641c80d_md",
+    "title": "Prompt from 048_package-lock_json_c641c80d_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/048_package-lock_json_c641c80d_md.md",
+    "source": "prompts/curated/firebase_functions/048_package-lock_json_c641c80d.md"
+  },
+  {
+    "id": "049_package-lock_json_81f21eaa_md",
+    "title": "Prompt from 049_package-lock_json_81f21eaa_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/049_package-lock_json_81f21eaa_md.md",
+    "source": "prompts/curated/firebase_functions/049_package-lock_json_81f21eaa.md"
+  },
+  {
+    "id": "050_package-lock_json_105ac5ba_md",
+    "title": "Prompt from 050_package-lock_json_105ac5ba_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/050_package-lock_json_105ac5ba_md.md",
+    "source": "prompts/curated/firebase_functions/050_package-lock_json_105ac5ba.md"
+  },
+  {
+    "id": "051_package-lock_json_74884942_md",
+    "title": "Prompt from 051_package-lock_json_74884942_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/051_package-lock_json_74884942_md.md",
+    "source": "prompts/curated/firebase_functions/051_package-lock_json_74884942.md"
+  },
+  {
+    "id": "001_prompt_discovery_sh_451f7983_md",
+    "title": "Prompt from 001_prompt_discovery_sh_451f7983_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/001_prompt_discovery_sh_451f7983_md.md",
+    "source": "prompts/curated/misc/001_prompt_discovery_sh_451f7983.md"
+  },
+  {
+    "id": "002_prompt_discovery_sh_6d3ec7c3_md",
+    "title": "Prompt from 002_prompt_discovery_sh_6d3ec7c3_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/002_prompt_discovery_sh_6d3ec7c3_md.md",
+    "source": "prompts/curated/misc/002_prompt_discovery_sh_6d3ec7c3.md"
+  },
+  {
+    "id": "003_change-control-log-v1_md_502617d4_md",
+    "title": "Prompt from 003_change-control-log-v1_md_502617d4_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/003_change-control-log-v1_md_502617d4_md.md",
+    "source": "prompts/curated/misc/003_change-control-log-v1_md_502617d4.md"
+  },
+  {
+    "id": "004_prompt_discovery_sh_3f7aeb7d_md",
+    "title": "Prompt from 004_prompt_discovery_sh_3f7aeb7d_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/004_prompt_discovery_sh_3f7aeb7d_md.md",
+    "source": "prompts/curated/misc/004_prompt_discovery_sh_3f7aeb7d.md"
+  },
+  {
+    "id": "005_test_connectivity_py_e6b48678_md",
+    "title": "Prompt from 005_test_connectivity_py_e6b48678_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/005_test_connectivity_py_e6b48678_md.md",
+    "source": "prompts/curated/misc/005_test_connectivity_py_e6b48678.md"
+  },
+  {
+    "id": "006_intel_analyst_py_b0d832ed_md",
+    "title": "Prompt from 006_intel_analyst_py_b0d832ed_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/006_intel_analyst_py_b0d832ed_md.md",
+    "source": "prompts/curated/misc/006_intel_analyst_py_b0d832ed.md"
+  },
+  {
+    "id": "009_linkedin-profile_md_7ffb9e82_md",
+    "title": "Prompt from 009_linkedin-profile_md_7ffb9e82_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/009_linkedin-profile_md_7ffb9e82_md.md",
+    "source": "prompts/curated/misc/009_linkedin-profile_md_7ffb9e82.md"
+  },
+  {
+    "id": "011_prompt_discovery_sh_cb78592c_md",
+    "title": "Prompt from 011_prompt_discovery_sh_cb78592c_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/011_prompt_discovery_sh_cb78592c_md.md",
+    "source": "prompts/curated/misc/011_prompt_discovery_sh_cb78592c.md"
+  },
+  {
+    "id": "012_prompt_discovery_sh_dce01f1c_md",
+    "title": "Prompt from 012_prompt_discovery_sh_dce01f1c_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/012_prompt_discovery_sh_dce01f1c_md.md",
+    "source": "prompts/curated/misc/012_prompt_discovery_sh_dce01f1c.md"
+  },
+  {
+    "id": "013_atlassian_knowledge_py_448a9e5d_md",
+    "title": "Prompt from 013_atlassian_knowledge_py_448a9e5d_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/013_atlassian_knowledge_py_448a9e5d_md.md",
+    "source": "prompts/curated/misc/013_atlassian_knowledge_py_448a9e5d.md"
+  },
+  {
+    "id": "014_tsconfig_tsbuildinfo_4ed616ac_md",
+    "title": "Prompt from 014_tsconfig_tsbuildinfo_4ed616ac_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/014_tsconfig_tsbuildinfo_4ed616ac_md.md",
+    "source": "prompts/curated/misc/014_tsconfig_tsbuildinfo_4ed616ac.md"
+  },
+  {
+    "id": "023__dockerignore_a57e3f7f_md",
+    "title": "Prompt from 023__dockerignore_a57e3f7f_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/023__dockerignore_a57e3f7f_md.md",
+    "source": "prompts/curated/misc/023__dockerignore_a57e3f7f.md"
+  },
+  {
+    "id": "024_package-lock_json_6de80c0d_md",
+    "title": "Prompt from 024_package-lock_json_6de80c0d_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/024_package-lock_json_6de80c0d_md.md",
+    "source": "prompts/curated/misc/024_package-lock_json_6de80c0d.md"
+  },
+  {
+    "id": "025_package-lock_json_e8a1bf0f_md",
+    "title": "Prompt from 025_package-lock_json_e8a1bf0f_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/025_package-lock_json_e8a1bf0f_md.md",
+    "source": "prompts/curated/misc/025_package-lock_json_e8a1bf0f.md"
+  },
+  {
+    "id": "026_package-lock_json_7ba197ac_md",
+    "title": "Prompt from 026_package-lock_json_7ba197ac_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/026_package-lock_json_7ba197ac_md.md",
+    "source": "prompts/curated/misc/026_package-lock_json_7ba197ac.md"
+  },
+  {
+    "id": "027_package-lock_json_8c7a7af3_md",
+    "title": "Prompt from 027_package-lock_json_8c7a7af3_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/027_package-lock_json_8c7a7af3_md.md",
+    "source": "prompts/curated/misc/027_package-lock_json_8c7a7af3.md"
+  },
+  {
+    "id": "028_package-lock_json_61ce9745_md",
+    "title": "Prompt from 028_package-lock_json_61ce9745_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/028_package-lock_json_61ce9745_md.md",
+    "source": "prompts/curated/misc/028_package-lock_json_61ce9745.md"
+  },
+  {
+    "id": "029_package-lock_json_77ce2d3d_md",
+    "title": "Prompt from 029_package-lock_json_77ce2d3d_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/029_package-lock_json_77ce2d3d_md.md",
+    "source": "prompts/curated/misc/029_package-lock_json_77ce2d3d.md"
+  },
+  {
+    "id": "030_package-lock_json_cf65bbe5_md",
+    "title": "Prompt from 030_package-lock_json_cf65bbe5_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/030_package-lock_json_cf65bbe5_md.md",
+    "source": "prompts/curated/misc/030_package-lock_json_cf65bbe5.md"
+  },
+  {
+    "id": "031_package-lock_json_3c63ab82_md",
+    "title": "Prompt from 031_package-lock_json_3c63ab82_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/031_package-lock_json_3c63ab82_md.md",
+    "source": "prompts/curated/misc/031_package-lock_json_3c63ab82.md"
+  },
+  {
+    "id": "032_package-lock_json_cdd37956_md",
+    "title": "Prompt from 032_package-lock_json_cdd37956_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/032_package-lock_json_cdd37956_md.md",
+    "source": "prompts/curated/misc/032_package-lock_json_cdd37956.md"
+  },
+  {
+    "id": "033_package-lock_json_771e97eb_md",
+    "title": "Prompt from 033_package-lock_json_771e97eb_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/033_package-lock_json_771e97eb_md.md",
+    "source": "prompts/curated/misc/033_package-lock_json_771e97eb.md"
+  },
+  {
+    "id": "034_package-lock_json_9b93d0dd_md",
+    "title": "Prompt from 034_package-lock_json_9b93d0dd_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/034_package-lock_json_9b93d0dd_md.md",
+    "source": "prompts/curated/misc/034_package-lock_json_9b93d0dd.md"
+  },
+  {
+    "id": "035_package-lock_json_32520c48_md",
+    "title": "Prompt from 035_package-lock_json_32520c48_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/035_package-lock_json_32520c48_md.md",
+    "source": "prompts/curated/misc/035_package-lock_json_32520c48.md"
+  },
+  {
+    "id": "036_package-lock_json_b04d6566_md",
+    "title": "Prompt from 036_package-lock_json_b04d6566_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/036_package-lock_json_b04d6566_md.md",
+    "source": "prompts/curated/misc/036_package-lock_json_b04d6566.md"
+  },
+  {
+    "id": "037_package-lock_json_f5e3a7aa_md",
+    "title": "Prompt from 037_package-lock_json_f5e3a7aa_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/037_package-lock_json_f5e3a7aa_md.md",
+    "source": "prompts/curated/misc/037_package-lock_json_f5e3a7aa.md"
+  },
+  {
+    "id": "038_package-lock_json_9d1cab07_md",
+    "title": "Prompt from 038_package-lock_json_9d1cab07_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/038_package-lock_json_9d1cab07_md.md",
+    "source": "prompts/curated/misc/038_package-lock_json_9d1cab07.md"
+  },
+  {
+    "id": "052_intel_analyst_py_72b8c03a_md",
+    "title": "Prompt from 052_intel_analyst_py_72b8c03a_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/052_intel_analyst_py_72b8c03a_md.md",
+    "source": "prompts/curated/misc/052_intel_analyst_py_72b8c03a.md"
+  },
+  {
+    "id": "053_intel_analyst_py_38856522_md",
+    "title": "Prompt from 053_intel_analyst_py_38856522_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/053_intel_analyst_py_38856522_md.md",
+    "source": "prompts/curated/misc/053_intel_analyst_py_38856522.md"
+  },
+  {
+    "id": "056_refactoring_summary_md_468c2a04_md",
+    "title": "Prompt from 056_refactoring_summary_md_468c2a04_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/056_refactoring_summary_md_468c2a04_md.md",
+    "source": "prompts/curated/misc/056_refactoring_summary_md_468c2a04.md"
+  },
+  {
+    "id": "058_migration_md_f66c786e_md",
+    "title": "Prompt from 058_migration_md_f66c786e_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/058_migration_md_f66c786e_md.md",
+    "source": "prompts/curated/misc/058_migration_md_f66c786e.md"
+  },
+  {
+    "id": "060_04_lsl-field-kit_md_313c7426_md",
+    "title": "Prompt from 060_04_lsl-field-kit_md_313c7426_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/060_04_lsl-field-kit_md_313c7426_md.md",
+    "source": "prompts/curated/misc/060_04_lsl-field-kit_md_313c7426.md"
+  },
+  {
+    "id": "061_termsofservicecontent_tsx_86051a96_md",
+    "title": "Prompt from 061_termsofservicecontent_tsx_86051a96_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/061_termsofservicecontent_tsx_86051a96_md.md",
+    "source": "prompts/curated/misc/061_termsofservicecontent_tsx_86051a96.md"
+  },
+  {
+    "id": "062_privacypolicycontent_tsx_420bfafb_md",
+    "title": "Prompt from 062_privacypolicycontent_tsx_420bfafb_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/062_privacypolicycontent_tsx_420bfafb_md.md",
+    "source": "prompts/curated/misc/062_privacypolicycontent_tsx_420bfafb.md"
+  },
+  {
+    "id": "063_prompt_discovery_sh_9a468756_md",
+    "title": "Prompt from 063_prompt_discovery_sh_9a468756_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/063_prompt_discovery_sh_9a468756_md.md",
+    "source": "prompts/curated/misc/063_prompt_discovery_sh_9a468756.md"
+  },
+  {
+    "id": "064_prompt_discovery_sh_2e0e9b5f_md",
+    "title": "Prompt from 064_prompt_discovery_sh_2e0e9b5f_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/064_prompt_discovery_sh_2e0e9b5f_md.md",
+    "source": "prompts/curated/misc/064_prompt_discovery_sh_2e0e9b5f.md"
+  },
+  {
+    "id": "BEGIN_PROMPT_txt",
+    "title": "Prompt from BEGIN_PROMPT_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/BEGIN_PROMPT_txt.md",
+    "source": "prompts/discovery/discovered_context/BEGIN_PROMPT.txt"
+  },
+  {
+    "id": "CONSTRAINTS_txt",
+    "title": "Prompt from CONSTRAINTS_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/CONSTRAINTS_txt.md",
+    "source": "prompts/discovery/discovered_context/CONSTRAINTS.txt"
+  },
+  {
+    "id": "END_PROMPT_txt",
+    "title": "Prompt from END_PROMPT_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/END_PROMPT_txt.md",
+    "source": "prompts/discovery/discovered_context/END_PROMPT.txt"
+  },
+  {
+    "id": "OBJECTIVE_txt",
+    "title": "Prompt from OBJECTIVE_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/OBJECTIVE_txt.md",
+    "source": "prompts/discovery/discovered_context/OBJECTIVE.txt"
+  },
+  {
+    "id": "PROMPT_txt",
+    "title": "Prompt from PROMPT_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/PROMPT_txt.md",
+    "source": "prompts/discovery/discovered_context/PROMPT.txt"
+  },
+  {
+    "id": "ROLE_txt",
+    "title": "Prompt from ROLE_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/ROLE_txt.md",
+    "source": "prompts/discovery/discovered_context/ROLE.txt"
+  },
+  {
+    "id": "SYSTEM_txt",
+    "title": "Prompt from SYSTEM_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/SYSTEM_txt.md",
+    "source": "prompts/discovery/discovered_context/SYSTEM.txt"
+  },
+  {
+    "id": "You_are_a_txt",
+    "title": "Prompt from You_are_a_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/You_are_a_txt.md",
+    "source": "prompts/discovery/discovered_context/You_are_a.txt"
+  },
+  {
+    "id": "You_are_an_txt",
+    "title": "Prompt from You_are_an_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/You_are_an_txt.md",
+    "source": "prompts/discovery/discovered_context/You_are_an.txt"
+  },
+  {
+    "id": "agent_txt",
+    "title": "Prompt from agent_txt",
+    "category": "agents",
+    "path": "prompts/library/agents/agent_txt.md",
+    "source": "prompts/discovery/discovered_context/agent.txt"
+  },
+  {
+    "id": "instructions_txt",
+    "title": "Prompt from instructions_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/instructions_txt.md",
+    "source": "prompts/discovery/discovered_context/instructions.txt"
+  },
+  {
+    "id": "persona_txt",
+    "title": "Prompt from persona_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/persona_txt.md",
+    "source": "prompts/discovery/discovered_context/persona.txt"
+  },
+  {
+    "id": "prompt:_txt",
+    "title": "Prompt from prompt:_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/prompt:_txt.md",
+    "source": "prompts/discovery/discovered_context/prompt:.txt"
+  },
+  {
+    "id": "system_prompt_txt",
+    "title": "Prompt from system_prompt_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/system_prompt_txt.md",
+    "source": "prompts/discovery/discovered_context/system_prompt.txt"
+  },
+  {
+    "id": "CONSTRAINTS_txt",
+    "title": "Prompt from CONSTRAINTS_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/CONSTRAINTS_txt.md",
+    "source": "prompts/discovery/discovered_prompts_raw/CONSTRAINTS.txt"
+  },
+  {
+    "id": "OBJECTIVE_txt",
+    "title": "Prompt from OBJECTIVE_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/OBJECTIVE_txt.md",
+    "source": "prompts/discovery/discovered_prompts_raw/OBJECTIVE.txt"
+  },
+  {
+    "id": "ROLE_txt",
+    "title": "Prompt from ROLE_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/ROLE_txt.md",
+    "source": "prompts/discovery/discovered_prompts_raw/ROLE.txt"
+  },
+  {
+    "id": "You_are_a_txt",
+    "title": "Prompt from You_are_a_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/You_are_a_txt.md",
+    "source": "prompts/discovery/discovered_prompts_raw/You_are_a.txt"
+  },
+  {
+    "id": "You_are_an_txt",
+    "title": "Prompt from You_are_an_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/You_are_an_txt.md",
+    "source": "prompts/discovery/discovered_prompts_raw/You_are_an.txt"
+  },
+  {
+    "id": "index_txt",
+    "title": "Prompt from index_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/index_txt.md",
+    "source": "prompts/discovery/discovered_prompts_raw/index.txt"
+  },
+  {
+    "id": "prompt:_txt",
+    "title": "Prompt from prompt:_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/prompt:_txt.md",
+    "source": "prompts/discovery/discovered_prompts_raw/prompt:.txt"
+  },
+  {
+    "id": "system_prompt_txt",
+    "title": "Prompt from system_prompt_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/system_prompt_txt.md",
+    "source": "prompts/discovery/discovered_prompts_raw/system_prompt.txt"
+  },
+  {
+    "id": "You_are_a_txt",
+    "title": "Prompt from You_are_a_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/You_are_a_txt.md",
+    "source": "prompts/discovery/discovered_raw/You_are_a.txt"
+  },
+  {
+    "id": "agent_txt",
+    "title": "Prompt from agent_txt",
+    "category": "agents",
+    "path": "prompts/library/agents/agent_txt.md",
+    "source": "prompts/discovery/discovered_raw/agent.txt"
+  },
+  {
+    "id": "instructions_txt",
+    "title": "Prompt from instructions_txt",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/instructions_txt.md",
+    "source": "prompts/discovery/discovered_raw/instructions.txt"
+  },
+  {
+    "id": "runlog_md",
+    "title": "Prompt from runlog_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/runlog_md.md",
+    "source": "prompts/discovery/runlog.md"
+  },
+  {
+    "id": "prompt_catalog_template_md",
+    "title": "Prompt from prompt_catalog_template_md",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/prompt_catalog_template_md.md",
+    "source": "prompts/templates/prompt.catalog.template.md"
+  },
+  {
+    "id": "prompt_validate_py",
+    "title": "Prompt from prompt_validate_py",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/prompt_validate_py.md",
+    "source": "prompts/tools/prompt_validate.py"
+  },
+  {
+    "id": "atlassian_knowledge_py",
+    "title": "Prompt from atlassian_knowledge_py",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/atlassian_knowledge_py.md",
+    "source": "recovered/engine/atlassian_knowledge.py"
+  },
+  {
+    "id": "intel_analyst_py",
+    "title": "Prompt from intel_analyst_py",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/intel_analyst_py.md",
+    "source": "recovered/engine/intel_analyst.py"
+  },
+  {
+    "id": "prompt_extract_py",
+    "title": "Prompt from prompt_extract_py",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/prompt_extract_py.md",
+    "source": "scripts/prompt_extract.py"
+  },
+  {
+    "id": "package-lock_json",
+    "title": "Prompt from package-lock_json",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/package-lock_json.md",
+    "source": "services/functions/package-lock.json"
+  },
+  {
+    "id": "test_connectivity_py",
+    "title": "Prompt from test_connectivity_py",
+    "category": "uncategorized",
+    "path": "prompts/library/uncategorized/test_connectivity_py.md",
+    "source": "tools/test_connectivity.py"
+  }
+]

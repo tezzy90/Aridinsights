@@ -1,0 +1,51 @@
+./scripts/prompt_discovery.sh-17-  "OBJECTIVE"
+./scripts/prompt_discovery.sh-18-  "CONSTRAINTS"
+./scripts/prompt_discovery.sh-19-  "SYSTEM"
+./scripts/prompt_discovery.sh-20-  "system prompt"
+./scripts/prompt_discovery.sh-21-  "You are a"
+./scripts/prompt_discovery.sh-22-  "You are an"
+./scripts/prompt_discovery.sh-23-  "prompt:"
+./scripts/prompt_discovery.sh-24-  "PROMPT"
+./scripts/prompt_discovery.sh-25-  "instructions"
+./scripts/prompt_discovery.sh-26-  "agent"
+./scripts/prompt_discovery.sh-27-  "persona"
+./scripts/prompt_discovery.sh-28-  "BEGIN PROMPT"
+./scripts/prompt_discovery.sh:29:  "END PROMPT"
+./scripts/prompt_discovery.sh-30-)
+./scripts/prompt_discovery.sh-31-
+./scripts/prompt_discovery.sh-32-# Function to run search
+./scripts/prompt_discovery.sh-33-run_search() {
+./scripts/prompt_discovery.sh-34-  local PATTERN="$1"
+./scripts/prompt_discovery.sh-35-  local SAFE_NAME=$(echo "$PATTERN" | tr ' ' '_')
+./scripts/prompt_discovery.sh-36-  
+./scripts/prompt_discovery.sh-37-  echo "Scanning for '$PATTERN'..."
+./scripts/prompt_discovery.sh-38-  
+./scripts/prompt_discovery.sh-39-  # Basic match list (filenames only)
+./scripts/prompt_discovery.sh-40-  if command -v rg &> /dev/null; then
+./scripts/prompt_discovery.sh-41-    rg -l "$PATTERN" . \
+--
+./apps/docs-portal/public/search-index.json-410-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-411-    "tags": [],
+./apps/docs-portal/public/search-index.json-412-    "excerpt": "Prompt Categories | Category | Description | File Path Signals | |----------|-------------|-------------------| | buildandci | CI/CD pipelines, git hooks, repo tooling | cloudbuild.yaml, .github/, scr...",
+./apps/docs-portal/public/search-index.json-413-    "body": "# Prompt Categories\n\n| Category | Description | File Path Signals |\n|----------|-------------|-------------------|\n| `build_and_ci` | CI/CD pipelines, git hooks, repo tooling | `cloudbuild.yaml`, `.github/`, `scripts/` |\n| `cloud_run` | Runtime config, deployment commands, Dockerfiles | `Dockerfile`, `deploy`, `service.yaml` |\n| `cloud_build` | Build steps, triggers, substitutions | `cloudbuild*.yaml` |\n| `firebase_functions` | Backend logic, triggers, Firestore interactions | `functions/`, `services/functions/` |\n| `agents_python` | AI agent personas, instructions, system prompts | `agents/`, `*.py` with `PROMPT` |\n| `architecture` | High-level design, ADRs, system diagrams | `docs/architecture/` |\n| `governance` | Policies, standards, compliance rules | `docs/governance/`, `CONTRIBUTING.md` |\n| `marketing_content` | Copy, social posts, blog drafts | `docs/content/`, `marketing/` |\n| `recruiting_dei` | Job descriptions, interview guides | `docs/hiring/` |\n| `misc` | Anything else requiring review | *fallback* |\n\n## Migration Rules\n1. All discovered prompts must have a curated entry in `prompts/curated/<category>/`.\n2. Filenames must follow: `<counter>_<slug>_<hash>.md`.\n3. Categories are enforced by automation where possible.\n",
+./apps/docs-portal/public/search-index.json-414-    "sourcePath": "prompts/catalog/categories.md"
+./apps/docs-portal/public/search-index.json-415-  },
+./apps/docs-portal/public/search-index.json-416-  {
+./apps/docs-portal/public/search-index.json-417-    "id": "prompts/discovery/runlog.md",
+./apps/docs-portal/public/search-index.json-418-    "title": "runlog",
+./apps/docs-portal/public/search-index.json-419-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-420-    "tags": [],
+./apps/docs-portal/public/search-index.json-421-    "excerpt": "Discovery Run: Thu Jan 29 19:19:43 EST 2026 - ROLE:        2 files matched - OBJECTIVE:        1 files matched - CONSTRAINTS:        1 files matched - SYSTEM:        3 files matched - system prompt:  ...",
+./apps/docs-portal/public/search-index.json:422:    "body": "### Discovery Run: Thu Jan 29 19:19:43 EST 2026\n- **ROLE**:        2 files matched\n- **OBJECTIVE**:        1 files matched\n- **CONSTRAINTS**:        1 files matched\n- **SYSTEM**:        3 files matched\n- **system prompt**:        1 files matched\n- **You are a**:        4 files matched\n- **You are an**:        1 files matched\n- **prompt:**:        1 files matched\n- **PROMPT**:        1 files matched\n- **instructions**:        7 files matched\n- **agent**:       11 files matched\n- **persona**:        5 files matched\n- **BEGIN PROMPT**:        0 files matched\n- **END PROMPT**:        0 files matched\n",
+./apps/docs-portal/public/search-index.json-423-    "sourcePath": "prompts/discovery/runlog.md"
+./apps/docs-portal/public/search-index.json-424-  },
+./apps/docs-portal/public/search-index.json-425-  {
+./apps/docs-portal/public/search-index.json-426-    "id": "prompts/curated/cloud_build/021_cloudbuild_yaml_07df8647.md",
+./apps/docs-portal/public/search-index.json-427-    "title": "Auto-extracted Prompt 21",
+./apps/docs-portal/public/search-index.json-428-    "category": "prompts",
+./apps/docs-portal/public/search-index.json-429-    "tags": [],
+./apps/docs-portal/public/search-index.json-430-    "excerpt": "Auto-extracted Prompt 21  Metadata - ID: 021cloudbuildyaml07df8647.md - Category: cloudbuild - Source: ./agents/compliance-engine/cloudbuild.yaml:1 - Created: 2026-01-29T19:19:47.951481  Prompt Snippe...",
+./apps/docs-portal/public/search-index.json-431-    "body": "# Auto-extracted Prompt 21\n\n## Metadata\n- **ID**: 021_cloudbuild_yaml_07df8647.md\n- **Category**: cloud_build\n- **Source**: ./agents/compliance-engine/cloudbuild.yaml:1\n- **Created**: 2026-01-29T19:19:47.951481\n\n## Prompt Snippet\n```text\n1-steps:\n2-  # Build the container image\n3-  - name: \"gcr.io/cloud-builders/docker\"\n4-    args:\n5-      - \"build\"\n6-      - \"-t\"\n7:      - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:$TAG_NAME\"\n8-      - \"-t\"\n9:      - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:latest\"\n10-      - \".\"\n11:    dir: \"agents/compliance-engine\"\n12-\n13-  # Push the container image to Artifact Registry\n14-  - name: \"gcr.io/cloud-builders/docker\"\n15-    args:\n16-      - \"push\"\n17-      - \"--all-tags\"\n18:      - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine\"\n19-\n20-  # Deploy container image to Cloud Run\n21-  - name: \"gcr.io/google.com/cloudsdktool/cloud-sdk\"\n22-    entrypoint: gcloud\n23-    args:\n24-      - \"run\"\n25-      - \"deploy\"\n26-      - \"arid-compliance-engine\"\n27-      - \"--image\"\n28:      - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:$TAG_NAME\"\n29-      - \"--region\"\n30-      - \"us-central1\"\n31-      - \"--platform\"\n32-      - \"managed\"\n33-      - \"--allow-unauthenticated\"\n34-      - \"--set-env-vars\"\n35-      - \"GCP_PROJECT_ID=$PROJECT_ID,GCP_REGION=us-central1\"\n36-      # Add other env vars or secrets here as needed, based on verified service config\n37-\n38-images:\n39:  - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:$TAG_NAME\"\n40:  - \"us-central1-docker.pkg.dev/$PROJECT_ID/agents/compliance-engine:latest\"\n41-\n42-options:\n43-  logging: CLOUD_LOGGING_ONLY\n\n```\n",
+./apps/docs-portal/public/search-index.json-432-    "sourcePath": "prompts/curated/cloud_build/021_cloudbuild_yaml_07df8647.md"
+./apps/docs-portal/public/search-index.json-433-  },
+./apps/docs-portal/public/search-index.json-434-  {

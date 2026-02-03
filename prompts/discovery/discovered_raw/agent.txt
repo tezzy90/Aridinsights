@@ -6,6 +6,9 @@
 ./docs/.archive/Agentic build Process Research.md
 ./.dockerignore
 ./package-lock.json
+./scripts/prompt_extract.py
+./scripts/prompt_discovery.sh
+./apps/docs-portal/public/search-index.json
 ./apps/web-main/package-lock.json
 ./services/functions/package-lock.json
 ./cloud_sql_proxy

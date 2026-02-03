@@ -84,7 +84,9 @@ async function buildIndex() {
                 const parsed = matter(content);
                 data = parsed.data;
                 contentBody = parsed.content;
-            } catch (e) { }
+            } catch (e) {
+                console.warn(`⚠️ Failed to parse frontmatter for ${relPath}:`, e.message);
+            }
 
             const category = getCategory(relPath);
             const subtype = getSubtype(relPath, category);

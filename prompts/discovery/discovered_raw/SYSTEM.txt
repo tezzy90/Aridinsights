@@ -1,3 +1,6 @@
 ./tools/test_connectivity.py
 ./docs/.archive/Business Plan Architechture research.md
+./scripts/prompt_extract.py
+./scripts/prompt_discovery.sh
+./apps/docs-portal/public/search-index.json
 ./cloud_sql_proxy

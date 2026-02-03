@@ -4,4 +4,6 @@
 ./docs/project_history/MIGRATION.md
 ./docs/.archive/Agentic build Process Research.md
 ./docs/.archive/Deep Research.md
+./scripts/prompt_discovery.sh
+./apps/docs-portal/public/search-index.json
 ./cloud_sql_proxy
