@@ -1,5 +1,0 @@
-./tsconfig.tsbuildinfo
-./docs/aridinsights/products/04_lsl-field-kit.md
-./apps/web-main/components/TermsOfServiceContent.tsx
-./apps/web-main/components/PrivacyPolicyContent.tsx
-./cloud_sql_proxy

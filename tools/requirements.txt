@@ -1,7 +1,0 @@
-mcp[cli]
-google-cloud-bigquery
-google-cloud-logging
-earthengine-api
-pandas
-db-dtypes
-google-cloud-secret-manager

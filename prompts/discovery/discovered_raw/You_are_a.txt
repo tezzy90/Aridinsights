@@ -1,4 +1,0 @@
-./recovered/engine/intel_analyst.py
-./agents/compliance-engine/intel_analyst.py
-./docs/aridinsights/content/social/linkedin-profile.md
-./scripts/prompt_discovery.sh

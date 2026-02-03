@@ -39,3 +39,4 @@ __pycache__/
 # Recovery artifacts
 recovered/
 prompts/discovery/
+_trash/

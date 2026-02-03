@@ -1,1 +1,0 @@
-./docs/aridinsights/05_change-control/change-control-log-v1.md

@@ -1,5 +1,0 @@
-./scripts/prompt_discovery.sh:20:  "prompt:"
-./prompts/discovery/discovered_prompts_curated/._scripts_prompt_discovery.sh.md:1:## Candidate: ./scripts/prompt_discovery.sh:20 (prompt:)
-./prompts/discovery/discovered_prompts_curated/._prompts_discovery_discovered_prompts_raw_index.txt.md:1:## Candidate: ./prompts/discovery/discovered_prompts_raw/index.txt:5 (prompt:)
-./prompts/discovery/discovered_prompts_raw/system_prompt.txt:2:./prompts/discovery/discovered_prompts_raw/prompt:.txt:2:./prompts/discovery/discovered_prompts_raw/index.txt:5:system prompt:        2 matches
-./prompts/discovery/discovered_prompts_raw/index.txt:5:system prompt:        3 matches

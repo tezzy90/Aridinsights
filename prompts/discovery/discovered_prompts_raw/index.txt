@@ -1,8 +1,0 @@
-Discovery Run: Thu Jan 29 19:09:57 EST 2026
-ROLE:        3 matches
-OBJECTIVE:        1 matches
-CONSTRAINTS:        1 matches
-system prompt:        3 matches
-You are a:       10 matches
-You are an:        6 matches
-prompt::        5 matches

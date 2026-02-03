@@ -1,5 +1,0 @@
-flask==3.0.0
-gunicorn==21.2.0
-google-cloud-discoveryengine==0.11.0
-google-cloud-logging==3.9.0
-protobuf==4.25.1
